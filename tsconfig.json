@@ -25,7 +25,9 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
   },
   "include": [
@@ -34,14 +36,16 @@
   ],
   "exclude": [
     "dist",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "src/lib/ongoing/*.ts"
   ],
   "typedocOptions": {
     "out": "docs",
     "entryPoints": "src/index.ts",
     "exclude": [
       "test/**/*.ts",
-      "node_modules"
+      "node_modules",
+      "src/lib/ongoing/ongoing-wms.ts"
     ]
   }
 }

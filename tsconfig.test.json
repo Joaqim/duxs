@@ -15,15 +15,12 @@
       "mocha",
       "chai"
     ],
-    "paths": {
-      "@*": ["src/*"]
-    },
   },
   "include": [
     "./**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist",
-  ]
+    "dist"
+  ],
 }
