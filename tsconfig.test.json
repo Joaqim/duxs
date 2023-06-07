@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "composite": true,
+    "outDir": "out/test",
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": false,
+    "declaration": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "types": [
+      "mocha",
+      "chai"
+    ],
+    "paths": {
+      "@*": ["src/*"]
+    },
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}

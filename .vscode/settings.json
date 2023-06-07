@@ -1,0 +1,21 @@
+{
+    "licenser.customHeaderFile": "${workspaceFolder}/LICENSE.txt",
+    "licenser.license": "Custom",
+    "licenser.useSingleLineStyle": false,
+    "licenser.disableAutoHeaderInsertion": true,
+
+    "typescript.format.enable": false,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "editor.codeActionsOnSave": ["source.organizeImports", "source.fixAll.eslint"],
+    "eslint.workingDirectories": [{
+        "mode": "auto"
+    }],
+    "eslint.validate": ["typescript"],
+    "explorer.confirmDragAndDrop": false, 
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "prettier.eslintIntegration": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    },
+}

@@ -1,0 +1,55 @@
+{
+  "name": "tslib-esbuild",
+  "version": "1.0.1",
+  "description": "",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "ts-types:esm": " tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm",
+    "ts-types:cjs": " tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "rimraf dist/esm && node ./esbuild.esm.js && npm run ts-types:esm",
+    "build:cjs": "rimraf dist/cjs && node ./esbuild.cjs.js && npm run ts-types:cjs",
+    "test": "ts-mocha -p tsconfig.test.json test/**/*.spec.ts",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "eslint --ext .ts --fix src",
+    "docs": "typedoc ./src --out ./docs --tsconfig tsconfig.json && touch ./docs/.nojekyll",
+    "precommit": "npm build",
+    "prepush": "npm test",
+    "prepare": "husky install"
+  },
+  "author": "Joaqim Planstedt",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^17.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "chai": "^4.3.6",
+    "esbuild": "^0.14.31",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "html-minifier-terser": "^7.0.0-alpha.2",
+    "husky": "^7.0.4",
+    "mocha": "^9.2.2",
+    "node": "16",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "ts-mocha": "^9.0.2",
+    "typedoc": "^0.24.8",
+    "typescript": "^4.6.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
