@@ -1,0 +1,1305 @@
+{
+    "purchaseOrderInfo": {
+        "purchaseOrderId": 574,
+        "purchaseOrderNumber": "<SUPPLIERSKU>001",
+        "purchaseOrderStatus": {
+            "number": 300,
+            "text": "Inleverans"
+        },
+        "createdDate": "2023-05-22T14:03:55.7Z",
+        "advanced": {
+            "orderDate": "2023-05-21T22:00:00Z",
+            "purchaseOrderIsReturnType": false
+        },
+        "freeValues": {
+            "freeText1": "0",
+            "freeText2": "0",
+            "freeBool1": false,
+            "freeBool2": false
+        }
+    },
+    "purchaseOrderLines": [
+        {
+            "id": 6027,
+            "article": {
+                "articleSystemId": 11535,
+                "articleNumber": "<SUPPLIERSKU>001",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76560"
+            },
+            "rowPrice": 525.000,
+            "advisedNumberOfItems": 30.000,
+            "receivedNumberOfItems": 30.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360667,
+                    "numberOfItems": 26.000,
+                    "inDate": "2023-05-24T13:10:53.45Z",
+                    "weight": 6.7080000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                },
+                {
+                    "originalArticleItemId": 368080,
+                    "numberOfItems": 4.000,
+                    "inDate": "2023-06-01T12:10:30.68Z",
+                    "weight": 1.0320000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6031,
+            "article": {
+                "articleSystemId": 11537,
+                "articleNumber": "<SUPPLIERSKU>005",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76566"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368077,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:02:16.057Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6030,
+            "article": {
+                "articleSystemId": 11538,
+                "articleNumber": "<SUPPLIERSKU>004",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76564"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368075,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T11:59:05.73Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6029,
+            "article": {
+                "articleSystemId": 11539,
+                "articleNumber": "<SUPPLIERSKU>003",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76563"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368078,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:04:37.933Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6028,
+            "article": {
+                "articleSystemId": 11540,
+                "articleNumber": "<SUPPLIERSKU>002",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76562"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368079,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:06:42.363Z",
+                    "weight": 3.8700000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6035,
+            "article": {
+                "articleSystemId": 11542,
+                "articleNumber": "<SUPPLIERSKU>009",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76571"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360665,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T13:07:04.21Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6034,
+            "article": {
+                "articleSystemId": 11543,
+                "articleNumber": "<SUPPLIERSKU>008",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76570"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360654,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:26:45.147Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6033,
+            "article": {
+                "articleSystemId": 11544,
+                "articleNumber": "<SUPPLIERSKU>007",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76569"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360666,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T13:08:36.553Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6032,
+            "article": {
+                "articleSystemId": 11545,
+                "articleNumber": "<SUPPLIERSKU>006",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76567"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368083,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:18:42.98Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6039,
+            "article": {
+                "articleSystemId": 11546,
+                "articleNumber": "<SUPPLIERSKU>013",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76575"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 16.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368084,
+                    "numberOfItems": 16.000,
+                    "inDate": "2023-06-01T12:22:31.843Z",
+                    "weight": 5.2800000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6038,
+            "article": {
+                "articleSystemId": 11547,
+                "articleNumber": "<SUPPLIERSKU>012",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76574"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368076,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:00:41.167Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6037,
+            "article": {
+                "articleSystemId": 11548,
+                "articleNumber": "<SUPPLIERSKU>011",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76573"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360668,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T13:12:50.053Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6036,
+            "article": {
+                "articleSystemId": 11549,
+                "articleNumber": "<SUPPLIERSKU>010",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76572"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360658,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:53:03.71Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6041,
+            "article": {
+                "articleSystemId": 11551,
+                "articleNumber": "<SUPPLIERSKU>015",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76578"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 13.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360669,
+                    "numberOfItems": 13.000,
+                    "inDate": "2023-05-24T13:13:55.713Z",
+                    "weight": 4.2900000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6040,
+            "article": {
+                "articleSystemId": 11552,
+                "articleNumber": "<SUPPLIERSKU>014",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76577"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 19.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360657,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:45:39.76Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                },
+                {
+                    "originalArticleItemId": 360659,
+                    "numberOfItems": 4.000,
+                    "inDate": "2023-05-24T12:53:50.217Z",
+                    "weight": 1.3200000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6046,
+            "article": {
+                "articleSystemId": 11555,
+                "articleNumber": "<SUPPLIERSKU>020",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76588"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360656,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:37:48.47Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6045,
+            "article": {
+                "articleSystemId": 11556,
+                "articleNumber": "<SUPPLIERSKU>019",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76587"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368082,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:16:41.563Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6044,
+            "article": {
+                "articleSystemId": 11557,
+                "articleNumber": "<SUPPLIERSKU>018",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76586"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368081,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-06-01T12:13:48.66Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6043,
+            "article": {
+                "articleSystemId": 11558,
+                "articleNumber": "<SUPPLIERSKU>017",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76585"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360655,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:30:54.55Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6042,
+            "article": {
+                "articleSystemId": 11559,
+                "articleNumber": "<SUPPLIERSKU>016",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76582"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 15.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 360660,
+                    "numberOfItems": 15.000,
+                    "inDate": "2023-05-24T12:57:58.857Z",
+                    "weight": 4.9500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6054,
+            "article": {
+                "articleSystemId": 11560,
+                "articleNumber": "<SUPPLIERSKU>028",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76596"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368553,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:47:20.103Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6053,
+            "article": {
+                "articleSystemId": 11561,
+                "articleNumber": "<SUPPLIERSKU>027",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76595"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368584,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:11:27.33Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2024-11-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6052,
+            "article": {
+                "articleSystemId": 11562,
+                "articleNumber": "<SUPPLIERSKU>026",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76594"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368583,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:10:09.843Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6051,
+            "article": {
+                "articleSystemId": 11563,
+                "articleNumber": "<SUPPLIERSKU>025",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76593"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368554,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:48:22.653Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6050,
+            "article": {
+                "articleSystemId": 11564,
+                "articleNumber": "<SUPPLIERSKU>024",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76592"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368562,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:05:11.553Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2024-07-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6049,
+            "article": {
+                "articleSystemId": 11565,
+                "articleNumber": "<SUPPLIERSKU>023",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76591"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368116,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-01T13:55:02.027Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6048,
+            "article": {
+                "articleSystemId": 11566,
+                "articleNumber": "<SUPPLIERSKU>022",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76590"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368560,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:03:13.993Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2024-07-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6047,
+            "article": {
+                "articleSystemId": 11567,
+                "articleNumber": "<SUPPLIERSKU>021",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76589"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368582,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:08:43.78Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2024-11-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6058,
+            "article": {
+                "articleSystemId": 11568,
+                "articleNumber": "<SUPPLIERSKU>032",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76600"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368559,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:59:54.513Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6057,
+            "article": {
+                "articleSystemId": 11569,
+                "articleNumber": "<SUPPLIERSKU>031",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76599"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368555,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:50:15.6Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2024-07-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6056,
+            "article": {
+                "articleSystemId": 11570,
+                "articleNumber": "<SUPPLIERSKU>030",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76598"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368561,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:03:55.127Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6055,
+            "article": {
+                "articleSystemId": 11571,
+                "articleNumber": "<SUPPLIERSKU>029",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76597"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368150,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-01T14:11:00.227Z",
+                    "weight": 0.6400000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6059,
+            "article": {
+                "articleSystemId": 11572,
+                "articleNumber": "<SUPPLIERSKU>033",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76601"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368115,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-01T13:50:51.883Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6066,
+            "article": {
+                "articleSystemId": 11573,
+                "articleNumber": "<SUPPLIERSKU>040",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76609"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368557,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:53:30.673Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6065,
+            "article": {
+                "articleSystemId": 11574,
+                "articleNumber": "<SUPPLIERSKU>039",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76608"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368556,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:51:52.177Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6064,
+            "article": {
+                "articleSystemId": 11575,
+                "articleNumber": "<SUPPLIERSKU>038",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76607"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368585,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:12:49.253Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6063,
+            "article": {
+                "articleSystemId": 11576,
+                "articleNumber": "<SUPPLIERSKU>037",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76606"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368552,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:45:54.777Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6062,
+            "article": {
+                "articleSystemId": 11577,
+                "articleNumber": "<SUPPLIERSKU>036",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76605"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368179,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-01T14:13:44.22Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2025-08-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6061,
+            "article": {
+                "articleSystemId": 11578,
+                "articleNumber": "<SUPPLIERSKU>035",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76604"
+            },
+            "rowPrice": 1750.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 0.000,
+            "articleItems": []
+        },
+        {
+            "id": 6060,
+            "article": {
+                "articleSystemId": 11579,
+                "articleNumber": "<SUPPLIERSKU>034",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76602"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 0.000,
+            "articleItems": []
+        },
+        {
+            "id": 6100,
+            "article": {
+                "articleSystemId": 11580,
+                "articleNumber": "<SUPPLIERSKU>043",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76613"
+            },
+            "rowPrice": 50.400,
+            "advisedNumberOfItems": 7.000,
+            "receivedNumberOfItems": 7.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368101,
+                    "numberOfItems": 7.000,
+                    "inDate": "2023-06-01T13:21:30.45Z",
+                    "weight": 0.9800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6101,
+            "article": {
+                "articleSystemId": 11583,
+                "articleNumber": "<SUPPLIERSKU>049",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76619"
+            },
+            "rowPrice": 50.400,
+            "advisedNumberOfItems": 7.000,
+            "receivedNumberOfItems": 7.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368102,
+                    "numberOfItems": 7.000,
+                    "inDate": "2023-06-01T13:22:09.02Z",
+                    "weight": 0.9800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6097,
+            "article": {
+                "articleSystemId": 11584,
+                "articleNumber": "<SUPPLIERSKU>048",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76618"
+            },
+            "rowPrice": 288.000,
+            "advisedNumberOfItems": 40.000,
+            "receivedNumberOfItems": 40.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368098,
+                    "numberOfItems": 40.000,
+                    "inDate": "2023-06-01T13:09:12.03Z",
+                    "weight": 5.6000000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6095,
+            "article": {
+                "articleSystemId": 11585,
+                "articleNumber": "<SUPPLIERSKU>047",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76617"
+            },
+            "rowPrice": 201.600,
+            "advisedNumberOfItems": 28.000,
+            "receivedNumberOfItems": 28.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368097,
+                    "numberOfItems": 28.000,
+                    "inDate": "2023-06-01T13:07:20.82Z",
+                    "weight": 3.9200000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6098,
+            "article": {
+                "articleSystemId": 11586,
+                "articleNumber": "<SUPPLIERSKU>046",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76616"
+            },
+            "rowPrice": 201.600,
+            "advisedNumberOfItems": 28.000,
+            "receivedNumberOfItems": 28.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368094,
+                    "numberOfItems": 28.000,
+                    "inDate": "2023-06-01T13:02:14.767Z",
+                    "weight": 3.9200000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6099,
+            "article": {
+                "articleSystemId": 11587,
+                "articleNumber": "<SUPPLIERSKU>045",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76615"
+            },
+            "rowPrice": 151.200,
+            "advisedNumberOfItems": 21.000,
+            "receivedNumberOfItems": 21.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368099,
+                    "numberOfItems": 21.000,
+                    "inDate": "2023-06-01T13:10:41.983Z",
+                    "weight": 2.9400000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6096,
+            "article": {
+                "articleSystemId": 11588,
+                "articleNumber": "<SUPPLIERSKU>044",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76614"
+            },
+            "rowPrice": 194.400,
+            "advisedNumberOfItems": 27.000,
+            "receivedNumberOfItems": 27.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368100,
+                    "numberOfItems": 27.000,
+                    "inDate": "2023-06-01T13:17:10.917Z",
+                    "weight": 3.7800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6103,
+            "article": {
+                "articleSystemId": 11589,
+                "articleNumber": "<SUPPLIERSKU>053",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76625"
+            },
+            "rowPrice": 86.400,
+            "advisedNumberOfItems": 12.000,
+            "receivedNumberOfItems": 12.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368114,
+                    "numberOfItems": 12.000,
+                    "inDate": "2023-06-01T13:40:11.31Z",
+                    "weight": 1.4400000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6104,
+            "article": {
+                "articleSystemId": 11590,
+                "articleNumber": "<SUPPLIERSKU>052",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76623"
+            },
+            "rowPrice": 129.600,
+            "advisedNumberOfItems": 18.000,
+            "receivedNumberOfItems": 18.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368341,
+                    "numberOfItems": 18.000,
+                    "inDate": "2023-06-01T14:31:03.78Z",
+                    "weight": 2.1600000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6106,
+            "article": {
+                "articleSystemId": 11591,
+                "articleNumber": "<SUPPLIERSKU>051",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76621"
+            },
+            "rowPrice": 100.800,
+            "advisedNumberOfItems": 14.000,
+            "receivedNumberOfItems": 14.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368549,
+                    "numberOfItems": 14.000,
+                    "inDate": "2023-06-02T06:39:07.147Z",
+                    "weight": 1.6800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6105,
+            "article": {
+                "articleSystemId": 11592,
+                "articleNumber": "<SUPPLIERSKU>050",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76620"
+            },
+            "rowPrice": 100.800,
+            "advisedNumberOfItems": 14.000,
+            "receivedNumberOfItems": 14.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368312,
+                    "numberOfItems": 14.000,
+                    "inDate": "2023-06-01T14:30:24.16Z",
+                    "weight": 1.6800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6102,
+            "article": {
+                "articleSystemId": 11594,
+                "articleNumber": "<SUPPLIERSKU>055",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76627"
+            },
+            "rowPrice": 93.600,
+            "advisedNumberOfItems": 13.000,
+            "receivedNumberOfItems": 13.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368113,
+                    "numberOfItems": 13.000,
+                    "inDate": "2023-06-01T13:34:03.537Z",
+                    "weight": 1.5600000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6107,
+            "article": {
+                "articleSystemId": 11595,
+                "articleNumber": "<SUPPLIERSKU>054",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76626"
+            },
+            "rowPrice": 100.800,
+            "advisedNumberOfItems": 14.000,
+            "receivedNumberOfItems": 14.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368550,
+                    "numberOfItems": 14.000,
+                    "inDate": "2023-06-02T06:40:26.723Z",
+                    "weight": 1.6800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6094,
+            "article": {
+                "articleSystemId": 11603,
+                "articleNumber": "<SUPPLIERSKU>059",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76894"
+            },
+            "rowPrice": 262.5,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 5.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368054,
+                    "numberOfItems": 5.000,
+                    "inDate": "2023-06-01T11:53:11.093Z",
+                    "weight": 1.6500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6092,
+            "article": {
+                "articleSystemId": 11604,
+                "articleNumber": "<SUPPLIERSKU>058",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76892"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 5.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368053,
+                    "numberOfItems": 5.000,
+                    "inDate": "2023-06-01T11:51:23.88Z",
+                    "weight": 1.6500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6093,
+            "article": {
+                "articleSystemId": 11605,
+                "articleNumber": "<SUPPLIERSKU>057",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76891"
+            },
+            "rowPrice": 262.500,
+            "advisedNumberOfItems": 15.000,
+            "receivedNumberOfItems": 5.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368052,
+                    "numberOfItems": 5.000,
+                    "inDate": "2023-06-01T11:49:31.023Z",
+                    "weight": 1.6500000,
+                    "expiryDate": "2025-05-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6110,
+            "article": {
+                "articleSystemId": 11606,
+                "articleNumber": "<SUPPLIERSKU>062",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76898"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368558,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T06:58:43.963Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2023-10-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6109,
+            "article": {
+                "articleSystemId": 11607,
+                "articleNumber": "<SUPPLIERSKU>061",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "76896"
+            },
+            "rowPrice": 125.000,
+            "advisedNumberOfItems": 100.000,
+            "receivedNumberOfItems": 100.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368563,
+                    "numberOfItems": 100.000,
+                    "inDate": "2023-06-02T07:06:35.257Z",
+                    "weight": 1.0000000,
+                    "expiryDate": "2024-10-01",
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        },
+        {
+            "id": 6108,
+            "article": {
+                "articleSystemId": 11609,
+                "articleNumber": "<SUPPLIERSKU>063",
+                "articleName": "<ARTICLE SKU>",
+                "productCode": "77583"
+            },
+            "rowPrice": 136.800,
+            "advisedNumberOfItems": 19.000,
+            "receivedNumberOfItems": 19.000,
+            "articleItems": [
+                {
+                    "originalArticleItemId": 368551,
+                    "numberOfItems": 19.000,
+                    "inDate": "2023-06-02T06:41:37.32Z",
+                    "weight": 2.2800000,
+                    "location": "<WAREHOUSE DESIGNATION>"
+                }
+            ]
+        }
+    ]
+}

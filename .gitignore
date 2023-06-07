@@ -3,4 +3,5 @@ docs/
 dist/
 
 yarn-error.log
-/test/**/*.json
+test/**/*.json
+!test/__mocks__/*
