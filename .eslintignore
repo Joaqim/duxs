@@ -1,2 +1,1 @@
-**/*.spec.ts
 src/lib/ongoing/ongoing-wms.ts

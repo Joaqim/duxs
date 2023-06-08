@@ -90,14 +90,17 @@ abstract class PurchaseOrders {
         for (const purchaseOrderLine of purchaseOrderLines) {
           result = result.plus(
             new Decimal(
-              getValue(purchaseOrderLine, `${purchaseOrderStatus}NumberOfs`) ??
-                0
+              getValue(
+                purchaseOrderLine,
+                `${purchaseOrderStatus}NumberOfItems`
+              ) ?? 0
             )
           );
         }
       } else {
         result = new Decimal(
-          getValue(purchaseOrderLines, `${purchaseOrderStatus}NumberOfs`) ?? 0
+          getValue(purchaseOrderLines, `${purchaseOrderStatus}NumberOfItems`) ??
+            0
         );
       }
     }

@@ -1,0 +1,3836 @@
+[
+    {
+        "articleSystemId": 11535,
+        "articleNumber": "<ARTICLE>001",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76560",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015860",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.258,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 30.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 30.0,
+            "lastInDate": "2023-06-01T12:10:30.680000+00:00",
+            "sellableNumberOfItems": 27.0,
+            "totalStockValue": 525.0
+        },
+        "articleDataLastUpdated": "2023-06-05T13:55:25.973000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11537,
+        "articleNumber": "<ARTICLE>005",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76566",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:02:16.057000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-02T07:31:43.247000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11538,
+        "articleNumber": "<ARTICLE>004",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76564",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015518",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T11:59:05.730000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:32.020000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11539,
+        "articleNumber": "<ARTICLE>003",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76563",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015624",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:04:37.933000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:32.037000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11540,
+        "articleNumber": "<ARTICLE>002",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76562",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.258,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:06:42.363000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-05T13:55:25.960000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11542,
+        "articleNumber": "<ARTICLE>009",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76571",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T13:07:04.210000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:31.973000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11543,
+        "articleNumber": "<ARTICLE>008",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76570",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015457",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T12:26:45.147000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:31.990000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11544,
+        "articleNumber": "<ARTICLE>007",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76569",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015426",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T13:08:36.553000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:32.007000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11545,
+        "articleNumber": "<ARTICLE>006",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76567",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015532",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:18:42.980000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:32.007000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11546,
+        "articleNumber": "<ARTICLE>013",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76575",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 16.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 16.0,
+            "lastInDate": "2023-06-01T12:22:31.843000+00:00",
+            "sellableNumberOfItems": 16.0,
+            "totalStockValue": 280.0
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.440000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11547,
+        "articleNumber": "<ARTICLE>012",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76574",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015488",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:00:41.167000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:31.850000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11548,
+        "articleNumber": "<ARTICLE>011",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76573",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015648",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T13:12:50.053000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:31.943000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11549,
+        "articleNumber": "<ARTICLE>010",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76572",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T12:53:03.710000+00:00",
+            "sellableNumberOfItems": 13.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T15:10:31.960000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11551,
+        "articleNumber": "<ARTICLE>015",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76578",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015600",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 13.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 2.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 13.0,
+            "lastInDate": "2023-05-24T13:13:55.713000+00:00",
+            "sellableNumberOfItems": 13.0,
+            "totalStockValue": 227.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.410000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11552,
+        "articleNumber": "<ARTICLE>014",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76577",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 19.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 19.0,
+            "lastInDate": "2023-05-24T12:53:50.217000+00:00",
+            "sellableNumberOfItems": 19.0,
+            "totalStockValue": 332.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.427000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11555,
+        "articleNumber": "<ARTICLE>020",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76588",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015501",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T12:37:48.470000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.347000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11556,
+        "articleNumber": "<ARTICLE>019",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76587",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:16:41.563000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.363000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11557,
+        "articleNumber": "<ARTICLE>018",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76586",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-06-01T12:13:48.660000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.363000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11558,
+        "articleNumber": "<ARTICLE>017",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76585",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015396",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T12:30:54.550000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.380000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11559,
+        "articleNumber": "<ARTICLE>016",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76582",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 15.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 15.0,
+            "lastInDate": "2023-05-24T12:57:58.857000+00:00",
+            "sellableNumberOfItems": 15.0,
+            "totalStockValue": 262.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.393000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11560,
+        "articleNumber": "<ARTICLE>028",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76596",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 15.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:47:20.103000+00:00",
+            "sellableNumberOfItems": 81.0,
+            "totalStockValue": 105.0
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.293000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11561,
+        "articleNumber": "<ARTICLE>027",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76595",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:11:27.330000+00:00",
+            "sellableNumberOfItems": 83.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.433000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11562,
+        "articleNumber": "<ARTICLE>026",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76594",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:10:09.843000+00:00",
+            "sellableNumberOfItems": 83.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.433000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11563,
+        "articleNumber": "<ARTICLE>025",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76593",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:48:22.653000+00:00",
+            "sellableNumberOfItems": 83.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.450000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11564,
+        "articleNumber": "<ARTICLE>024",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76592",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:05:11.553000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.450000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11565,
+        "articleNumber": "<ARTICLE>023",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76591",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 15.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-01T13:55:02.027000+00:00",
+            "sellableNumberOfItems": 82.0,
+            "totalStockValue": 105.0
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.467000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11566,
+        "articleNumber": "<ARTICLE>022",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76590",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 87.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:03:13.993000+00:00",
+            "sellableNumberOfItems": 85.0,
+            "totalStockValue": 108.75
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.467000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11567,
+        "articleNumber": "<ARTICLE>021",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76589",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 87.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:08:43.780000+00:00",
+            "sellableNumberOfItems": 85.0,
+            "totalStockValue": 108.75
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.480000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11568,
+        "articleNumber": "<ARTICLE>032",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76600",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:59:54.513000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:55:17.327000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11569,
+        "articleNumber": "<ARTICLE>031",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76599",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:50:15.600000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:55:17.343000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11570,
+        "articleNumber": "<ARTICLE>030",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76598",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 5.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:03:55.127000+00:00",
+            "sellableNumberOfItems": 81.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:40:14.183000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11571,
+        "articleNumber": "<ARTICLE>029",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76597",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-01T14:11:00.227000+00:00",
+            "sellableNumberOfItems": 83.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-08T05:48:02.497000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11572,
+        "articleNumber": "<ARTICLE>033",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76601",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-01T13:50:51.883000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:55:17.297000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11573,
+        "articleNumber": "<ARTICLE>040",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76609",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 4.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 15.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:53:30.673000+00:00",
+            "sellableNumberOfItems": 80.0,
+            "totalStockValue": 105.0
+        },
+        "articleDataLastUpdated": "2023-06-02T09:10:14.767000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11574,
+        "articleNumber": "<ARTICLE>039",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76608",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:51:52.177000+00:00",
+            "sellableNumberOfItems": 83.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T09:10:14.847000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11575,
+        "articleNumber": "<ARTICLE>038",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76607",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 5.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:12:49.253000+00:00",
+            "sellableNumberOfItems": 81.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T09:10:14.877000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11576,
+        "articleNumber": "<ARTICLE>037",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76606",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 15.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:45:54.777000+00:00",
+            "sellableNumberOfItems": 81.0,
+            "totalStockValue": 105.0
+        },
+        "articleDataLastUpdated": "2023-06-02T08:55:17.217000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11577,
+        "articleNumber": "<ARTICLE>036",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76605",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-01T14:13:44.220000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:55:17.263000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11578,
+        "articleNumber": "<ARTICLE>035",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76604",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 0.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 100.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 0.0,
+            "sellableNumberOfItems": 0.0,
+            "totalStockValue": 0.0
+        },
+        "articleDataLastUpdated": "2023-06-01T14:08:54.230000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11579,
+        "articleNumber": "<ARTICLE>034",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76602",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 0.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 100.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 0.0,
+            "sellableNumberOfItems": 0.0,
+            "totalStockValue": 0.0
+        },
+        "articleDataLastUpdated": "2023-06-01T14:08:54.247000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11580,
+        "articleNumber": "<ARTICLE>043",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76613",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 7.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 7.0,
+            "lastInDate": "2023-06-01T13:21:30.450000+00:00",
+            "sellableNumberOfItems": 7.0,
+            "totalStockValue": 50.4
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.597000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11581,
+        "articleNumber": "<ARTICLE>042",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76612",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": false,
+        "isActive": true,
+        "weight": 0.52,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 5.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 0.0,
+            "sellableNumberOfItems": 80.0,
+            "totalStockValue": 0.0
+        },
+        "articleDataLastUpdated": "2023-06-03T20:40:09.053000+00:00",
+        "articleKind": "Structure",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11582,
+        "articleNumber": "<ARTICLE>041",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76610",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": false,
+        "isActive": true,
+        "weight": 0.64,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "SE",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 14.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 0.0,
+            "sellableNumberOfItems": 80.0,
+            "totalStockValue": 0.0
+        },
+        "articleDataLastUpdated": "2023-06-03T20:40:09.083000+00:00",
+        "articleKind": "Structure",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 60,
+                "code": "gamerbulk",
+                "name": "Gamerbulk"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage & Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11583,
+        "articleNumber": "<ARTICLE>049",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76619",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 7.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 7.0,
+            "lastInDate": "2023-06-01T13:22:09.020000+00:00",
+            "sellableNumberOfItems": 5.0,
+            "totalStockValue": 50.4
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.383000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11584,
+        "articleNumber": "<ARTICLE>048",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76618",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 40.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 40.0,
+            "lastInDate": "2023-06-01T13:09:12.030000+00:00",
+            "sellableNumberOfItems": 40.0,
+            "totalStockValue": 288.0
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.503000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11585,
+        "articleNumber": "<ARTICLE>047",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76617",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 28.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 28.0,
+            "lastInDate": "2023-06-01T13:07:20.820000+00:00",
+            "sellableNumberOfItems": 28.0,
+            "totalStockValue": 201.6
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.537000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11586,
+        "articleNumber": "<ARTICLE>046",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76616",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 27.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 1.0,
+            "receivedToBeFinishedNumberOfItems": 28.0,
+            "lastInDate": "2023-06-01T13:02:14.767000+00:00",
+            "sellableNumberOfItems": 27.0,
+            "totalStockValue": 194.4
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.550000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11587,
+        "articleNumber": "<ARTICLE>045",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76615",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 21.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 21.0,
+            "lastInDate": "2023-06-01T13:10:41.983000+00:00",
+            "sellableNumberOfItems": 21.0,
+            "totalStockValue": 151.2
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.567000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 78,
+                "code": "stickers",
+                "name": "Stickers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11588,
+        "articleNumber": "<ARTICLE>044",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76614",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.14,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 26.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 1.0,
+            "receivedToBeFinishedNumberOfItems": 27.0,
+            "lastInDate": "2023-06-01T13:17:10.917000+00:00",
+            "sellableNumberOfItems": 26.0,
+            "totalStockValue": 187.2
+        },
+        "articleDataLastUpdated": "2023-06-02T09:25:15.583000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11589,
+        "articleNumber": "<ARTICLE>053",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76625",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 11.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 1.0,
+            "receivedToBeFinishedNumberOfItems": 12.0,
+            "lastInDate": "2023-06-01T13:40:11.310000+00:00",
+            "sellableNumberOfItems": 10.0,
+            "totalStockValue": 79.2
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.320000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11590,
+        "articleNumber": "<ARTICLE>052",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76623",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 18.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 18.0,
+            "lastInDate": "2023-06-01T14:31:03.780000+00:00",
+            "sellableNumberOfItems": 18.0,
+            "totalStockValue": 129.6
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.333000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11591,
+        "articleNumber": "<ARTICLE>051",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76621",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 14.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 14.0,
+            "lastInDate": "2023-06-02T06:39:07.147000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 100.8
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.350000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11592,
+        "articleNumber": "<ARTICLE>050",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76620",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 13.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 1.0,
+            "receivedToBeFinishedNumberOfItems": 14.0,
+            "lastInDate": "2023-06-01T14:30:24.160000+00:00",
+            "sellableNumberOfItems": 13.0,
+            "totalStockValue": 93.6
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.367000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11594,
+        "articleNumber": "<ARTICLE>055",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76627",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 13.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 13.0,
+            "lastInDate": "2023-06-01T13:34:03.537000+00:00",
+            "sellableNumberOfItems": 12.0,
+            "totalStockValue": 93.6
+        },
+        "articleDataLastUpdated": "2023-06-02T09:55:17.167000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11595,
+        "articleNumber": "<ARTICLE>054",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76626",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 14.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 14.0,
+            "lastInDate": "2023-06-02T06:40:26.723000+00:00",
+            "sellableNumberOfItems": 14.0,
+            "totalStockValue": 100.8
+        },
+        "articleDataLastUpdated": "2023-06-02T09:40:15.287000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11603,
+        "articleNumber": "<ARTICLE>059",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76894",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015525",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 5.0,
+            "numberOfBookedItems": 3.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 10.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 5.0,
+            "lastInDate": "2023-06-01T11:53:11.093000+00:00",
+            "sellableNumberOfItems": 2.0,
+            "totalStockValue": 87.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.190000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11604,
+        "articleNumber": "<ARTICLE>058",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76892",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "barCodeInfo": {
+            "barCode": "7427013015419",
+            "barCodePackage": "",
+            "barCodePallet": "",
+            "alternativeBarCodes": []
+        },
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 5.0,
+            "numberOfBookedItems": 0.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 10.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 5.0,
+            "lastInDate": "2023-06-01T11:51:23.880000+00:00",
+            "sellableNumberOfItems": 5.0,
+            "totalStockValue": 87.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.283000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11605,
+        "articleNumber": "<ARTICLE>057",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76891",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.33,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 5.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 10.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 5.0,
+            "lastInDate": "2023-06-01T11:49:31.023000+00:00",
+            "sellableNumberOfItems": 4.0,
+            "totalStockValue": 87.5
+        },
+        "articleDataLastUpdated": "2023-06-01T14:55:30.300000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 50,
+                "code": "energy",
+                "name": "Energy"
+            },
+            {
+                "id": 51,
+                "code": "tubs",
+                "name": "Tubs"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11606,
+        "articleNumber": "<ARTICLE>062",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76898",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 86.0,
+            "numberOfBookedItems": 2.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 13.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T06:58:43.963000+00:00",
+            "sellableNumberOfItems": 84.0,
+            "totalStockValue": 107.5
+        },
+        "articleDataLastUpdated": "2023-06-02T08:40:14.013000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11607,
+        "articleNumber": "<ARTICLE>061",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "76896",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.01,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "2106108039",
+        "inventoryInfo": {
+            "numberOfItems": 84.0,
+            "numberOfBookedItems": 4.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 15.0,
+            "receivedToBeFinishedNumberOfItems": 100.0,
+            "lastInDate": "2023-06-02T07:06:35.257000+00:00",
+            "sellableNumberOfItems": 80.0,
+            "totalStockValue": 105.0
+        },
+        "articleDataLastUpdated": "2023-06-02T08:40:14.073000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 35,
+                "code": "uncategorized",
+                "name": "Uncategorized"
+            },
+            {
+                "id": 59,
+                "code": "samples",
+                "name": "Samples"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Beverage",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    },
+    {
+        "goodsOwner": {
+            "id": 73,
+            "name": "GamerBulk"
+        },
+        "articleSystemId": 11609,
+        "articleNumber": "<ARTICLE>063",
+        "articleName": "<ARTICLE NAME>",
+        "productCode": "77583",
+        "unitCode": "st",
+        "description": "",
+        "isStockArticle": true,
+        "isActive": true,
+        "weight": 0.12,
+        "purcaseCurrencyCode": "",
+        "countryOfOriginCode": "GB",
+        "statisticsNumber": "3924100002",
+        "inventoryInfo": {
+            "numberOfItems": 19.0,
+            "numberOfBookedItems": 1.0,
+            "numberOfLockedItems": 0.0,
+            "toReceiveNumberOfItems": 0.0,
+            "allocatedNumberOfItems": 0.0,
+            "lockedForSaleNumberOfItems": 0.0,
+            "pickedToBeCollectedNumberOfItems": 0.0,
+            "receivedToBeFinishedNumberOfItems": 19.0,
+            "lastInDate": "2023-06-02T06:41:37.320000+00:00",
+            "sellableNumberOfItems": 18.0,
+            "totalStockValue": 136.8
+        },
+        "articleDataLastUpdated": "2023-06-02T08:25:13.087000+00:00",
+        "articleKind": "Stock",
+        "freeValues": {
+            "freeBoolean1": false,
+            "freeBoolean2": false,
+            "freeBoolean3": false
+        },
+        "classes": [
+            {
+                "id": 30,
+                "code": "gear",
+                "name": "GEAR"
+            },
+            {
+                "id": 48,
+                "code": "shakers",
+                "name": "Shakers"
+            },
+            {
+                "id": 81,
+                "code": "wraith",
+                "name": "Wraith"
+            }
+        ],
+        "customsDescription": "Shaker",
+        "storageProperties": {
+            "isObsolete": false
+        }
+    }
+]

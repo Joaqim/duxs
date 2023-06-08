@@ -17,6 +17,15 @@ abstract class Duxs {
         article,
         orderTotalWeight
       );
+
+    if ((article.numberOfItems ?? 0) == (article.weight ?? 0)) {
+      throw new Error(
+        `Article with unexpected Weight of '${article.weight}' while Quantity is '${article.numberOfItems}'`
+      );
+    }
+    if (article.numberOfItems == 0) {
+      return { cost: new Decimal(0), shipping: new Decimal(0) };
+    }
     // TODO: numberOfItems should be explicitly explicitly defined here already
     const perArticleShippingCost = orderFreightCost
       .times(articlesWeightDistribution)
@@ -25,12 +34,6 @@ abstract class Duxs {
       .times(tariffPercentage.plus(1.0))
       .minus(articleUnitPrice);
 
-    if ((article.numberOfItems ?? 0) == (article.weight ?? 0)) {
-      throw new Error(
-        `Article with unexpected Weight of '${article.weight}' while Quantity is '${article.numberOfItems}'`
-      );
-    }
-
     const totalFreightAndFees = perArticleShippingCost.plus(
       orderCustomsCost.minus(tariffPerArticle.times(article.numberOfItems ?? 0))
     );
@@ -38,12 +41,10 @@ abstract class Duxs {
       orderTotalArticleCount
     );
 
-    /*
     console.log(`unitPrice: ${articleUnitPrice}`);
     console.log(`freightAndFeesPerArticle: ${freightAndFeesPerArticle}`);
     console.log(`totalFreightAndFees: ${totalFreightAndFees}`);
     console.log(`tariffPerArticle: ${tariffPerArticle}`);
-    */
 
     return {
       cost: freightAndFeesPerArticle
@@ -66,9 +67,7 @@ abstract class Duxs {
       return new Decimal(0);
     }
     const perArticleShippingCost = freightCost.times(articleWeightPercentage);
-    const tariffPerArticle = new Decimal(unitPrice)
-      .times(tariffPercentage.plus(1.0))
-      .minus(unitPrice);
+    const tariffPerArticle = new Decimal(unitPrice).times(tariffPercentage);
     const totalFreightAndFees = perArticleShippingCost.plus(
       tariffCost.minus(tariffPerArticle.times(articleQuantity))
     );

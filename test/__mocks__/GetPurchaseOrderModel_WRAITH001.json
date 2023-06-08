@@ -1,7 +1,7 @@
 {
     "purchaseOrderInfo": {
         "purchaseOrderId": 574,
-        "purchaseOrderNumber": "<SUPPLIERSKU>001",
+        "purchaseOrderNumber": "<SUPPLIER SKU>001",
         "purchaseOrderStatus": {
             "number": 300,
             "text": "Inleverans"
@@ -12,7 +12,7 @@
             "purchaseOrderIsReturnType": false
         },
         "freeValues": {
-            "freeText1": "0",
+            "freeText1": "2000",
             "freeText2": "0",
             "freeBool1": false,
             "freeBool2": false
@@ -23,8 +23,8 @@
             "id": 6027,
             "article": {
                 "articleSystemId": 11535,
-                "articleNumber": "<SUPPLIERSKU>001",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>001",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76560"
             },
             "rowPrice": 525.000,
@@ -53,8 +53,8 @@
             "id": 6031,
             "article": {
                 "articleSystemId": 11537,
-                "articleNumber": "<SUPPLIERSKU>005",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>005",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76566"
             },
             "rowPrice": 262.500,
@@ -75,8 +75,8 @@
             "id": 6030,
             "article": {
                 "articleSystemId": 11538,
-                "articleNumber": "<SUPPLIERSKU>004",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>004",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76564"
             },
             "rowPrice": 262.500,
@@ -97,8 +97,8 @@
             "id": 6029,
             "article": {
                 "articleSystemId": 11539,
-                "articleNumber": "<SUPPLIERSKU>003",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>003",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76563"
             },
             "rowPrice": 262.500,
@@ -119,8 +119,8 @@
             "id": 6028,
             "article": {
                 "articleSystemId": 11540,
-                "articleNumber": "<SUPPLIERSKU>002",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>002",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76562"
             },
             "rowPrice": 262.500,
@@ -141,8 +141,8 @@
             "id": 6035,
             "article": {
                 "articleSystemId": 11542,
-                "articleNumber": "<SUPPLIERSKU>009",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>009",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76571"
             },
             "rowPrice": 262.500,
@@ -163,8 +163,8 @@
             "id": 6034,
             "article": {
                 "articleSystemId": 11543,
-                "articleNumber": "<SUPPLIERSKU>008",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>008",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76570"
             },
             "rowPrice": 262.500,
@@ -185,8 +185,8 @@
             "id": 6033,
             "article": {
                 "articleSystemId": 11544,
-                "articleNumber": "<SUPPLIERSKU>007",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>007",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76569"
             },
             "rowPrice": 262.500,
@@ -207,8 +207,8 @@
             "id": 6032,
             "article": {
                 "articleSystemId": 11545,
-                "articleNumber": "<SUPPLIERSKU>006",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>006",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76567"
             },
             "rowPrice": 262.500,
@@ -229,8 +229,8 @@
             "id": 6039,
             "article": {
                 "articleSystemId": 11546,
-                "articleNumber": "<SUPPLIERSKU>013",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>013",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76575"
             },
             "rowPrice": 262.500,
@@ -251,8 +251,8 @@
             "id": 6038,
             "article": {
                 "articleSystemId": 11547,
-                "articleNumber": "<SUPPLIERSKU>012",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>012",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76574"
             },
             "rowPrice": 262.500,
@@ -273,8 +273,8 @@
             "id": 6037,
             "article": {
                 "articleSystemId": 11548,
-                "articleNumber": "<SUPPLIERSKU>011",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>011",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76573"
             },
             "rowPrice": 262.500,
@@ -295,8 +295,8 @@
             "id": 6036,
             "article": {
                 "articleSystemId": 11549,
-                "articleNumber": "<SUPPLIERSKU>010",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>010",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76572"
             },
             "rowPrice": 262.500,
@@ -317,8 +317,8 @@
             "id": 6041,
             "article": {
                 "articleSystemId": 11551,
-                "articleNumber": "<SUPPLIERSKU>015",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>015",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76578"
             },
             "rowPrice": 262.500,
@@ -339,8 +339,8 @@
             "id": 6040,
             "article": {
                 "articleSystemId": 11552,
-                "articleNumber": "<SUPPLIERSKU>014",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>014",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76577"
             },
             "rowPrice": 262.500,
@@ -369,8 +369,8 @@
             "id": 6046,
             "article": {
                 "articleSystemId": 11555,
-                "articleNumber": "<SUPPLIERSKU>020",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>020",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76588"
             },
             "rowPrice": 262.500,
@@ -391,8 +391,8 @@
             "id": 6045,
             "article": {
                 "articleSystemId": 11556,
-                "articleNumber": "<SUPPLIERSKU>019",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>019",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76587"
             },
             "rowPrice": 262.500,
@@ -413,8 +413,8 @@
             "id": 6044,
             "article": {
                 "articleSystemId": 11557,
-                "articleNumber": "<SUPPLIERSKU>018",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>018",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76586"
             },
             "rowPrice": 262.500,
@@ -435,8 +435,8 @@
             "id": 6043,
             "article": {
                 "articleSystemId": 11558,
-                "articleNumber": "<SUPPLIERSKU>017",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>017",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76585"
             },
             "rowPrice": 262.500,
@@ -457,8 +457,8 @@
             "id": 6042,
             "article": {
                 "articleSystemId": 11559,
-                "articleNumber": "<SUPPLIERSKU>016",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>016",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76582"
             },
             "rowPrice": 262.500,
@@ -479,8 +479,8 @@
             "id": 6054,
             "article": {
                 "articleSystemId": 11560,
-                "articleNumber": "<SUPPLIERSKU>028",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>028",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76596"
             },
             "rowPrice": 125.000,
@@ -501,8 +501,8 @@
             "id": 6053,
             "article": {
                 "articleSystemId": 11561,
-                "articleNumber": "<SUPPLIERSKU>027",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>027",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76595"
             },
             "rowPrice": 125.000,
@@ -523,8 +523,8 @@
             "id": 6052,
             "article": {
                 "articleSystemId": 11562,
-                "articleNumber": "<SUPPLIERSKU>026",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>026",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76594"
             },
             "rowPrice": 125.000,
@@ -545,8 +545,8 @@
             "id": 6051,
             "article": {
                 "articleSystemId": 11563,
-                "articleNumber": "<SUPPLIERSKU>025",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>025",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76593"
             },
             "rowPrice": 125.000,
@@ -567,8 +567,8 @@
             "id": 6050,
             "article": {
                 "articleSystemId": 11564,
-                "articleNumber": "<SUPPLIERSKU>024",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>024",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76592"
             },
             "rowPrice": 125.000,
@@ -589,8 +589,8 @@
             "id": 6049,
             "article": {
                 "articleSystemId": 11565,
-                "articleNumber": "<SUPPLIERSKU>023",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>023",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76591"
             },
             "rowPrice": 125.000,
@@ -611,8 +611,8 @@
             "id": 6048,
             "article": {
                 "articleSystemId": 11566,
-                "articleNumber": "<SUPPLIERSKU>022",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>022",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76590"
             },
             "rowPrice": 125.000,
@@ -633,8 +633,8 @@
             "id": 6047,
             "article": {
                 "articleSystemId": 11567,
-                "articleNumber": "<SUPPLIERSKU>021",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>021",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76589"
             },
             "rowPrice": 125.000,
@@ -655,8 +655,8 @@
             "id": 6058,
             "article": {
                 "articleSystemId": 11568,
-                "articleNumber": "<SUPPLIERSKU>032",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>032",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76600"
             },
             "rowPrice": 125.000,
@@ -677,8 +677,8 @@
             "id": 6057,
             "article": {
                 "articleSystemId": 11569,
-                "articleNumber": "<SUPPLIERSKU>031",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>031",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76599"
             },
             "rowPrice": 125.000,
@@ -699,8 +699,8 @@
             "id": 6056,
             "article": {
                 "articleSystemId": 11570,
-                "articleNumber": "<SUPPLIERSKU>030",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>030",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76598"
             },
             "rowPrice": 125.000,
@@ -721,8 +721,8 @@
             "id": 6055,
             "article": {
                 "articleSystemId": 11571,
-                "articleNumber": "<SUPPLIERSKU>029",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>029",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76597"
             },
             "rowPrice": 125.000,
@@ -743,8 +743,8 @@
             "id": 6059,
             "article": {
                 "articleSystemId": 11572,
-                "articleNumber": "<SUPPLIERSKU>033",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>033",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76601"
             },
             "rowPrice": 125.000,
@@ -765,8 +765,8 @@
             "id": 6066,
             "article": {
                 "articleSystemId": 11573,
-                "articleNumber": "<SUPPLIERSKU>040",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>040",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76609"
             },
             "rowPrice": 125.000,
@@ -787,8 +787,8 @@
             "id": 6065,
             "article": {
                 "articleSystemId": 11574,
-                "articleNumber": "<SUPPLIERSKU>039",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>039",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76608"
             },
             "rowPrice": 125.000,
@@ -809,8 +809,8 @@
             "id": 6064,
             "article": {
                 "articleSystemId": 11575,
-                "articleNumber": "<SUPPLIERSKU>038",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>038",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76607"
             },
             "rowPrice": 125.000,
@@ -831,8 +831,8 @@
             "id": 6063,
             "article": {
                 "articleSystemId": 11576,
-                "articleNumber": "<SUPPLIERSKU>037",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>037",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76606"
             },
             "rowPrice": 125.000,
@@ -853,8 +853,8 @@
             "id": 6062,
             "article": {
                 "articleSystemId": 11577,
-                "articleNumber": "<SUPPLIERSKU>036",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>036",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76605"
             },
             "rowPrice": 125.000,
@@ -875,8 +875,8 @@
             "id": 6061,
             "article": {
                 "articleSystemId": 11578,
-                "articleNumber": "<SUPPLIERSKU>035",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>035",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76604"
             },
             "rowPrice": 1750.000,
@@ -888,8 +888,8 @@
             "id": 6060,
             "article": {
                 "articleSystemId": 11579,
-                "articleNumber": "<SUPPLIERSKU>034",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>034",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76602"
             },
             "rowPrice": 125.000,
@@ -901,8 +901,8 @@
             "id": 6100,
             "article": {
                 "articleSystemId": 11580,
-                "articleNumber": "<SUPPLIERSKU>043",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>043",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76613"
             },
             "rowPrice": 50.400,
@@ -922,8 +922,8 @@
             "id": 6101,
             "article": {
                 "articleSystemId": 11583,
-                "articleNumber": "<SUPPLIERSKU>049",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>049",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76619"
             },
             "rowPrice": 50.400,
@@ -943,8 +943,8 @@
             "id": 6097,
             "article": {
                 "articleSystemId": 11584,
-                "articleNumber": "<SUPPLIERSKU>048",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>048",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76618"
             },
             "rowPrice": 288.000,
@@ -964,8 +964,8 @@
             "id": 6095,
             "article": {
                 "articleSystemId": 11585,
-                "articleNumber": "<SUPPLIERSKU>047",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>047",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76617"
             },
             "rowPrice": 201.600,
@@ -985,8 +985,8 @@
             "id": 6098,
             "article": {
                 "articleSystemId": 11586,
-                "articleNumber": "<SUPPLIERSKU>046",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>046",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76616"
             },
             "rowPrice": 201.600,
@@ -1006,8 +1006,8 @@
             "id": 6099,
             "article": {
                 "articleSystemId": 11587,
-                "articleNumber": "<SUPPLIERSKU>045",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>045",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76615"
             },
             "rowPrice": 151.200,
@@ -1027,8 +1027,8 @@
             "id": 6096,
             "article": {
                 "articleSystemId": 11588,
-                "articleNumber": "<SUPPLIERSKU>044",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>044",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76614"
             },
             "rowPrice": 194.400,
@@ -1048,8 +1048,8 @@
             "id": 6103,
             "article": {
                 "articleSystemId": 11589,
-                "articleNumber": "<SUPPLIERSKU>053",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>053",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76625"
             },
             "rowPrice": 86.400,
@@ -1069,8 +1069,8 @@
             "id": 6104,
             "article": {
                 "articleSystemId": 11590,
-                "articleNumber": "<SUPPLIERSKU>052",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>052",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76623"
             },
             "rowPrice": 129.600,
@@ -1090,8 +1090,8 @@
             "id": 6106,
             "article": {
                 "articleSystemId": 11591,
-                "articleNumber": "<SUPPLIERSKU>051",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>051",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76621"
             },
             "rowPrice": 100.800,
@@ -1111,8 +1111,8 @@
             "id": 6105,
             "article": {
                 "articleSystemId": 11592,
-                "articleNumber": "<SUPPLIERSKU>050",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>050",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76620"
             },
             "rowPrice": 100.800,
@@ -1132,8 +1132,8 @@
             "id": 6102,
             "article": {
                 "articleSystemId": 11594,
-                "articleNumber": "<SUPPLIERSKU>055",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>055",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76627"
             },
             "rowPrice": 93.600,
@@ -1153,8 +1153,8 @@
             "id": 6107,
             "article": {
                 "articleSystemId": 11595,
-                "articleNumber": "<SUPPLIERSKU>054",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>054",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76626"
             },
             "rowPrice": 100.800,
@@ -1174,8 +1174,8 @@
             "id": 6094,
             "article": {
                 "articleSystemId": 11603,
-                "articleNumber": "<SUPPLIERSKU>059",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>059",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76894"
             },
             "rowPrice": 262.5,
@@ -1196,8 +1196,8 @@
             "id": 6092,
             "article": {
                 "articleSystemId": 11604,
-                "articleNumber": "<SUPPLIERSKU>058",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>058",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76892"
             },
             "rowPrice": 262.500,
@@ -1218,8 +1218,8 @@
             "id": 6093,
             "article": {
                 "articleSystemId": 11605,
-                "articleNumber": "<SUPPLIERSKU>057",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>057",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76891"
             },
             "rowPrice": 262.500,
@@ -1240,8 +1240,8 @@
             "id": 6110,
             "article": {
                 "articleSystemId": 11606,
-                "articleNumber": "<SUPPLIERSKU>062",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>062",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76898"
             },
             "rowPrice": 125.000,
@@ -1262,8 +1262,8 @@
             "id": 6109,
             "article": {
                 "articleSystemId": 11607,
-                "articleNumber": "<SUPPLIERSKU>061",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>061",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "76896"
             },
             "rowPrice": 125.000,
@@ -1284,8 +1284,8 @@
             "id": 6108,
             "article": {
                 "articleSystemId": 11609,
-                "articleNumber": "<SUPPLIERSKU>063",
-                "articleName": "<ARTICLE SKU>",
+                "articleNumber": "<ARTICLE>063",
+                "articleName": "<ARTICLE NAME>",
                 "productCode": "77583"
             },
             "rowPrice": 136.800,

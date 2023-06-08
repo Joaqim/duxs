@@ -1,6 +1,6 @@
 {
-  "name": "tslib-esbuild",
-  "version": "1.0.1",
+  "name": "duxs",
+  "version": "1.0.0",
   "description": "",
   "exports": {
     "require": "./dist/cjs/index.js",
