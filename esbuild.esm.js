@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const esbuild = require("esbuild");
 
 esbuild.buildSync({
   entryPoints: ["src/index.ts"],
+  format: "esm",
   outdir: "dist/esm",
   bundle: true,
-  sourcemap: true,
+  sourcemap: false,
   minify: true,
   splitting: true,
-  format: "esm",
-  target: ["ES6"],
+  target: ["node14"],
 });

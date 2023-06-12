@@ -37,7 +37,6 @@
   "exclude": [
     "dist",
     "**/*.spec.ts",
-    "src/lib/ongoing/*.ts"
   ],
   "typedocOptions": {
     "out": "docs",
@@ -45,7 +44,6 @@
     "exclude": [
       "test/**/*.ts",
       "node_modules",
-      "src/lib/ongoing/ongoing-wms.ts"
     ]
   }
 }

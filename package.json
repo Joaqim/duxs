@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    "node": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    },
+    "default": "./dist/esm/index.js"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
-  "type": "commonjs",
+  "files": [
+    "./dist/csj/index.js",
+    "./dist/esm/index.js",
+    "./dist/cjs/index.d.ts"
+  ],
   "scripts": {
     "ts-types:esm": " tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm",
     "ts-types:cjs": " tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs",
