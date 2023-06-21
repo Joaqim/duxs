@@ -8,6 +8,12 @@ export type GetArticleModel = components["schemas"]["GetArticleModel"];
 export type GetArticleItemsModel =
   components["schemas"]["GetArticleItemsModel"];
 
+export type GetHistoricalInventory =
+  components["schemas"]["GetHistoricalInventoryModel"];
+
+export type GetHistoricalInventoryArticle =
+  components["schemas"]["GetHistoricalInventoryArticleModel"];
+
 export type GetPurchaseOrderArticle =
   components["schemas"]["GetPurchaseOrderArticle"];
 
@@ -22,5 +28,8 @@ export type GetPurchaseOrderModel =
 
 export type PurchaseOrderLineArticleItem =
   components["schemas"]["GetPurchaseOrderArticleItem"];
+
+export type GetPurchaseOrderFreeValues =
+  components["schemas"]["GetPurchaseOrderFreeValues"];
 
 export * from "./ongoing-wms";

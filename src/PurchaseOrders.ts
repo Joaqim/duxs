@@ -6,8 +6,9 @@ import type {
   GetPurchaseOrderModel,
 } from "./lib/ongoing";
 
+export type ArticleCountStatus = "advised" | "received" | "reported";
 abstract class PurchaseOrders {
-  public static getFreeValues = (
+  public static tryGetFreeValues = (
     purchase: GetPurchaseOrderModel
   ): [Decimal?, Decimal?, Decimal?, Decimal?] => {
     const getFreeValue = (freeVariableName: string): Decimal | undefined => {
@@ -27,41 +28,75 @@ abstract class PurchaseOrders {
     return [freeDecimal1, freeDecimal2, freeDecimal3, freeDecimal4];
   };
 
+  public static getFreeValues = (
+    purchase: GetPurchaseOrderModel,
+    fallbackValues: [
+      freight: Decimal,
+      customs: Decimal,
+      estimatedFreight?: Decimal,
+      estimatedCustoms?: Decimal
+    ]
+  ): [Decimal, Decimal, Decimal, Decimal] => {
+    const getFreeValue = (
+      freeVariableName: string,
+      fallback = new Decimal(0)
+    ): Decimal => {
+      const freeValueString = getValue(
+        purchase,
+        `purchaseOrderInfo.freeValues.${freeVariableName}`
+      );
+      if (isNaN(parseFloat(freeValueString))) {
+        return fallback;
+      }
+      return new Decimal(freeValueString);
+    };
+    // Estimated Freight
+    const freeDecimal1 = getFreeValue("freeText1", fallbackValues[2]);
+    // Estimated Customs
+    const freeDecimal2 = getFreeValue("freeText2", fallbackValues[3]);
+    // Freight
+    const freeDecimal3 = getFreeValue("freeText3", fallbackValues[0]);
+    // Customs
+    const freeDecimal4 = getFreeValue("freeText4", fallbackValues[1]);
+    return [freeDecimal1, freeDecimal2, freeDecimal3, freeDecimal4];
+  };
+
   public static tryGetFreightAndCustomsCost = (
-    purchaseOrder: GetPurchaseOrderModel
+    purchaseOrder: GetPurchaseOrderModel,
+    fallbackFreightCost?: Decimal,
+    fallbackCustomsCost?: Decimal
   ): [Decimal, Decimal] => {
     const [
       estimatedFreightCost,
       estimatedCustomsCost,
       freightCost,
       customsCost,
-    ] = this.getFreeValues(purchaseOrder);
+    ] = this.tryGetFreeValues(purchaseOrder);
 
     const candidateFreightCost = freightCost ?? estimatedFreightCost;
     const candidateCustomsCost = customsCost ?? estimatedCustomsCost;
 
-    if (!candidateFreightCost || !candidateCustomsCost) {
+    const missingFreightCost = candidateFreightCost === undefined;
+    const missingCustomsCost = candidateCustomsCost === undefined;
+
+    if (missingFreightCost || missingCustomsCost) {
+      if (fallbackFreightCost && fallbackCustomsCost) {
+        return [fallbackFreightCost, fallbackCustomsCost];
+      }
       throw new Error(
         `Purchase Order is missing free values for ${
-          customsCost === undefined && estimatedCustomsCost !== undefined
-            ? "customs fee"
-            : ""
+          missingCustomsCost ? "customs fee" : ""
         }${
-          freightCost === undefined && estimatedFreightCost !== undefined
-            ? `${customsCost === undefined ? " and " : ""}shipping${
-                customsCost === undefined && estimatedCustomsCost === undefined
-                  ? " fee"
-                  : ""
+          missingFreightCost
+            ? `${missingCustomsCost ? " and " : ""}${
+                missingFreightCost ? "shipping fee" : ""
               }`
             : ""
         }`
       );
     }
 
-    return [
-      (freightCost ?? estimatedFreightCost) as Decimal,
-      (customsCost ?? estimatedCustomsCost) as Decimal,
-    ];
+    return [candidateFreightCost, candidateCustomsCost];
   };
 
   public static getArticleWeightPercentageOfOrder = (
@@ -81,7 +116,7 @@ abstract class PurchaseOrders {
 
   public static getTotalArticleQuantity = (
     purchaseOrder: GetPurchaseOrderModel,
-    purchaseOrderStatus: "advised" | "received" | "reported"
+    purchaseOrderStatus: ArticleCountStatus
   ): Decimal => {
     let result: Decimal = new Decimal(0);
     const { purchaseOrderLines } = purchaseOrder;
@@ -139,6 +174,30 @@ abstract class PurchaseOrders {
       return this.getWeightOfArticles(purchaseOrderLines.articleItems);
     return new Decimal(0);
   };
+
+  public static tryGetArticleCountStatus(
+    purchaseOrder: GetPurchaseOrderModel
+  ): ArticleCountStatus {
+    const purchaseOrderStatus =
+      purchaseOrder.purchaseOrderInfo?.purchaseOrderStatus?.text;
+
+    let articleCountStatus: ArticleCountStatus | undefined;
+
+    if (purchaseOrderStatus === "Inleverans") {
+      articleCountStatus = "advised";
+    } else if (
+      purchaseOrderStatus === "Mottaget" ||
+      purchaseOrderStatus === "Lagerlagd"
+    ) {
+      articleCountStatus = "received";
+    } else {
+      throw new Error(
+        `Unexpected Purchase order status: ${purchaseOrderStatus}`
+      );
+    }
+
+    return articleCountStatus;
+  }
 }
 
 export default PurchaseOrders;
