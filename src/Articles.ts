@@ -3,7 +3,24 @@ import type { GetArticleModel } from "./lib/ongoing";
 
 type OptionalArray<T> = T | T[];
 
+const ARTICLE_CUSTOMS_PERCENTAGE: Record<string, number> = {
+  Beverage: 0.12, // 12%
+  Shaker: 0.065, // 6.5%
+};
+
 abstract class Articles {
+  static tryGetCustoms(article: Readonly<GetArticleModel>): Decimal {
+    if (
+      typeof article.customsDescription === "string" &&
+      article.customsDescription in Object.keys(ARTICLE_CUSTOMS_PERCENTAGE)
+    ) {
+      return new Decimal(
+        ARTICLE_CUSTOMS_PERCENTAGE[article.customsDescription]
+      );
+    }
+    throw new Error(`${article.articleName}: Article is missing customs`);
+  }
+
   static tryGetTotalQuantity(
     articles: OptionalArray<Readonly<GetArticleModel>>
   ): Decimal {
