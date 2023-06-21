@@ -1,13 +1,57 @@
+import { expect } from "chai";
 import Decimal from "decimal.js-light";
 import getValue from "get-value";
-import { Duxs, PurchaseOrders } from "../src";
-import type { GetPurchaseOrderModel } from "../src/lib/ongoing";
+import { ArticleCountStatus, Duxs, PurchaseOrders } from "../src";
+import type {
+  GetPurchaseOrderFreeValues,
+  GetPurchaseOrderModel,
+} from "../src/lib/ongoing";
 import wraithPurchaseOrder from "./__mocks__/GetPurchaseOrderModel_WRAITH001.json";
+
+const mockTestFreeValues = (
+  purchaseOrder: GetPurchaseOrderModel,
+  mockFreeValues: GetPurchaseOrderFreeValues
+): [Decimal, Decimal] => {
+  const [freightCost, customsCost] = PurchaseOrders.tryGetFreightAndCustomsCost(
+    {
+      ...purchaseOrder,
+      purchaseOrderInfo: {
+        ...purchaseOrder.purchaseOrderInfo,
+        freeValues: mockFreeValues,
+      },
+    }
+  );
+  return [freightCost, customsCost];
+};
 
 describe("PurchaseOrders", function () {
   const wraithPurchase = wraithPurchaseOrder as any as GetPurchaseOrderModel;
+
   it("TODO: Serialize Model from json", function () {
     const wraithPurchase = wraithPurchaseOrder as any as GetPurchaseOrderModel;
+  });
+
+  it("Get Freight and Customs fees from Free Values", function () {
+    expect(
+      mockTestFreeValues(wraithPurchase, {
+        freeText1: "123",
+        freeText2: "456",
+      }).map((x) => x.toNumber())
+    ).to.deep.equal([123, 456]);
+
+    // freeText3 and 4 has higher priority for Shipping and Customs fee designation
+    expect(
+      mockTestFreeValues(wraithPurchase, {
+        freeText1: "123",
+        freeText2: "456",
+        freeText3: "789",
+        freeText4: "101",
+      }).map((x) => x.toNumber())
+    ).to.deep.equal([789, 101]);
+
+    expect(() => mockTestFreeValues(wraithPurchase, {})).to.throw(
+      "Purchase Order is missing free values for customs fee and shipping fee"
+    );
   });
 
   it("", function () {
@@ -16,8 +60,8 @@ describe("PurchaseOrders", function () {
       { weightPercentage: Decimal; cost: Decimal; shipping: Decimal }
     > = {};
 
-    const [freightCost, customsCost] =
-      PurchaseOrders.tryGetFreightAndCustomsCost(wraithPurchase);
+    // const [freightCost, customsCost] = PurchaseOrders.tryGetFreightAndCustomsCost(wraithPurchase);
+    const [freightCost, customsCost] = [new Decimal(0), new Decimal(0)];
 
     const { purchaseOrderLines, purchaseOrderInfo } = wraithPurchase;
 
@@ -25,25 +69,14 @@ describe("PurchaseOrders", function () {
       throw new Error(`Unexpected empty field 'purchaseOrderLines'`);
     }
 
-    const purchaseOrderStatus = purchaseOrderInfo?.purchaseOrderStatus?.text;
-    let purchaseOrderArticleCountStatus: "advised" | "received" | undefined;
-    if (purchaseOrderStatus === "Inleverans") {
-      purchaseOrderArticleCountStatus = "advised";
-    } else if (
-      purchaseOrderStatus === "Mottaget" ||
-      purchaseOrderStatus === "Lagerlagd"
-    ) {
-      purchaseOrderArticleCountStatus = "received";
-    } else {
-      throw new Error(
-        `Unexpected Purchase order status: ${purchaseOrderStatus}`
-      );
-    }
+    const purchaseOrderArticleCountStatus: ArticleCountStatus =
+      PurchaseOrders.tryGetArticleCountStatus(wraithPurchase);
 
     const totalArticleQuantity = PurchaseOrders.getTotalArticleQuantity(
       wraithPurchase,
       purchaseOrderArticleCountStatus
     );
+
     if (totalArticleQuantity.isZero()) {
       throw new Error(
         `Unexpected value of 'totalArticleQuantity': '${totalArticleQuantity}'`
@@ -62,9 +95,6 @@ describe("PurchaseOrders", function () {
       if (!purchaseOrderLine.articleItems) {
         throw new Error(`Unexpected empty field 'articleItems'`);
       }
-
-      // let calculateFreightCostDistributionByVolume = purchaseOrderLine.articleItems.find((article) => article.);
-      const calculateFreightCostDistributionByWeight = true;
 
       for (const article of purchaseOrderLine.articleItems) {
         // Filter out articles with unexpected Zero weight:
@@ -89,9 +119,9 @@ describe("PurchaseOrders", function () {
         // TODO:
         const tariffPercentage = new Decimal(0);
 
-        let [cost, shipping] = [new Decimal(0), new Decimal(0)];
+        let [unitCost, unitShippingCost] = [new Decimal(0), new Decimal(0)];
         try {
-          ({ cost, shipping } = Duxs.calculateArticleCosts(
+          ({ unitCost, unitShippingCost } = Duxs.calculateArticleCosts(
             article,
             new Decimal(rowPrice),
             tariffPercentage,
@@ -100,10 +130,8 @@ describe("PurchaseOrders", function () {
             totalWeightOfArticles,
             totalArticleQuantity
           ));
-          console.log("-------------------------------------");
-          console.log(
-            `Total Article cost: ${cost} incl. Shipping: ${shipping}`
-          );
+          // console.log("-------------------------------------");
+          // console.log( `Total Article cost: ${cost} incl. Shipping: ${shipping}`);
         } catch (error) {
           const { message } = error as Error;
           console.log(
@@ -118,8 +146,8 @@ describe("PurchaseOrders", function () {
           );
         articleWeightDistribution[articleId] = {
           weightPercentage,
-          cost,
-          shipping,
+          cost: unitCost,
+          shipping: unitShippingCost,
         };
       }
       const tariffPercentage = new Decimal(0.0);
@@ -137,8 +165,8 @@ describe("PurchaseOrders", function () {
       );
     }
 
-    console.log("-------------------------------------");
-    console.log(`Total Articles in Order: ${totalArticleQuantity}`);
+    // console.log("-------------------------------------");
+    // console.log(`Total Articles in Order: ${totalArticleQuantity}`);
 
     const SumOfArticleWeightDistribution = Object.values(
       articleWeightDistribution
