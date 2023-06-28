@@ -32,4 +32,9 @@ export type PurchaseOrderLineArticleItem =
 export type GetPurchaseOrderFreeValues =
   components["schemas"]["GetPurchaseOrderFreeValues"];
 
+export type PostPurchaseOrderModel =
+  components["schemas"]["PostPurchaseOrderModel"];
+
+export type PostIncomingOrderModel = PostPurchaseOrderModel;
+
 export * from "./ongoing-wms";
