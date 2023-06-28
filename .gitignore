@@ -1,6 +1,5 @@
-node_modules/
-docs/
-dist/
+/node_modules
+/docs/
 
 yarn-error.log
 test/**/*.json
