@@ -3,7 +3,7 @@ export { default as Articles } from "./Articles";
 export * from "./Duxs";
 export { default as Duxs } from "./Duxs";
 export * from "./lib/ongoing";
-export * from "./ongoing_wms_client";
+export { default as OngoingWMSClient } from "./ongoing_wms_client";
 export * from "./PurchaseOrders";
 export { default as PurchaseOrders } from "./PurchaseOrders";
 export * from "./types";
