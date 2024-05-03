@@ -1,3 +1,30 @@
-# Personal Typescript lib starter 
+# Duxs - Node utilites for communicating with Ongoing WMS REST API
 
-esbuild conf based on [Medium - Build A Library With esbuild](https://medium.com/geekculture/build-a-library-with-esbuild-23235712f3c)
+
+[Documentation](https://duxs.joaqim.com)
+
+## Installation
+
+```bash
+npm i github.com/Undefined-Stories-AB/duxs.git
+```
+
+## Example usage:
+
+```javascript
+import { OngoingWMSClient } from "duxs";
+
+const client = new OngoingWMSClient(
+  "https://example.com",
+  "username",
+  "password"
+);
+
+(async () => {
+  const orders = await client.getAll("/api/v1/orders", {
+    goodsOwnerId: 72,
+  });
+  orders.data.forEach((order) => console.log(order));
+})();
+
+```
