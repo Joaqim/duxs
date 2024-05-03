@@ -6,7 +6,7 @@
 ## Installation
 
 ```bash
-npm i github.com/Undefined-Stories-AB/duxs.git
+npm i https://github.com/Undefined-Stories-AB/duxs.git
 ```
 
 ## Example usage:
