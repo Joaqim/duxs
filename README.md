@@ -10,6 +10,7 @@ npm i https://github.com/Undefined-Stories-AB/duxs.git
 ```
 
 ## Example usage:
+> NOTE: Top level async in node only works in certain environments.
 
 ```javascript
 import { OngoingWMSClient } from "duxs";
@@ -28,3 +29,4 @@ const client = new OngoingWMSClient(
 })();
 
 ```
+
