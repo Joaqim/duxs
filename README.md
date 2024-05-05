@@ -1,5 +1,8 @@
-# Duxs - Node utilites for communicating with Ongoing WMS REST API
+# Duxs
+A Node library with some utilites for communicating with Ongoing WMS REST API
 
+> ⚠️ Work-in-Progess ⚠️
+>> Not for general usage.
 
 [Documentation](https://duxs.joaqim.com)
 
