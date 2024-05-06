@@ -1,34 +1,31 @@
-import { AxiosInstance } from "axios";
+import { AxiosInstance, AxiosResponse } from "axios";
 import { paths } from "..";
+/**
+ * Gets the keys of a type that match a specified value
+ *
+ * @template T The type to get the keys from
+ * @template V The value to check for in each key of T
+ */
+type KeyOfType<T, V> = keyof {
+    [P in keyof T as T[P] extends V ? P : never]: any;
+};
+type GetEndpoint = KeyOfType<paths, {
+    get: {
+        parameters: {
+            query: object;
+        };
+        responses: {
+            200: {
+                content: {
+                    "application/json": object;
+                };
+            };
+        };
+    };
+}>;
 declare class OngoingWMSClient {
     api: AxiosInstance;
     constructor(api_url: Readonly<string>, username: Readonly<string>, password: Readonly<string>);
-    getArticleItems(parameters: Readonly<paths["/api/v1/articleItems"]>): Promise<{
-        "application/json": {
-            articleSystemId?: number | undefined;
-            articleNumber?: string | null | undefined;
-            items?: {
-                batch?: string | null | undefined;
-                container?: string | null | undefined;
-                expiryDate?: string | null | undefined;
-                isLocked?: boolean | undefined;
-                isLockedForSale?: boolean | undefined;
-                location?: string | null | undefined;
-                numberOfItems?: number | undefined;
-                serial?: string | null | undefined;
-                status?: {
-                    code?: string | null | undefined;
-                    name?: string | null | undefined;
-                } | undefined;
-                comment?: string | null | undefined;
-                warehouse?: {
-                    id?: number | undefined;
-                    code?: string | null | undefined;
-                    name?: string | null | undefined;
-                } | undefined;
-                inDate?: string | undefined;
-            }[] | null | undefined;
-        }[] | null;
-    }>;
+    getAll<TEndpoint extends GetEndpoint, TParameters = paths[TEndpoint]["get"]["parameters"]["query"], TContent = paths[TEndpoint]["get"]["responses"][200]["content"]["application/json"]>(endpoint: TEndpoint, parameters: TParameters): Promise<AxiosResponse<TContent>>;
 }
 export default OngoingWMSClient;
