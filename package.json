@@ -1,6 +1,6 @@
 {
   "name": "duxs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "exports": {
     "node": {
@@ -12,7 +12,7 @@
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "files": [
-    "./dist/csj/index.js",
+    "./dist/cjs/index.js",
     "./dist/esm/index.js",
     "./dist/cjs/index.d.ts"
   ],
