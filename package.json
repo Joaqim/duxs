@@ -27,8 +27,7 @@
     "lint:fix": "eslint --ext .ts --fix src",
     "docs": "typedoc ./src --out ./docs --tsconfig tsconfig.json && touch ./docs/.nojekyll",
     "precommit": "npm build",
-    "prepush": "npm test",
-    "prepare": "husky install"
+    "prepush": "npm test"
   },
   "author": "Joaqim Planstedt",
   "license": "MIT",
@@ -48,7 +47,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-unicorn": "^47.0.0",
     "html-minifier-terser": "^7.0.0-alpha.2",
-    "husky": "^7.0.4",
     "mocha": "^9.2.2",
     "node": "16",
     "prettier": "^2.6.2",
