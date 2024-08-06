@@ -13,7 +13,7 @@ class OngoingWMSClient {
       baseURL: api_url,
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        //"Accept-Encoding": "gzip, deflate",
       },
       auth: {
         username,
