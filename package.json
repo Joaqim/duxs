@@ -1,0 +1,58 @@
+{
+  "name": "typescript-node-project",
+  "version": "0.0.1",
+  "description": "",
+  "exports": {
+    "node": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    },
+    "default": "./dist/esm/index.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "files": [
+    "./dist/**/*.js",
+    "./dist/cjs/*.d.ts"
+  ],
+  "scripts": {
+    "ts-types:esm": " tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm",
+    "ts-types:cjs": " tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "rimraf dist/esm && node ./esbuild.esm.js && npm run ts-types:esm",
+    "build:cjs": "rimraf dist/cjs && node ./esbuild.cjs.js && npm run ts-types:cjs",
+    "test": "ts-mocha -p tsconfig.test.json test/**/*.spec.ts",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "eslint --ext .ts --fix src",
+    "docs": "typedoc ./src --out ./docs",
+    "precommit": "npm build",
+    "prepush": "npm test"
+  },
+  "author": "Joaqim Planstedt",
+  "license": "MIT",
+  "engines": {
+    "node": "^24.*.*"
+  },
+  "mocha": {
+    "extension": [
+      "ts"
+    ],
+    "spec": "./test/**/*.spec.ts",
+    "require": "ts-node/register"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^26.4.0",
+    "chai": "^6.2.2",
+    "esbuild": "^0.28.2",
+    "mocha": "^11.8.0",
+    "prettier": "^3.9.6",
+    "rimraf": "^6.1.3",
+    "ts-mocha": "^11.1.0",
+    "typedoc": "^0.28.20",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.68.0"
+  }
+}

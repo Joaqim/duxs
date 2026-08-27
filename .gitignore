@@ -1,0 +1,11 @@
+/node_modules
+/docs/
+/dist/
+/result
+.direnv
+!.envrc
+
+yarn-error.log
+test/**/*.json
+!test/__mocks__/*
+*.tsbuildinfo
