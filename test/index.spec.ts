@@ -1,12 +1,10 @@
-import { expect } from "chai";
-
+import { test, assert} from "vitest";
 import * as lib from "../src";
-import { ExampleClass } from "../src/example";
+import { OngoingWMSClient, ArticlesApiV1 } from "../src";
 
-describe("Modules are exported", function () {
-  it("ExampleClass is exported", function () {
-    expect(lib.ExampleClass).to.equal(ExampleClass);
-    expect(lib.ExampleClass).to.not.be.null;
-    expect(lib.ExampleClass).to.not.be.undefined;
-  });
+test("Modules exported from lib", () => {
+  assert.isDefined(lib.OngoingWMSClient);
+  assert.deepEqual(lib.OngoingWMSClient, OngoingWMSClient);
+  assert.isDefined(ArticlesApiV1);
+  console.log(JSON.stringify({ArticlesApiV1, OngoingWMSClient}))
 });

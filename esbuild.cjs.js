@@ -8,5 +8,5 @@ esbuild.buildSync({
   bundle: true,
   sourcemap: false,
   minify: true,
-  target: ["chrome58", "firefox57", "safari11"],
+  target: ["chrome150", "firefox152", "safari26.5"],
 });

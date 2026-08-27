@@ -6,6 +6,7 @@ pkgs.mkShell {
   inputsFrom = [ package ];
   buildInputs = with pkgs; [
     just
+    npins
   ];
 
   shellHook = ''

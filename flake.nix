@@ -24,8 +24,10 @@
         );
     in
     {
-      packages = eachSystem (pkgs: {
-        default = import ./default.nix { inherit pkgs; };
+      packages = eachSystem (pkgs: rec {
+        split-swagger-file = import ./nix/split-swagger-file.nix { inherit pkgs; };
+        duxs = import ./default.nix { inherit pkgs; };
+        default = duxs;
       });
 
       devShells = eachSystem (pkgs: {

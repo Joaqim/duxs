@@ -11,8 +11,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "types": [
-      "mocha",
-      "chai",
+      "vitest",
       "node"
     ],
     "typeRoots": ["./node_modules/@types"]

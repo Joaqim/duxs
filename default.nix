@@ -16,7 +16,7 @@ pkgs.buildNpmPackage {
   pname = lib.strings.sanitizeDerivationName name;
 
   src = ./.;
-  npmDepsHash = "sha256-co2Z+wcDcHhr6RvPbYZR6nbcEdslHgqfvG7sjv8KTDM=";
+  npmDepsHash = "sha256-hK+umkjimSBChwH+yBNWFS8RyST8Dmtl9HPjnLIDUZk=";
 
   meta = with lib; {
     inherit description;
