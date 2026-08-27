@@ -1,35 +1,45 @@
 # Duxs
-A Node library with some utilites for communicating with Ongoing WMS REST API
+
+A simple CommonJS and ESM module using
+[openapi-typescript](https://openapi-ts.dev/) and
+[openapi-fetch](https://openapi-ts.dev/openapi-fetch/) with [Ongoing
+WMS](https://ongoingsystems.se) [Rest API Swagger/OpenAPI
+Specification](https://developer.ongoingwarehouse.com/REST/v1/index.html#/) to
+create a REST API client.
 
 > ⚠️ Work-in-Progess ⚠️
->> Not for general usage.
+>
+> > Not for general usage.
 
 [Documentation](https://duxs.joaqim.com)
 
 ## Installation
 
 ```bash
-npm i https://github.com/Undefined-Stories-AB/duxs.git
+npm i https://github.com/Joaqim/duxs.git
 ```
 
-## Example usage:
+## Example usage
+
 > NOTE: Top level async in node only works in certain environments.
 
 ```javascript
 import { OngoingWMSClient } from "duxs";
 
-const client = new OngoingWMSClient(
-  "https://example.com",
-  "username",
-  "password"
-);
+const client = new OngoingWMSClient({
+  BASE_URL: "https://example.com",
+  TOKEN: "<ONGOING WMS API TOKEN>",
+});
+
+const { articlesApiV1: articles } = client;
 
 (async () => {
-  const orders = await client.getAll("/api/v1/orders", {
-    goodsOwnerId: 72,
+  const { data, error } = await articles.getArticles({
+    goodsOwnerId: 123,
   });
-  orders.data.forEach((order) => console.log(order));
+  if (error) {
+    throw new Error(error);
+  }
+  console.log(JSON.stringify(data, null, 2));
 })();
-
 ```
-
