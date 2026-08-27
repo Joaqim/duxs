@@ -1,4 +1,3 @@
-import createClient from "openapi-fetch";
 import type { components, operations, paths } from "./gen/articles.d.ts";
 import { ClientWrapper } from "./utils";
 
