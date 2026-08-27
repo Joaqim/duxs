@@ -36,7 +36,6 @@ suite("Articles API V1", async () => {
       `${BASE_URL}/api/v1/articles/:articleSystemId`,
       (({ params }) => {
         const { articleSystemId } = params;
-        console.log('Handler', request.method, request.url)
         return HttpResponse.json({ 
           articleSystemId,
           ...mockArticle 
@@ -46,6 +45,8 @@ suite("Articles API V1", async () => {
 
   const client = createClient<paths>({
     baseUrl: BASE_URL,
+    // NOTE: use MSW's patched fetch, only required outside 'it', see 'beforeAll' 
+    fetch: (...args) => globalThis.fetch(...args),
   });
 
   const articles = new ArticlesApiV1(client);
