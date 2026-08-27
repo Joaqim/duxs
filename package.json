@@ -25,6 +25,8 @@
     "watch": "vitest",
     "lint": "eslint --ext .ts src",
     "lint:fix": "eslint --ext .ts --fix src",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "generate:articles": "npx openapi-typescript src/ongoing-wms-api/articles.json -o src/ongoing-wms-api/gen/articles.d.ts",
     "docs": "typedoc ./src --out ./docs",
     "precommit": "npm build",

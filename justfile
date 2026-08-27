@@ -20,13 +20,15 @@ install:
 test:
     {{ nix_shell }} npm test
 
-# Run eslint check
-check:
+# Run eslint & prettier check
+fmt-check:
     {{ nix_shell }} npm run lint
+    {{ nix_shell }} npm run format:check
 
-# Run eslint --fix
+# Run eslint --fix and prettier --write
 fmt:
     {{ nix_shell }} npm run lint:fix
+    {{ nix_shell }} npm run format
 
 # Remove all gitignored files
 clean:
