@@ -1,4 +1,4 @@
-name: Lint and test
+name: Lint, build and test
 
 on: [push, pull_request]
 
@@ -19,6 +19,6 @@ jobs:
         node-version: ${{ matrix.nodejs }}
 
     - run: npm ci
+    - run: npm run build
     - run: npm test
     - run: npm run lint
-    - run: npm run build
