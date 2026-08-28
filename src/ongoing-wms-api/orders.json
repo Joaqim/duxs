@@ -1,75 +1,11 @@
 {
-  "x-generator": "NSwag v13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v11.0.0.0))",
   "openapi": "3.0.0",
-  "info": {
-    "title": "Ongoing WMS Goods Owner REST API",
-    "version": "1.0.0",
-    "description": "Welcome to the documentation for Ongoing WMS Goods Owner REST API. [Ongoing WMS](https://ongoingwarehouse.com) is a cloud-based Warehouse Management System.\n\nThis API is intended to be used by people who wish to integrate systems such as a web shops or ERPs (Enterprise Resource Planning systems) with our WMS.\n\nPlease note that we have two other APIs as well:\n\n* [Goods Owner SOAP API](https://developer.ongoingwarehouse.com/). The SOAP API fills a similar role as the REST API, but allows for more fine-grained control over Ongoing WMS than the REST API.\n* [Automation API](https://developer.ongoingwarehouse.com/automation-api). This API is intended to be used for integrations with automation equipment such as conveyor belts.\n\nIf you are unsure about whether you should use the REST API or the SOAP API, [please click here](https://developer.ongoingwarehouse.com/soap-vs-rest) to read our comparison between the two APIs.\n\nIf you have any questions, please send us an email at [contact@ongoingwarehouse.com](mailto:contact@ongoingwarehouse.com).\n\n# REST API\n\n[REST](https://en.wikipedia.org/wiki/Representational_state_transfer), or `Representational state transfer`, is a software architectural style used for creating Application Programming Interfaces (APIs). Our API tries to follow best practices for REST.\n\n# How to use the API\n\nOn a basic level, the API consists of JSON requests and JSON replies being sent over HTTPS. To make it easier to use our API, we provide an [OpenAPI specification file](openapi.json) (formerly known as a Swagger specification file). Using this file you can use tools such as [Swagger CodeGen](https://swagger.io/tools/swagger-codegen/) or [NSwag](https://github.com/RicoSuter/NSwag) to automatically generate client code which lets you access the API.\n\n## Example C# integration\n\n[Click here](https://github.com/OngoingWarehouse/Ongoing-Warehouse-REST-API-DotNet-Examples) to see an  example integration written in C#. We used NSwag to generate a client for accessing the API, and then used the client to make various requests.\n\n## Example requests and responses\n\n[Click here](https://github.com/OngoingWarehouse/Ongoing-Warehouse-REST-API-Example-Requests) to see examples of what the requests and responses look like. The aforementioned link also contains a Postman collection of requests.\n\n## PUT and POST\n\nSome of our requests support PUT and some support POST. The difference between them is:\n* If you make a PUT request, then the resource will either be created (if it does not already exist), or updated (if it already exists).\n* If you make a POST request, a new resource will always be created.\n\nAs an example, to create a new order, you make a PUT request with a new order number. If you wish to update the same order, you make another PUT request (with the same order number).\n\n# Credentials\n\nTo integrate with our WMS, you will need the following:\n\n1. A user name.\n2. A password.\n3. A goods owner ID.\n\nPlease ask the warehouse administrator for this information. [We have written a guide](https://docs.ongoingwarehouse.com/manuals/api-access) which shows how they can find it.\n\n## Extension APIs\n\nIf you wish to perform a return of goods into a particular warehouse location, that requires access to an extension of this API, which we call the [Goods Owner Returns API](https://developer.ongoingwarehouse.com/REST/v1/Goods-Owner-Returns/index.html). The administrator of Ongoing WMS can activate this API on your API user by going to Administration->API for goods owner and checking 'Allow this user to access the Goods Owner Returns REST API.'\n\n## API URL\n\nEvery Ongoing WMS has its own unique URL for the API endpoint. The base API URL for a production system looks like this:\n\n```\nAPI URL: https://api.ongoingsystems.se/{warehouse}/api/v1/\n```\n\nAsk your contact person at the warehouse to specify what  ```{warehouse}``` should be in your particular case. ```{warehouse}``` can be taken from the  same URL which they use to login to the system:\n\n```\nLogin URL: https://{warehouse}.ongoingsystems.se/{warehouse}\n```\n\n### API URL for demo system\n\nIf you have a demo system, then the API URL is slightly different. It takes the following form::\n\n```\nAPI URL: https://wms1.ongoingsystems.se/{warehouse}/api/v1/\n```\n\n\n# Authentication\n\nThe API uses [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).\n\nEach request to the API must have a header called `Authorization`, which in turn must contain Base64-encoded information about your username and password, like so:\n\n```\nAuthorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l\n```\n\nIf the framework which you are using does not take care of this automatically, you will need to generate the header yourself. Take your username and password, and put them together in a new string with a colon between them. Then encode the result using [Base64](https://en.wikipedia.org/wiki/Base64). In pseudo code, it looks like this:\n\n```\nvar userNameAndPassword = Base64Encode(userName + \":\" + passWord);\nvar authenticationHeader = \"Basic \" + userNameAndPassword;\n```\n\n# Security\n\nAll requests to the API must be encrypted, that is, sent using `https`.\n\n# Content types\n\nThe API only accepts [JSON](https://en.wikipedia.org/wiki/JSON). All responses are also made as JSON.\n\n# Time zones\n\n## Response\n\nIn the API responses, all times are given as UTC, like so:\n\n```\n    \"createdDate\": \"2019-04-09T10:39:31.3Z\"\n```\n\n## Request\n\nWhen you send in times in API requests, we strongly recommend that it is sent as UTC and that you specify the UTC time zone.\n\nFor instance, say that you want to know which orders the warehouse has shipped after 08:00 UTC on April 9, 2019. The date should be written like this:\n\n```\n2019-04-09T08:00:00.000+00:00\n```\n\nThen it should be URL encoded:\n\n```\n2019-04-09T08%3A00%3A00.000%2B00%3A00\n```\n\nThus resulting in a request URL like this:\n\n```\nGET api/v1/orders?goodsOwnerId=114&shippedTimeFrom=2019-04-09T08%3A00%3A00.000%2B00%3A00\n```\n\n### Early dates\n\nNote that dates earlier than 1900 can not be stored in Ongoing WMS.\n\n### Searching by date and time \n\nWhen searching using a date and time, the resolution is 1 second. Anything less than 1 second will be ignored. As an example, searching for an inventory transaction that happened after 10:00.400 will be treated the same as searching for transactions which happened after 10:00.000.\n\n# Pagination\n\nWhen you read data from the API, the API by default responds with all objects which match your filter. If there are too many objects which match your filter, this may cause timeouts. For instance, if the goods owner has 100 000 articles and you try to fetch them all with GetInventoryByQuery at the same time, you will most likely encounter a timeout.\n\nWe recommend that you paginate the responses for every API function which supports it. [Click here to read more about how pagination is handled in our API.](https://developer.ongoingwarehouse.com/paginating-responses)\n\n# Entities\n\n## Goods owner\n\nThe clients of a warehouse are called goods owners. In other words, a goods owner is company which has hired a certain warehouse to deal with its warehousing needs. Each goods owner has a unique ID (an integer).\n\n## Article\n\nAn article is a stock-keeping unit (SKU). That is, articles are the things which a goods owner keeps at a warehouse. Each article needs a unique article number.\n\n### Stock balances\n\nBy making a GET request to the /articles endpoint, you will receive information about the inventory state for each article, in the section called `inventoryInfo`. The field called `sellableNumberOfItems` contains the number of items which can still be sold. If you create an order for an item, then the sellable number of items will be decreased accordingly. The field called `numberOfItems` contains the number of items which are physically present in the warehouse. If you are interested in more details, please see [this article](https://developer.ongoingwarehouse.com/inventory).\n\n## Article items\n\nAn article item represents part of the stock balance for a particular article. For instance, if the warehouse keeps the same article in two different locations, then the article will have at least two article items. For more information, [see this article](https://docs.ongoingwarehouse.com/manuals/batch-and-serial-numbers/).\n\nBy fetching all article items, you can see very detailed information about what is in stock. For instance, you can see exactly which batch numbers are in stock.\n\n## Order\n\nAn order is used to instruct the warehouse to ship articles to a specific customer. Each order needs a unique order number. You may not have two different orders with the same order number.\n\nYou may not update or cancel an order after the warehouse has started working on it.\n\n### Order lines\n\nAn order can have several order lines. For each order line, you must specify a unique number in the field `rowNumber`. If your system does not have a unique reference for each order line, you can simply use `1, 2, 3`, etc. as row numbers instead.\n\n### Transporter\n\nIt is possible to [set which transporter service should be used to ship an order](https://developer.ongoingwarehouse.com/transporters).\n\n## Purchase order\n\nA purchase order is used to advise the warehouse of incoming deliveries. Each purchase order needs a unique purchase order number.\n\nYou may not update or cancel a purchase order after the warehouse has started working on it.\n\n### Purchase order lines\n\nA purchase order can have several purchase order lines. For each purchase order line, you must specify a unique number in the field `rowNumber`. If your system does not have a unique reference for each purchase order line, you can simply use `1, 2, 3`, etc. as row numbers instead.\n\n## Return order\n\nA return order is used to advise the warehouse that a customer intends to send back goods to the warehouse. Each return order refers to a particular order.\n\n## Warehouse\n\nEach Ongoing WMS instance contains at least one warehouse.\n",
-    "contact": {
-      "name": "Ongoing WMS support",
-      "url": "https://developer.ongoingwarehouse.com/REST",
-      "email": "contact@ongoingwarehouse.com"
-    }
-  },
-  "tags": [
-    {
-      "name": "Articles",
-      "description": "The articles (SKUs) which are stored in the warehouse."
-    },
-    {
-      "name": "InventoryAdjustments",
-      "description": "Manual stock balance adjustments are made by the warehouse to correct stock balance errors."
-    },
-    {
-      "name": "Orders",
-      "description": "Orders are used to ship goods from the warehouse to customers."
-    },
-    {
-      "name": "PurchaseOrders",
-      "description": "Purchase orders are used to advise the warehouse of incoming deliveries."
-    },
-    {
-      "name": "TransporterContracts",
-      "description": "Describes which transporters are available to use when shipping goods to customers."
-    },
-    {
-      "name": "ArticleItems",
-      "description": "Gives detailed information about what is in stock. Use this if you, for instance, need to know exactly which batch numbers or serial numbers are in stock."
-    },
-    {
-      "name": "ReturnOrders",
-      "description": "Return orders are used to advise the warehouse that a customer intends to send back goods to the warehouse."
-    },
-    {
-      "name": "Warehouses",
-      "description": "Each Ongoing WMS instance can contain several warehouses."
-    }
-  ],
-  "servers": [
-    {
-      "url": "https://{apiServer}.ongoingsystems.se/{warehouse}/",
-      "variables": {
-        "warehouse": {
-          "default": "apidemo",
-          "description": "The name of the warehouse."
-        },
-        "apiServer": {
-          "default": "api",
-          "enum": ["api", "wms1"],
-          "description": "For production systems, this value should be 'api'. For demo systems, it should be 'wms1'."
-        }
-      }
-    }
-  ],
-  "security": [
-    {
-      "basicAuth": []
-    }
-  ],
   "paths": {
     "/api/v1/orders/{orderId}/parcels/{parcelId}": {
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Deletes a parcel. A parcel can only be deleted if it is empty.",
         "operationId": "Orders_DeleteParcel",
         "parameters": [
@@ -110,7 +46,9 @@
         }
       },
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update a parcel on an order.",
         "operationId": "Orders_PutParcelUsingId",
         "parameters": [
@@ -166,7 +104,9 @@
     },
     "/api/v1/orders/{orderId}/parcels": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update a parcel on an order.",
         "operationId": "Orders_PutParcel",
         "parameters": [
@@ -211,7 +151,9 @@
     },
     "/api/v1/orders/{orderId}/orderTracking": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update a waybill on an order.",
         "operationId": "Orders_PutOrderTracking",
         "parameters": [
@@ -256,7 +198,9 @@
     },
     "/api/v1/orders/{orderId}/parcels/{parcelId}/parcelTracking": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update tracking on a parcel.",
         "operationId": "Orders_PutParcelTracking",
         "parameters": [
@@ -312,7 +256,9 @@
     },
     "/api/v1/orders/wayOfDeliveryTypes": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all order way of delivery types.",
         "operationId": "Orders_GetWayOfDeliveryTypes",
         "parameters": [
@@ -342,7 +288,9 @@
         }
       },
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update a way of delivery type. If there is no way of delivery type with the specified code, it will be created. Otherwise, the existing way of delivery type will be updated.",
         "operationId": "Orders_PutWayOfDeliveryType",
         "requestBody": {
@@ -374,7 +322,9 @@
     },
     "/api/v1/orders/pickability": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Gets the pickability statuses of orders. Please note that it is more efficient to make one request with several orders, rather than making one request per order. The possible pickabilites are \"Ok\", \"ByPriority\", \"NotByPriority\", \"NotOk\" and \"NothingToAllocate\"",
         "operationId": "Orders_GetPickability",
         "parameters": [
@@ -469,7 +419,9 @@
     },
     "/api/v1/orders/wayOfDeliveryTypes/{wayOfDeliveryTypeId}": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update a way of delivery type. The ID will be used to identify the way of delivery type.",
         "operationId": "Orders_PutWayOfDeliveryTypeUsingId",
         "parameters": [
@@ -512,7 +464,9 @@
         }
       },
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Delete a way of delivery type.",
         "operationId": "Orders_DeleteWayOfDeliveryType",
         "parameters": [
@@ -544,7 +498,9 @@
     },
     "/api/v1/orders/classes": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all order classes.",
         "operationId": "Orders_GetOrderClasses",
         "parameters": [
@@ -575,7 +531,9 @@
     },
     "/api/v1/orders/statuses": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all order statuses.",
         "operationId": "Orders_GetOrderStatuses",
         "responses": {
@@ -594,7 +552,9 @@
     },
     "/api/v1/orders/types": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all order types for a particular goods owner.",
         "operationId": "Orders_GetOrderTypes",
         "parameters": [
@@ -625,7 +585,9 @@
     },
     "/api/v1/orders/{orderId}": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get an order.",
         "operationId": "Orders_Get",
         "parameters": [
@@ -655,7 +617,9 @@
         }
       },
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update an order. Note that you are not allowed to update an order after the warehouse has started working on it.",
         "operationId": "Orders_PutOrderUsingOrderId",
         "parameters": [
@@ -698,7 +662,9 @@
         }
       },
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Cancel an order. You can only cancel an order if the warehouse has not started working on it.",
         "operationId": "Orders_Delete",
         "parameters": [
@@ -730,7 +696,9 @@
     },
     "/api/v1/orders": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all orders which match the specified search criteria.",
         "operationId": "Orders_GetAll",
         "parameters": [
@@ -1219,7 +1187,9 @@
         }
       },
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update an order. If there is no order with the specified order number, it will be created. Otherwise, the existing order will be updated. Note that you are not allowed to update an order after the warehouse has started working on it.",
         "operationId": "Orders_PutOrder",
         "requestBody": {
@@ -1259,7 +1229,9 @@
         }
       },
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Cancel an order using the order number. You can only cancel an order if the warehouse has not started working on it.",
         "operationId": "Orders_DeleteByOrderNumber",
         "parameters": [
@@ -1302,7 +1274,9 @@
     },
     "/api/v1/orders/{orderId}/wayBillRows": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all waybill rows for an order.",
         "operationId": "Orders_GetWayBillRows",
         "parameters": [
@@ -1336,7 +1310,9 @@
         }
       },
       "post": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create a waybill row.",
         "operationId": "Orders_PostWayBillRow",
         "parameters": [
@@ -1381,7 +1357,9 @@
     },
     "/api/v1/orders/{orderId}/wayBillRows/{wayBillRowId}": {
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Deletes a waybill row.",
         "operationId": "Orders_DeleteWaybillRow",
         "parameters": [
@@ -1422,7 +1400,9 @@
         }
       },
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update waybill row.",
         "operationId": "Orders_PatchWayBillRow",
         "parameters": [
@@ -1478,7 +1458,9 @@
     },
     "/api/v1/orders/{orderId}/invoiceCharges": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all invoice charges for an order. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
         "operationId": "Orders_GetInvoiceCharges",
         "parameters": [
@@ -1514,7 +1496,9 @@
     },
     "/api/v1/orders/{orderId}/files": {
       "get": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Get all files which are attached to a specific order.",
         "operationId": "Orders_GetFiles",
         "parameters": [
@@ -1548,7 +1532,9 @@
         }
       },
       "post": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create a new file and attach it to an order.",
         "operationId": "Orders_Post",
         "parameters": [
@@ -1591,7 +1577,9 @@
         }
       },
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update a file which is attached to an order. The filename will be used to check if the file already exists.",
         "operationId": "Orders_PutFileUsingFilename",
         "parameters": [
@@ -1647,7 +1635,9 @@
     },
     "/api/v1/orders/{orderId}/files/{fileId}": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update a file which is attached to an order.",
         "operationId": "Orders_PutFile",
         "parameters": [
@@ -1701,7 +1691,9 @@
         }
       },
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Delete a file which is attached to an order.",
         "operationId": "Orders_DeleteFile",
         "parameters": [
@@ -1744,7 +1736,9 @@
     },
     "/api/v1/orders/{orderId}/orderNumber": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the order number of an existing order. Note that the system will not verify that the order number is unique.",
         "operationId": "Orders_PatchOrderNumber",
         "parameters": [
@@ -1789,7 +1783,9 @@
     },
     "/api/v1/orders/{orderId}/goodsOwnerOrderId": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the Goods Owner Order-ID of an existing order.",
         "operationId": "Orders_PatchGoodsOwnerOrderId",
         "parameters": [
@@ -1834,7 +1830,9 @@
     },
     "/api/v1/orders/{orderId}/classes": {
       "delete": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Delete all order classes from an existing order.",
         "operationId": "Orders_DeleteOrderClasses",
         "parameters": [
@@ -1876,7 +1874,9 @@
     },
     "/api/v1/orders/{orderId}/setOrderClasses": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Set order classes on an existing order. If the order has any other classes which you don't send, they will be deleted from the order.",
         "operationId": "Orders_PatchSetOrderClasses",
         "parameters": [
@@ -1921,7 +1921,9 @@
     },
     "/api/v1/orders/{orderId}/addOrderClasses": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Add order classes to an existing order.",
         "operationId": "Orders_PatchAddOrderClasses",
         "parameters": [
@@ -1966,7 +1968,9 @@
     },
     "/api/v1/orders/{orderId}/transporter": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the transporter of an existing order.",
         "operationId": "Orders_PatchOrderTransporterCode",
         "parameters": [
@@ -2009,7 +2013,9 @@
     },
     "/api/v1/orders/{orderId}/returnWaybill": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the return waybill of an existing order.",
         "operationId": "Orders_PatchReturnWaybill",
         "parameters": [
@@ -2054,7 +2060,9 @@
     },
     "/api/v1/orders/{orderId}/servicePointCode": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the service point code of an existing order.",
         "operationId": "Orders_PatchServicePointCode",
         "parameters": [
@@ -2099,7 +2107,9 @@
     },
     "/api/v1/orders/{orderId}/orderStatus": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the status of an order. Note that if the warehouse has allocated goods to the order, then it's possible that this call will fail.",
         "operationId": "Orders_PatchOrderStatus",
         "parameters": [
@@ -2144,7 +2154,9 @@
     },
     "/api/v1/orders/{orderId}/waybill": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the waybill of an existing order.",
         "operationId": "Orders_PatchWaybill",
         "parameters": [
@@ -2189,7 +2201,9 @@
     },
     "/api/v1/orders/{orderId}/deliveryDate": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the delivery date of an existing order.",
         "operationId": "Orders_PatchDeliveryDate",
         "parameters": [
@@ -2238,7 +2252,9 @@
     },
     "/api/v1/orders/{orderId}/orderRemark": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the remark of an existing order.",
         "operationId": "Orders_PatchOrderRemark",
         "parameters": [
@@ -2283,7 +2299,9 @@
     },
     "/api/v1/orders/{orderId}/warehouseInstruction": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the warehouse instruction of an existing order.",
         "operationId": "Orders_PatchOrderWarehouseInstruction",
         "parameters": [
@@ -2328,7 +2346,9 @@
     },
     "/api/v1/orders/{orderId}/setReportedNumberOfItemsToPickedNumberOfItems": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Sets the reported number of items on each order line to the picked number of items.",
         "operationId": "Orders_PatchSetReportedNumberOfItemsToPickedNumberOfItems",
         "parameters": [
@@ -2360,7 +2380,9 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/reportedNumberOfItems": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the reported number of items on a particular order line.",
         "operationId": "Orders_PatchReportedNumberOfItems",
         "parameters": [
@@ -2416,7 +2438,9 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/customerLinePrice": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the customer line price on a particular order line.",
         "operationId": "Orders_PatchCustomerLinePrice",
         "parameters": [
@@ -2472,7 +2496,9 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/comment": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the comment on a particular order line.",
         "operationId": "Orders_PatchOrderLineComment",
         "parameters": [
@@ -2528,7 +2554,9 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/linePrice": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the line price on a particular order line.",
         "operationId": "Orders_PatchLinePrice",
         "parameters": [
@@ -2584,7 +2612,9 @@
     },
     "/api/v1/orders/{orderId}/setReportedReturnedNumberOfItemsToReturnedNumberOfItems": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Sets the reported returned number of items on each order line to the returned number of items.",
         "operationId": "Orders_PatchSetReportedReturnedNumberOfItemsToReturnedNumberOfItems",
         "parameters": [
@@ -2625,7 +2655,9 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/reportedReturnedNumberOfItems": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the reported returned number of items on a particular order line.",
         "operationId": "Orders_PatchReportedReturnedNumberOfItems",
         "parameters": [
@@ -2682,7 +2714,9 @@
     },
     "/api/v1/orders/{orderId}/orderTextLines": {
       "put": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Create or update an order text line on an order. The row number will be used to check if the order text line already exists.",
         "operationId": "Orders_PutOrderTextLineUsingRowNumber",
         "parameters": [
@@ -2727,7 +2761,9 @@
     },
     "/api/v1/orders/{orderId}/freeText1": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the free text 1 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText1",
         "parameters": [
@@ -2772,7 +2808,9 @@
     },
     "/api/v1/orders/{orderId}/freeText2": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the free text 2 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText2",
         "parameters": [
@@ -2817,7 +2855,9 @@
     },
     "/api/v1/orders/{orderId}/freeText3": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the free text 3 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText12",
         "parameters": [
@@ -2862,7 +2902,9 @@
     },
     "/api/v1/orders/{orderId}/freightPrice": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the freight price of existing order.",
         "operationId": "Orders_PatchFreightPrice",
         "parameters": [
@@ -2907,7 +2949,9 @@
     },
     "/api/v1/orders/{orderId}/consigneeAndOrderNotifications": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update the consignee and notifications of an existing order.",
         "operationId": "Orders_PatchConsigneeAndOrderNotifications",
         "parameters": [
@@ -2952,7 +2996,9 @@
     },
     "/api/v1/orders/{orderId}/invoiceUrl": {
       "patch": {
-        "tags": ["Orders"],
+        "tags": [
+          "Orders"
+        ],
         "summary": "Update invoice URL",
         "operationId": "Orders_PatchOrderInvoiceUrl",
         "parameters": [
@@ -3048,7 +3094,10 @@
       "PostParcelTypeModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["parcelNumber", "transportAdministrationType"],
+        "required": [
+          "parcelNumber",
+          "transportAdministrationType"
+        ],
         "properties": {
           "parcelNumber": {
             "type": "string",
@@ -3079,7 +3128,11 @@
       "PostOrderTrackingModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["waybill", "trackingUrl", "isReturnTracking"],
+        "required": [
+          "waybill",
+          "trackingUrl",
+          "isReturnTracking"
+        ],
         "properties": {
           "waybill": {
             "type": "string",
@@ -3110,7 +3163,11 @@
       "PostParcelTrackingModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["waybill", "trackingUrl", "isReturnTracking"],
+        "required": [
+          "waybill",
+          "trackingUrl",
+          "isReturnTracking"
+        ],
         "properties": {
           "waybill": {
             "type": "string",
@@ -3128,7 +3185,11 @@
       "PostWayOfDeliveryTypeModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["goodsOwnerId", "code", "name"],
+        "required": [
+          "goodsOwnerId",
+          "code",
+          "name"
+        ],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -3631,7 +3692,10 @@
       "PostWayBillRowModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["numberOfPackages", "parcelType"],
+        "required": [
+          "numberOfPackages",
+          "parcelType"
+        ],
         "properties": {
           "numberOfPackages": {
             "type": "integer",
@@ -3820,7 +3884,11 @@
       "PostFileModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["fileName", "mimeType", "fileDataBase64"],
+        "required": [
+          "fileName",
+          "mimeType",
+          "fileDataBase64"
+        ],
         "properties": {
           "fileName": {
             "type": "string",
@@ -3852,7 +3920,10 @@
       "PostFileNoFilenameModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["mimeType", "fileDataBase64"],
+        "required": [
+          "mimeType",
+          "fileDataBase64"
+        ],
         "properties": {
           "mimeType": {
             "type": "string",
@@ -3922,7 +3993,9 @@
       "PatchOrderNumberModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["orderNumber"],
+        "required": [
+          "orderNumber"
+        ],
         "properties": {
           "orderNumber": {
             "type": "string",
@@ -3948,7 +4021,9 @@
       "PatchGoodsOwnerOrderIdModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["goodsOwnerOrderId"],
+        "required": [
+          "goodsOwnerOrderId"
+        ],
         "properties": {
           "goodsOwnerOrderId": {
             "type": "string"
@@ -3993,7 +4068,9 @@
       "PatchOrderReturnWaybill": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["returnWaybill"],
+        "required": [
+          "returnWaybill"
+        ],
         "properties": {
           "returnWaybill": {
             "type": "string",
@@ -4005,7 +4082,9 @@
       "PatchServicePointCode": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["servicePointCode"],
+        "required": [
+          "servicePointCode"
+        ],
         "properties": {
           "servicePointCode": {
             "type": "string",
@@ -4016,7 +4095,9 @@
       "PatchOrderStatus": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["orderStatusNumber"],
+        "required": [
+          "orderStatusNumber"
+        ],
         "properties": {
           "orderStatusNumber": {
             "type": "integer",
@@ -4027,7 +4108,9 @@
       "PatchOrderWaybill": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["waybill"],
+        "required": [
+          "waybill"
+        ],
         "properties": {
           "waybill": {
             "type": "string",
@@ -4039,7 +4122,9 @@
       "PatchOrderDeliveryDate": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["deliveryDate"],
+        "required": [
+          "deliveryDate"
+        ],
         "properties": {
           "deliveryDate": {
             "type": "string",
@@ -4051,7 +4136,9 @@
       "PatchOrderRemark": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["orderRemark"],
+        "required": [
+          "orderRemark"
+        ],
         "properties": {
           "orderRemark": {
             "type": "string",
@@ -4062,7 +4149,9 @@
       "PatchOrderWarehouseInstruction": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["warehouseInstruction"],
+        "required": [
+          "warehouseInstruction"
+        ],
         "properties": {
           "warehouseInstruction": {
             "type": "string",
@@ -4073,7 +4162,9 @@
       "PatchOrderReportedNumberOfItemsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["reportedNumberOfItems"],
+        "required": [
+          "reportedNumberOfItems"
+        ],
         "properties": {
           "reportedNumberOfItems": {
             "type": "number",
@@ -4095,7 +4186,9 @@
       "PatchOrderLineCommentModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["comment"],
+        "required": [
+          "comment"
+        ],
         "properties": {
           "comment": {
             "type": "string"
@@ -4116,7 +4209,9 @@
       "PatchOrderReportedReturnedNumberOfItemsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["reportedReturnedNumberOfItems"],
+        "required": [
+          "reportedReturnedNumberOfItems"
+        ],
         "properties": {
           "reportedReturnedNumberOfItems": {
             "type": "number",
@@ -4127,7 +4222,9 @@
       "PutOrderTextLineModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["rowNumber"],
+        "required": [
+          "rowNumber"
+        ],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -4164,7 +4261,9 @@
       "PatchOrderFreeText1Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["freeText1"],
+        "required": [
+          "freeText1"
+        ],
         "properties": {
           "freeText1": {
             "type": "string"
@@ -4174,7 +4273,9 @@
       "PatchOrderFreeText2Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["freeText2"],
+        "required": [
+          "freeText2"
+        ],
         "properties": {
           "freeText2": {
             "type": "string"
@@ -4184,7 +4285,9 @@
       "PatchOrderFreeText3Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["freeText3"],
+        "required": [
+          "freeText3"
+        ],
         "properties": {
           "freeText3": {
             "type": "string"
@@ -4227,7 +4330,9 @@
       "PatchOrderInvoiceUrlModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["invoiceUrl"],
+        "required": [
+          "invoiceUrl"
+        ],
         "properties": {
           "invoiceUrl": {
             "type": "string",
@@ -4284,7 +4389,10 @@
       "PostParcelTrackingInParcelModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["waybill", "trackingUrl"],
+        "required": [
+          "waybill",
+          "trackingUrl"
+        ],
         "properties": {
           "waybill": {
             "type": "string",
@@ -4497,7 +4605,10 @@
       "PostOrderLine": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["rowNumber", "articleNumber"],
+        "required": [
+          "rowNumber",
+          "articleNumber"
+        ],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -6406,7 +6517,9 @@
       "PostOrderLineVat": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["code"],
+        "required": [
+          "code"
+        ],
         "properties": {
           "code": {
             "type": "string",
@@ -6455,7 +6568,9 @@
       "PostOrderTextLine": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["rowNumber"],
+        "required": [
+          "rowNumber"
+        ],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -6474,7 +6589,9 @@
       "PostOrderAdditionalAddress": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["addressCode"],
+        "required": [
+          "addressCode"
+        ],
         "properties": {
           "addressCode": {
             "type": "string",
@@ -7274,7 +7391,9 @@
       "PatchOrderTransporterConsigneePays": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["customerNumber"],
+        "required": [
+          "customerNumber"
+        ],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7285,7 +7404,9 @@
       "PatchOrderTransporterThirdPartyPays": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["customerNumber"],
+        "required": [
+          "customerNumber"
+        ],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7451,7 +7572,9 @@
       "PostOrderTransporterConsigneePays": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["customerNumber"],
+        "required": [
+          "customerNumber"
+        ],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7462,7 +7585,9 @@
       "PostOrderTransporterThirdPartyPays": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["customerNumber"],
+        "required": [
+          "customerNumber"
+        ],
         "properties": {
           "customerNumber": {
             "type": "string",

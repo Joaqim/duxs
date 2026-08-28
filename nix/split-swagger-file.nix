@@ -5,8 +5,8 @@
 }:
 let
   pythonScriptFile = pkgs.fetchurl {
-    url = "https://github.com/SuperOffice/devnet-split-swagger-file/raw/refs/heads/main/src/parse-swagger.py";
-    hash = "sha256-2vkbzCCQyIrjvEWfAACnjC1lVn0iDASDpgPkrzStvwQ=";
+    url = "https://github.com/Joaqim/devnet-split-swagger-file/raw/refs/heads/output-minimally-viable-spec/src/parse-swagger.py";
+    hash = "sha256-yTcr54Rsni1IRuuPb1a0/mSGk2fQ5jlM+RKppdjP3X4=";
   };
 in
 pkgs.writeShellScriptBin "split-swagger-file" ''
