@@ -6,7 +6,7 @@ default:
     @just --list
 
 # Prepare repo for development
-prepare: install build
+prepare: install generate build
 
 # NPM build
 build:
@@ -15,6 +15,11 @@ build:
 # NPM install
 install:
     {{ nix_shell }} npm install
+
+# Codegen
+generate:
+    {{ nix_shell }} node ./scripts/codegen.mts all
+
 
 # Run just tests
 test:
