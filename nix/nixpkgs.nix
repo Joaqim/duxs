@@ -8,6 +8,6 @@ args:
 nixpkgs (
   args
   // {
-    overlays = args.overlays or [ ];
+    overlays = (args.overlays or [ ]) ++ [ (import ./overlay.nix) ];
   }
 )

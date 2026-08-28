@@ -10,13 +10,33 @@ let
   license = lib.findFirst (l: (l.spdxId or null) == packageJSON.license) null (
     lib.attrValues lib.licenses
   );
+
+  # See: ./nix/packages/openapi-typescript
+  openapi-typescript = pkgs.openapi-typescript; # or pkgs.callPackage (import ./nix/packages/openapi-typescript) { };
 in
 pkgs.buildNpmPackage {
   inherit version;
   pname = lib.strings.sanitizeDerivationName name;
 
+  nativeBuildInputs = [
+    openapi-typescript
+  ];
+
   src = ./.;
-  npmDepsHash = "sha256-hK+umkjimSBChwH+yBNWFS8RyST8Dmtl9HPjnLIDUZk=";
+  npmDepsHash = "sha256-2UOsB9DxozwUzgyDLddfFzFeL6Vm7a5XNzIMjBqtgt4=";
+
+  postPatch = ''
+    # Using local openapi-typescript for compilation
+    substituteInPlace ./scripts/codegen.mts --replace-fail '"npx", ["openapi-typescript",' '"openapi-typescript", ['
+  '';
+  buildPhase = ''
+    runHook preBuild
+
+    npm run generate:all
+    npm run build
+
+    runHook postBuild
+  '';
 
   meta = with lib; {
     inherit description;
