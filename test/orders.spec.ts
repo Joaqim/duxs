@@ -12,8 +12,8 @@ import {
   test,
 } from "vitest";
 
-import { ArticlesApiV1 } from "../dist/esm/index.js";
-import type { paths } from "../src/ongoing-wms-api/gen/articles.d.ts";
+import { OrdersApiV1 } from "../dist/esm/index.js";
+import type { paths } from "../src/ongoing-wms-api/gen/orders.d.ts";
 import { typedHttp } from "./utils.ts";
 
 const server = setupServer();
@@ -33,18 +33,18 @@ beforeAll(() => {
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-suite("Articles API V1", async () => {
-  const mockArticle = {
-    articleSystemId: 54321,
+suite("Orders API V1", async () => {
+  const mockOrder = {
+    orderId: 54321,
   };
   server.use(
-    typedHttp.get<{ articleSystemId: number }>(
-      `${BASE_URL}/api/v1/articles/:articleSystemId`,
-      ({ articleSystemId }) => {
+    typedHttp.get<{ orderId: number }>(
+      `${BASE_URL}/api/v1/orders/:orderId`,
+      ({ orderId }) => {
         return HttpResponse.json(
           {
-            ...mockArticle,
-            articleSystemId,
+            ...mockOrder,
+            orderId,
           },
           { status: 200 },
         );
@@ -59,14 +59,14 @@ suite("Articles API V1", async () => {
     fetch: (...args) => globalThis.fetch(...args),
   });
 
-  const articles = new ArticlesApiV1(client);
+  const orders = new OrdersApiV1(client);
 
-  it("Can fetch Articles", async () => {
-    const { data, error } = await articles.getArticleBySystemId(12345);
+  it("Can fetch Orders", async () => {
+    const { data, error } = await orders.getOrder(12345);
 
     expect(data).toEqual({
-      ...mockArticle,
-      articleSystemId: 12345,
+      ...mockOrder,
+      orderId: 12345,
     });
     expect(error).toBeUndefined();
   });
