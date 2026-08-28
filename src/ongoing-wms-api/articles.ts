@@ -4,7 +4,10 @@ import type {
   GetArticlesParameterQuery,
   PostArticleModel,
 } from "./types/articles.types.ts";
-import type { PostFileNoFilenameModel, PostFileModel } from "./types/shared.types.ts";
+import type {
+  PostFileNoFilenameModel,
+  PostFileModel,
+} from "./types/shared.types.ts";
 import { ClientWrapper } from "./utils";
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {
