@@ -1,6 +1,7 @@
-/node_modules
-/docs/
+node_modules
 /dist/
+/example/dist
+/docs/
 /result
 .direnv
 !.envrc
