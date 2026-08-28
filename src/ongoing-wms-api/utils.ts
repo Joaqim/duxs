@@ -11,10 +11,8 @@ export class ClientWrapper<T extends object> {
           request.headers.set("Accept", "application/json");
           return request;
         },
-        onResponse({ response, request }) {
+        onResponse({ response }) {
           if (!response.ok) {
-            console.log(request, null, 2);
-            console.log(response, null, 2);
             throw new Error(
               `${response.url}: ${response.status} ${response.statusText}`,
             );
