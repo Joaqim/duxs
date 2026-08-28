@@ -15,7 +15,7 @@
     "alwaysStrict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "declaration": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

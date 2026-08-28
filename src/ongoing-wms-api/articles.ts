@@ -1,15 +1,11 @@
-import type { components, operations, paths } from "./gen/articles.d.ts";
+import type { paths } from "./gen/articles.d.ts";
+import type {
+  GetArticlesByQueryModel,
+  GetArticlesParameterQuery,
+  PostArticleModel,
+} from "./types/articles.types.ts";
+import type { PostFileNoFilenameModel, PostFileModel } from "./types/shared.types.ts";
 import { ClientWrapper } from "./utils";
-
-export type PostArticleModel = components["schemas"]["PostArticleModel"];
-export type PostFileNoFilenameModel =
-  components["schemas"]["PostFileNoFilenameModel"];
-export type PostFileModel = components["schemas"]["PostFileModel"];
-export type GetArticlesByQueryModel =
-  components["schemas"]["GetArticlesByQueryModel"];
-
-export type GetArticlesParameterQuery =
-  operations["Articles_GetAll"]["parameters"]["query"];
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {
   getArticleBySystemId(articleSystemId: number) {

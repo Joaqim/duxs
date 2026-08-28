@@ -27,7 +27,9 @@
     "lint:fix": "eslint --ext .ts --fix src",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "generate:client": "npx openapi-typescript src/ongoing-wms-api/client.json -o src/ongoing-wms-api/gen/client.d.ts",
     "generate:articles": "npx openapi-typescript src/ongoing-wms-api/articles.json -o src/ongoing-wms-api/gen/articles.d.ts",
+    "generate:orders": "npx openapi-typescript src/ongoing-wms-api/orders.json -o src/ongoing-wms-api/gen/orders.d.ts",
     "docs": "typedoc ./src --out ./docs",
     "precommit": "npm build",
     "prepush": "npm test"
