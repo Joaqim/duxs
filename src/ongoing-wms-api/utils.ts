@@ -9,7 +9,6 @@ export class ClientWrapper<T extends object> {
         onRequest({ request }) {
           request.headers.set("Authorization", `Basic ${token}`);
           request.headers.set("Accept", "application/json");
-          request.headers.set("User-Agent", "@primepack/duxs");
           return request;
         },
         onResponse({ response, request }) {
