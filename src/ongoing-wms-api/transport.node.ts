@@ -40,10 +40,13 @@ export const transport: FetchLike = async (input, init) => {
             }
           }
           resolve(
-            new Response(res.statusCode === 204 ? null : Buffer.concat(chunks), {
-              status: res.statusCode,
-              headers,
-            }),
+            new Response(
+              res.statusCode === 204 ? null : Buffer.concat(chunks),
+              {
+                status: res.statusCode,
+                headers,
+              },
+            ),
           );
         });
       },

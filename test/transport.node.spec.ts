@@ -42,9 +42,9 @@ it("sends title-cased headers in Headers iteration order on the wire", async () 
   const response = await transport(request);
   expect(response.status).toBe(200);
 
-  // WHATWG Headers iterate lexicographically; the transport must put them
-  // on the wire in that same order, with conventional casing restored.
-  // Independent re-implementation of the expected transform:
+  /* WHATWG Headers iterate lexicographically; the transport must put them on
+   * the wire in that same order, with conventional casing restored.
+   * Independent re-implementation of the expected transform: */
   const expected = [...request.headers].flatMap(([name, value]) => [
     name
       .split("-")
@@ -74,5 +74,7 @@ it("sends the Request body and round-trips the response", async () => {
   );
   expect(response.status).toBe(200);
   expect(await response.json()).toEqual({ ok: true });
-  expect(observed[observed.length - 1].url).toContain('body={"articleSystemId":7}');
+  expect(observed[observed.length - 1].url).toContain(
+    'body={"articleSystemId":7}',
+  );
 });

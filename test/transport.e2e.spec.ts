@@ -2,7 +2,6 @@ import type { AddressInfo } from "node:net";
 import { createServer, type Server } from "node:http";
 import { afterAll, beforeAll, expect, it } from "vitest";
 
-// Built artifact, not src: proves the esbuild alias fired post-build.
 import { OngoingWMSClient } from "../dist/esm/index.node.js";
 
 let server: Server;
@@ -32,19 +31,28 @@ it("OngoingWMSClient delivers title-cased ordered headers via the node artifact"
   expect(error).toBeUndefined();
   expect(data).toEqual({ articleSystemId: 1 });
 
-  // Wire headers must appear title-cased, in the WHATWG Headers iteration
-  // order (lexicographic) — undici's global fetch would send them lowercase.
+  /* Wire headers must appear title-cased, in the WHATWG Headers iteration
+   * order (lexicographic) — undici's global fetch would send them lowercase. */
   const raw = observed[observed.length - 1].rawHeaders;
-  const ours = new Set(["Accept", "Accept-Encoding", "Authorization", "User-Agent"]);
+  const ours = new Set([
+    "Accept",
+    "Accept-Encoding",
+    "Authorization",
+    "User-Agent",
+  ]);
   const filtered: string[] = [];
   for (let i = 0; i < raw.length; i += 2) {
     if (ours.has(raw[i])) filtered.push(raw[i], raw[i + 1]);
   }
   expect(filtered).toEqual([
-    "Accept", "application/json",
-    "Accept-Encoding", "identity",
-    "Authorization", "Basic token",
-    "User-Agent", "@primepack/duxs",
+    "Accept",
+    "application/json",
+    "Accept-Encoding",
+    "identity",
+    "Authorization",
+    "Basic token",
+    "User-Agent",
+    "@primepack/duxs",
   ]);
   expect(raw).not.toContain("authorization");
   expect(raw).not.toContain("user-agent");
