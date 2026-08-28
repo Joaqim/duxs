@@ -26,7 +26,7 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  createOrUpdateArticle(body: PostArticleModel) {
+  putArticle(body: PostArticleModel) {
     return this.client.PUT("/api/v1/articles", {
       body,
     });
@@ -53,7 +53,7 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  createOrUpdateArticlesFile(
+  putArticlesFile(
     articleSystemId: number,
     body: PostFileNoFilenameModel,
     fileName: string | null,

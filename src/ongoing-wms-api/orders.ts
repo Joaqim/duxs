@@ -45,7 +45,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createOrUpdateParcel(orderId: number, body: PostParcelTypeModel) {
+  putParcel(orderId: number, body: PostParcelTypeModel) {
     return this.client.PUT("/api/v1/orders/{orderId}/parcels", {
       params: {
         path: {
@@ -55,7 +55,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  createOrUpdateOrderTracking(orderId: number, body: PostOrderTrackingModel) {
+  putOrderTracking(orderId: number, body: PostOrderTrackingModel) {
     return this.client.PUT("/api/v1/orders/{orderId}/orderTracking", {
       params: {
         path: {
@@ -65,7 +65,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  createOrUpdateParcelTracking(
+  putParcelTracking(
     orderId: number,
     parcelId: number,
     body: PostParcelTrackingModel,
@@ -118,7 +118,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createOrUpdateOrder(body: PostOrderModel) {
+  putOrder(body: PostOrderModel) {
     return this.client.PUT("/api/v1/orders", {
       body,
     });
@@ -192,7 +192,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createOrUpdateFileByName(
+  putFileByName(
     orderId: number,
     fileName: string | null,
     body: PostFileNoFilenameModel,
@@ -209,7 +209,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  createOrUpdateFileById(orderId: number, fileId: number, body: PostFileMode) {
+  putFileById(orderId: number, fileId: number, body: PostFileMode) {
     return this.client.PUT("/api/v1/orders/{orderId}/files/{fileId}", {
       params: {
         path: {
