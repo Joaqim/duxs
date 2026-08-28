@@ -1,1 +1,1 @@
-export * from "./ongoing-wms-api";
+export * from "./ongoing-wms-api/index.js";

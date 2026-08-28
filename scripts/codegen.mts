@@ -19,7 +19,7 @@ const SPECS: Record<string, SpecConfig> = {
 
 const createSpecPath = ({ specFile }: SpecConfig) => `${BASE}/${specFile}`;
 
-async function downloadSpec(name: string, config: SpecConfig): Promise<string> {
+async function downloadSpec(name: string, config: SpecConfig): Promise<void> {
   const specPath = createSpecPath(config);
   console.log(`Fetching ${name} spec from ${config.url}`);
   const data = await fetchJson.get(config.url);
@@ -125,7 +125,7 @@ async function generateAllAliasFiles(): Promise<void> {
   if (sharedNames.size > 0) {
     const usedSpecs = [...new Set(canonicalSourceOf.values())].sort();
     const importLines = usedSpecs.map(
-      (specName) => `import type { components as ${toAlias(specName)} } from "./${specName}";`,
+      (specName) => `import type { components as ${toAlias(specName)} } from "./${specName}.js";`,
     );
     const typeLines = [...sharedNames].sort().map((name) => {
       const specName = canonicalSourceOf.get(name)!;
@@ -174,7 +174,7 @@ async function generateAllAliasFiles(): Promise<void> {
       "//",
       `// Types below are unique to the ${specName} spec (not shared with any other spec).`,
       "",
-      `import type { components as ${alias} } from "./${specName}";`,
+      `import type { components as ${alias} } from "./${specName}.js";`,
       "",
       ...localNames.map(
         (name) => `export type ${name} = ${alias}["schemas"]["${name}"];`,

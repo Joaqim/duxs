@@ -9,6 +9,6 @@ export default defineConfig({
     },
   },
   test: {
-    exclude: ["node_modules", ".direnv"],
+    exclude: ["**/node_modules/**", "**/.direnv/**", "example/**"],
   },
 });

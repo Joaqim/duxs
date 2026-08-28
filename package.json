@@ -5,9 +5,14 @@
   "exports": {
     ".": {
       "node": {
-        "types": "./dist/esm/index.d.ts",
-        "import": "./dist/esm/index.node.js",
-        "require": "./dist/esm/index.node.js"
+        "import": {
+          "types": "./dist/esm/index.d.ts",
+          "default": "./dist/esm/index.node.js"
+        },
+        "require": {
+          "types": "./dist/cjs/index.d.ts",
+          "default": "./dist/cjs/index.js"
+        }
       },
       "default": {
         "types": "./dist/esm/index.d.ts",
@@ -21,13 +26,13 @@
   "files": [
     "./dist/**/*.js",
     "./dist/**/*.js.map",
-    "./dist/cjs/*.d.ts",
+    "./dist/cjs/**/*.d.ts",
     "./dist/esm/**/*.d.ts",
     "./dist/esm/package.json"
   ],
   "scripts": {
-    "ts-types:esm": " tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm",
-    "ts-types:cjs": " tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs",
+    "ts-types:esm": "tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm && cp src/ongoing-wms-api/gen/*.d.ts dist/esm/ongoing-wms-api/gen/",
+    "ts-types:cjs": "tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs && cp src/ongoing-wms-api/gen/*.d.ts dist/cjs/ongoing-wms-api/gen/",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "rimraf dist/esm && node ./esbuild.esm.js && npm run ts-types:esm",
     "build:cjs": "rimraf dist/cjs && node ./esbuild.cjs.js && npm run ts-types:cjs",
@@ -50,13 +55,15 @@
   "engines": {
     "node": "^24.*.*"
   },
+  "dependencies": {
+    "openapi-fetch": "^0.17.0"
+  },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^26.4.0",
     "esbuild": "^0.28.2",
     "fetch-json": "^3.5.3",
     "msw": "^2.15.0",
-    "openapi-fetch": "^0.17.0",
     "prettier": "^3.9.6",
     "rimraf": "^6.1.3",
     "ts-node": "^10.9.2",

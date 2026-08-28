@@ -1,16 +1,16 @@
-import type { paths } from "./gen/articles.d.ts";
+import type { paths } from "./gen/articles.js";
 import type {
   GetArticlesByQueryModel,
   PostArticleModel,
-} from "./gen/articles.types";
+} from "./gen/articles.types.js";
 import type {
   PostFileNoFilenameModel,
   PostFileModel,
-} from "./gen/shared.types";
+} from "./gen/shared.types.js";
 import type {
   GetArticlesParameterQuery
-} from "./types/articles.types";
-import { ClientWrapper } from "./utils";
+} from "./types/articles.types.js";
+import { ClientWrapper } from "./utils.js";
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {
   getArticleBySystemId(articleSystemId: number) {
