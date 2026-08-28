@@ -19,6 +19,7 @@ jobs:
           node-version: ${{ matrix.nodejs }}
 
       - run: npm ci
+      - run: npm run generate:all
       - run: npm run build
       - run: npm test
       - run: npm run lint
