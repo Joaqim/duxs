@@ -1,13 +1,15 @@
 import type { paths } from "./gen/articles.d.ts";
 import type {
   GetArticlesByQueryModel,
-  GetArticlesParameterQuery,
   PostArticleModel,
-} from "./types/articles.types.ts";
+} from "./gen/articles.types";
 import type {
   PostFileNoFilenameModel,
   PostFileModel,
-} from "./types/shared.types.ts";
+} from "./gen/shared.types";
+import type {
+  GetArticlesParameterQuery
+} from "./types/articles.types";
 import { ClientWrapper } from "./utils";
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {

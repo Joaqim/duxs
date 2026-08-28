@@ -5,9 +5,7 @@ import {
   PostOrderTrackingModel,
   PostParcelTrackingModel,
   PostOrderModel,
-  OrdersGetAllParamsQuery,
   PostWayBillRowModel,
-  PostFileMode,
   PatchOrderNumberModel,
   PatchOrderTransporterModel,
   PatchOrderReturnWaybill,
@@ -15,8 +13,14 @@ import {
   PatchOrderWaybill,
   PatchOrderDeliveryDate,
   PatchFreightPrice,
-} from "./types/orders.types.js";
-import type { PostFileNoFilenameModel } from "./types/shared.types.ts";
+} from "./gen/orders.types";
+import type { 
+  PostFileModel,
+  PostFileNoFilenameModel
+} from "./gen/shared.types";
+import type {
+  OrdersGetAllParamsQuery,
+} from "./types/orders.types";
 import { ClientWrapper } from "./utils";
 
 export class OrdersApiV1 extends ClientWrapper<paths> {
@@ -209,7 +213,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  putFileById(orderId: number, fileId: number, body: PostFileMode) {
+  putFileById(orderId: number, fileId: number, body: PostFileModel) {
     return this.client.PUT("/api/v1/orders/{orderId}/files/{fileId}", {
       params: {
         path: {
@@ -230,7 +234,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createFile(orderId: number, body: PostFileMode) {
+  createFile(orderId: number, body: PostFileModel) {
     return this.client.POST("/api/v1/orders/{orderId}/files", {
       params: {
         path: {
