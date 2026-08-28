@@ -1,7 +1,4 @@
 import dotenv from "dotenv";
-// Works: 
-// import { OngoingWMSClient } from "../dist/esm/index.node.js";
-// Does not:  Module '"duxs"' has no exported member 'OngoingWMSClient'.
 import { OngoingWMSClient } from "duxs";
 
 dotenv.config({ quiet: true });
