@@ -19,7 +19,7 @@ const SPECS: Record<string, SpecConfig> = {
 const createSpecPath = ({ specFile }: SpecConfig) => `${BASE}/${specFile}`;
 
 async function downloadSpec(name: string, config: SpecConfig): Promise<string> {
-  const specPath = createSpecPath(config)
+  const specPath = createSpecPath(config);
   console.log(`Fetching ${name} spec from ${config.url}`);
   const data = await fetchJson.get(config.url);
   return await writeFile(specPath, JSON.stringify(data, null, 2));
@@ -39,7 +39,9 @@ function generateTypes(name: string, specPath: string): void {
 async function run(name: string): Promise<void> {
   const config = SPECS[name];
   if (!config) {
-    console.error(`Unknown spec "${name}". Available: ${Object.keys(SPECS).join(", ")}`);
+    console.error(
+      `Unknown spec "${name}". Available: ${Object.keys(SPECS).join(", ")}`,
+    );
     process.exit(1);
   }
   const specPath = createSpecPath(config);
