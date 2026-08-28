@@ -7,9 +7,9 @@ export class ClientWrapper<T extends object> {
     if (token) {
       this.client.use({
         onRequest({ request }) {
-          request.headers.set('Authorization', `Basic ${token}`);
+          request.headers.set("Authorization", `Basic ${token}`);
           return request;
-        }
+        },
       });
     }
   }

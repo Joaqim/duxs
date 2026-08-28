@@ -4,9 +4,7 @@
     "outDir": "out/spec",
     "target": "ES6",
     "module": "ES6",
-    "lib": [
-      "ES6"
-    ],
+    "lib": ["ES6"],
     "sourceMap": true,
     "strict": true,
     "strictFunctionTypes": true,
@@ -24,28 +22,15 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "dist",
-    "**/*.spec.ts",
-  ],
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["dist", "**/*.spec.ts"],
   "typedocOptions": {
     "out": "docs",
     "entryPoints": "src/index.ts",
-    "exclude": [
-      "test/**/*.ts",
-      "node_modules",
-    ]
+    "exclude": ["test/**/*.ts", "node_modules"]
   }
 }

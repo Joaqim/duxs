@@ -2,45 +2,48 @@ import type { components, operations, paths } from "./gen/articles.d.ts";
 import { ClientWrapper } from "./utils";
 
 export type PostArticleModel = components["schemas"]["PostArticleModel"];
-export type PostFileNoFilenameModel = components["schemas"]["PostFileNoFilenameModel"];
+export type PostFileNoFilenameModel =
+  components["schemas"]["PostFileNoFilenameModel"];
 export type PostFileModel = components["schemas"]["PostFileModel"];
-export type GetArticlesByQueryModel = components["schemas"]["GetArticlesByQueryModel"];
+export type GetArticlesByQueryModel =
+  components["schemas"]["GetArticlesByQueryModel"];
 
-export type GetArticlesParameterQuery = operations["Articles_GetAll"]["parameters"]["query"];
+export type GetArticlesParameterQuery =
+  operations["Articles_GetAll"]["parameters"]["query"];
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {
   getArticleBySystemId(articleSystemId: number) {
     return this.client.GET("/api/v1/articles/{articleSystemId}", {
       params: {
-        path: { articleSystemId }
-      }
+        path: { articleSystemId },
+      },
     });
   }
   updateArticleBySystemId(articleSystemId: number, body: PostArticleModel) {
     return this.client.PUT("/api/v1/articles/{articleSystemId}", {
       params: {
-        path: { articleSystemId }
+        path: { articleSystemId },
       },
-      body
+      body,
     });
   }
   createOrUpdateArticle(body: PostArticleModel) {
     return this.client.PUT("/api/v1/articles", {
-      body
+      body,
     });
   }
   getArticles(query: GetArticlesParameterQuery) {
     return this.client.GET("/api/v1/articles", {
       params: {
-        query
-      }
+        query,
+      },
     });
   }
   getArticlesFiles(articleSystemId: number) {
     return this.client.GET("/api/v1/articles/{articleSystemId}/files", {
       params: {
-        path: { articleSystemId }
-      }
+        path: { articleSystemId },
+      },
     });
   }
   createArticlesFile(articleSystemId: number, body: PostFileModel) {
@@ -48,29 +51,40 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       params: {
         path: { articleSystemId },
       },
-      body
+      body,
     });
   }
-  createOrUpdateArticlesFile(articleSystemId: number, body: PostFileNoFilenameModel, fileName: string | null) {
+  createOrUpdateArticlesFile(
+    articleSystemId: number,
+    body: PostFileNoFilenameModel,
+    fileName: string | null,
+  ) {
     return this.client.PUT("/api/v1/articles/{articleSystemId}/files", {
       params: {
         path: { articleSystemId },
-        query: { fileName }
+        query: { fileName },
       },
-      body
+      body,
     });
   }
-  updateArticleFilyById(articleSystemId: number, fileId: number, body: PostFileModel) {
-    return this.client.PUT("/api/v1/articles/{articleSystemId}/files/{fileId}", {
-      params: {
-        path: { articleSystemId, fileId },
+  updateArticleFilyById(
+    articleSystemId: number,
+    fileId: number,
+    body: PostFileModel,
+  ) {
+    return this.client.PUT(
+      "/api/v1/articles/{articleSystemId}/files/{fileId}",
+      {
+        params: {
+          path: { articleSystemId, fileId },
+        },
+        body,
       },
-      body
-    });
+    );
   }
   getArticlesByQuery(body: GetArticlesByQueryModel) {
     return this.client.POST("/api/v1/articles/byQuery", {
-      body
+      body,
     });
   }
 }

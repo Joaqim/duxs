@@ -55,10 +55,7 @@
         },
         "apiServer": {
           "default": "api",
-          "enum": [
-            "api",
-            "wms1"
-          ],
+          "enum": ["api", "wms1"],
           "description": "For production systems, this value should be 'api'. For demo systems, it should be 'wms1'."
         }
       }
@@ -72,9 +69,7 @@
   "paths": {
     "/api/v1/articles/{articleSystemId}": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get an article.",
         "operationId": "Articles_Get",
         "parameters": [
@@ -104,9 +99,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update an existing article. Note that the articleSystemId refers to Ongoing WMS' internal ID for the article.",
         "operationId": "Articles_Put",
         "parameters": [
@@ -151,9 +144,7 @@
     },
     "/api/v1/articles/{articleSystemId}/files": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all files which are attached to a specific article.",
         "operationId": "Articles_GetFiles",
         "parameters": [
@@ -187,9 +178,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Create a new file and attach it to the specified article.",
         "operationId": "Articles_Post",
         "parameters": [
@@ -232,9 +221,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Create or update a file which is attached to an article. The filename will be used to check if the file already exists.",
         "operationId": "Articles_PutFileUsingFilename",
         "parameters": [
@@ -290,9 +277,7 @@
     },
     "/api/v1/articles/{articleSystemId}/files/{fileId}": {
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update a file which is attached to an article.",
         "operationId": "Articles_Put2",
         "parameters": [
@@ -348,9 +333,7 @@
     },
     "/api/v1/articles": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all articles which match the specified search criteria. The search criteria are specified in the query parameters.",
         "operationId": "Articles_GetAll",
         "parameters": [
@@ -560,9 +543,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Create or update an article. If no article with the specified article number exists, it will be created. Otherwise, it will be updated.",
         "operationId": "Articles_Put3",
         "requestBody": {
@@ -594,9 +575,7 @@
     },
     "/api/v1/articles/byQuery": {
       "post": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all articles which match the specified search criteria. The search criteria are specified in the request body.",
         "operationId": "Articles_GetArticlesByQuery",
         "requestBody": {
@@ -632,9 +611,7 @@
     },
     "/api/v1/articles/historicalInventory": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get the historical stock balances for all articles at a specific time in the past.",
         "operationId": "Articles_GetHistoricalInventory",
         "parameters": [
@@ -691,9 +668,7 @@
     },
     "/api/v1/articles/inventoryPerWarehouse": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get inventory info (specified per warehouse) for the articles which match the filter.",
         "operationId": "Articles_GetInventoryPerWarehouse",
         "parameters": [
@@ -822,9 +797,7 @@
     },
     "/api/v1/articles/{articleSystemId}/dangerousGoods": {
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update the dangerous goods info of an article. Note that the UN number must exist in Ongoing WMS before any articles can be set to that UN number.",
         "operationId": "Articles_PutDangerousGoods",
         "parameters": [
@@ -867,9 +840,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get dangerous goods info for an article.",
         "operationId": "Articles_GetDangerousGoods",
         "parameters": [
@@ -901,9 +872,7 @@
     },
     "/api/v1/articles/dangerousGoods": {
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update the dangerous goods info of an article via the article number.",
         "operationId": "Articles_PutDangerousGoodsByArticleNumber",
         "requestBody": {
@@ -932,9 +901,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get dangerous goods info for articles, using article numbers.",
         "operationId": "Articles_GetDangerousGoodsByArticleNumber",
         "parameters": [
@@ -984,9 +951,7 @@
     },
     "/api/v1/articles/{articleSystemId}/structureDefinition": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all structure rows for structure articles and production articles.",
         "operationId": "Articles_GetStructureRows",
         "parameters": [
@@ -1018,9 +983,7 @@
     },
     "/api/v1/articles/structureDefinitions": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all structure rows for structure articles and production articles, by using article numbers.",
         "operationId": "Articles_GetStructureRowsByArticleNumber",
         "parameters": [
@@ -1081,9 +1044,7 @@
     },
     "/api/v1/articles/classes": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all article classes.",
         "operationId": "Articles_GetArticleClasses",
         "parameters": [
@@ -1112,9 +1073,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Create or update an article class. If there is no article class with the specified code, it will be created. Otherwise, the existing article class will be updated.",
         "operationId": "Articles_PutArticleClass",
         "requestBody": {
@@ -1146,9 +1105,7 @@
     },
     "/api/v1/articles/classes/{articleClassId}": {
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update an article class. The ID will be used to identify the article class.",
         "operationId": "Articles_PutArticleClassUsingId",
         "parameters": [
@@ -1191,9 +1148,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Delete an article class. This will affect any articles which have previously been assigned to the class.",
         "operationId": "Articles_DeleteArticleClass",
         "parameters": [
@@ -1225,9 +1180,7 @@
     },
     "/api/v1/articles/{articleSystemId}/classes": {
       "put": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Set the classes on an article.",
         "operationId": "Articles_SetArticleClasses",
         "parameters": [
@@ -1272,9 +1225,7 @@
     },
     "/api/v1/articles/{articleSystemId}/storageClass": {
       "patch": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Update storage class.",
         "operationId": "Articles_PatchStorageClass",
         "parameters": [
@@ -1317,9 +1268,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Delete storage class from an article.",
         "operationId": "Articles_DeleteStorageClass",
         "parameters": [
@@ -1351,9 +1300,7 @@
     },
     "/api/v1/articles/groups": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all article groups.",
         "operationId": "Articles_GetArticleGroups",
         "parameters": [
@@ -1384,9 +1331,7 @@
     },
     "/api/v1/articles/categories": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get all article categories.",
         "operationId": "Articles_GetArticleCategories",
         "parameters": [
@@ -1417,9 +1362,7 @@
     },
     "/api/v1/articles/{articleSystemId}/materials": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get article materials for a specific article.",
         "operationId": "Articles_GetArticleMaterials",
         "parameters": [
@@ -1456,9 +1399,7 @@
     },
     "/api/v1/articles/materials": {
       "get": {
-        "tags": [
-          "Articles"
-        ],
+        "tags": ["Articles"],
         "summary": "Get article materials for several articles at the same time.",
         "operationId": "Articles_GetManyArticleMaterials",
         "parameters": [
@@ -1536,10 +1477,7 @@
       "PostArticleModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "articleNumber"
-        ],
+        "required": ["goodsOwnerId", "articleNumber"],
         "properties": {
           "articleGroup": {
             "nullable": true,
@@ -2180,11 +2118,7 @@
       "PostFileModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "fileName",
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["fileName", "mimeType", "fileDataBase64"],
         "properties": {
           "fileName": {
             "type": "string",
@@ -2216,10 +2150,7 @@
       "PostFileNoFilenameModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["mimeType", "fileDataBase64"],
         "properties": {
           "mimeType": {
             "type": "string",
@@ -2289,9 +2220,7 @@
       "GetArticlesByQueryModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId"
-        ],
+        "required": ["goodsOwnerId"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -2408,9 +2337,7 @@
       "PostArticleDangerousGoodsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "unNumber"
-        ],
+        "required": ["unNumber"],
         "properties": {
           "unNumber": {
             "type": "string",
@@ -2490,11 +2417,7 @@
       "PostArticleDangerousGoodsByArticleNumberModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "articleNumber",
-          "dangerousGoods"
-        ],
+        "required": ["goodsOwnerId", "articleNumber", "dangerousGoods"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -2537,11 +2460,7 @@
       "PostArticleClassModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "code",
-          "name"
-        ],
+        "required": ["goodsOwnerId", "code", "name"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -2595,9 +2514,7 @@
       "PortArticleArticleClassesModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "articleClassIds"
-        ],
+        "required": ["articleClassIds"],
         "properties": {
           "articleClassIds": {
             "type": "array",
@@ -2611,9 +2528,7 @@
       "PatchArticleStorageClassModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "storageClassName"
-        ],
+        "required": ["storageClassName"],
         "properties": {
           "storageClassName": {
             "type": "string",
@@ -2901,9 +2816,7 @@
       "PostArticleStorageClass": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "name"
-        ],
+        "required": ["name"],
         "properties": {
           "name": {
             "type": "string",
@@ -3705,21 +3618,13 @@
       "PostArticleStructureKind": {
         "type": "string",
         "description": "",
-        "x-enumNames": [
-          "Structure",
-          "Production"
-        ],
-        "enum": [
-          "Structure",
-          "Production"
-        ]
+        "x-enumNames": ["Structure", "Production"],
+        "enum": ["Structure", "Production"]
       },
       "PostArticleStructureRow": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "articleNumber"
-        ],
+        "required": ["articleNumber"],
         "properties": {
           "articleNumber": {
             "type": "string",
@@ -3734,10 +3639,7 @@
       "PostArticleTaricNumber": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "countryCode",
-          "taricNumber"
-        ],
+        "required": ["countryCode", "taricNumber"],
         "properties": {
           "countryCode": {
             "type": "string",
@@ -3783,10 +3685,7 @@
       "PostArticleClassDirectlyToArticle": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "code",
-          "name"
-        ],
+        "required": ["code", "name"],
         "properties": {
           "code": {
             "type": "string",
@@ -3805,14 +3704,8 @@
       "PostArticleClassHandlingMode": {
         "type": "string",
         "description": "",
-        "x-enumNames": [
-          "Add",
-          "Set"
-        ],
-        "enum": [
-          "Add",
-          "Set"
-        ]
+        "x-enumNames": ["Add", "Set"],
+        "enum": ["Add", "Set"]
       },
       "PostArticleZoneInfo": {
         "type": "object",
@@ -4017,16 +3910,8 @@
       "YesNoDontKnow": {
         "type": "string",
         "description": "",
-        "x-enumNames": [
-          "DontKnow",
-          "Yes",
-          "No"
-        ],
-        "enum": [
-          "DontKnow",
-          "Yes",
-          "No"
-        ]
+        "x-enumNames": ["DontKnow", "Yes", "No"],
+        "enum": ["DontKnow", "Yes", "No"]
       },
       "GetArticleDefinitionMaterialModel": {
         "type": "object",
@@ -4173,16 +4058,8 @@
       "PostArticleSupplierOperation": {
         "type": "string",
         "description": "",
-        "x-enumNames": [
-          "CreateOrUpdate",
-          "Find",
-          "CreateOrFind"
-        ],
-        "enum": [
-          "CreateOrUpdate",
-          "Find",
-          "CreateOrFind"
-        ]
+        "x-enumNames": ["CreateOrUpdate", "Find", "CreateOrFind"],
+        "enum": ["CreateOrUpdate", "Find", "CreateOrFind"]
       },
       "PostArticleAlternativeSupplierInfoAdvanced": {
         "type": "object",
