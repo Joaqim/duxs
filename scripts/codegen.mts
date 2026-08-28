@@ -100,7 +100,9 @@ async function generateAllAliasFiles(): Promise<void> {
 
     if (!allIdentical) {
       const specsInvolved = list.map((entry) => entry.specName).join(", ");
-      conflicts.push(`  - "${schemaName}" differs across specs: ${specsInvolved}`);
+      conflicts.push(
+        `  - "${schemaName}" differs across specs: ${specsInvolved}`,
+      );
       continue;
     }
 
@@ -125,11 +127,15 @@ async function generateAllAliasFiles(): Promise<void> {
   if (sharedNames.size > 0) {
     const usedSpecs = [...new Set(canonicalSourceOf.values())].sort();
     const importLines = usedSpecs.map(
-      (specName) => `import type { components as ${toAlias(specName)} } from "./${specName}.js";`,
+      (specName) =>
+        `import type { components as ${toAlias(specName)} } from "./${specName}.js";`,
     );
     const typeLines = [...sharedNames].sort().map((name) => {
       const specName = canonicalSourceOf.get(name)!;
-      const allSpecs = occurrences.get(name)!.map((e) => e.specName).sort();
+      const allSpecs = occurrences
+        .get(name)!
+        .map((e) => e.specName)
+        .sort();
       return [
         `// present identically in: ${allSpecs.join(", ")}`,
         `export type ${name} = ${toAlias(specName)}["schemas"]["${name}"];`,
@@ -148,10 +154,14 @@ async function generateAllAliasFiles(): Promise<void> {
       "",
     ].join("\n");
 
-    console.log(`Writing ${sharedNames.size} shared type(s) -> ${SHARED_TYPES_PATH}`);
+    console.log(
+      `Writing ${sharedNames.size} shared type(s) -> ${SHARED_TYPES_PATH}`,
+    );
     await writeFile(SHARED_TYPES_PATH, content);
   } else {
-    console.log("No identical cross-spec schemas found; skipping shared.types.ts");
+    console.log(
+      "No identical cross-spec schemas found; skipping shared.types.ts",
+    );
   }
 
   // 3. Write one alias file per spec, for every schema NOT already in shared.types.ts.
@@ -164,7 +174,9 @@ async function generateAllAliasFiles(): Promise<void> {
     const outputPath = `${BASE}/gen/${specName}.types.ts`;
 
     if (localNames.length === 0) {
-      console.log(`No spec-specific schemas for ${specName}; skipping ${outputPath}`);
+      console.log(
+        `No spec-specific schemas for ${specName}; skipping ${outputPath}`,
+      );
       continue;
     }
 
@@ -182,7 +194,9 @@ async function generateAllAliasFiles(): Promise<void> {
       "",
     ].join("\n");
 
-    console.log(`Writing ${localNames.length} spec-specific type(s) -> ${outputPath}`);
+    console.log(
+      `Writing ${localNames.length} spec-specific type(s) -> ${outputPath}`,
+    );
     await writeFile(outputPath, content);
   }
 }

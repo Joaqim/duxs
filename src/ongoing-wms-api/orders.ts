@@ -14,13 +14,11 @@ import {
   PatchOrderDeliveryDate,
   PatchFreightPrice,
 } from "./gen/orders.types.js";
-import type { 
-  PostFileModel,
-  PostFileNoFilenameModel
-} from "./gen/shared.types.js";
 import type {
-  OrdersGetAllParamsQuery,
-} from "./types/orders.types.js";
+  PostFileModel,
+  PostFileNoFilenameModel,
+} from "./gen/shared.types.js";
+import type { OrdersGetAllParamsQuery } from "./types/orders.types.js";
 import { ClientWrapper } from "./utils.js";
 
 export class OrdersApiV1 extends ClientWrapper<paths> {

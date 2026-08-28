@@ -14,23 +14,23 @@ const { articlesApiV1: articles, ordersApiV1: orders } = new OngoingWMSClient({
   TOKEN: ONGOING_WMS_TOKEN,
 });
 articles.getArticleBySystemId(123456).then(({ data, error }) => {
-  if(error) {
-    console.error(`Failed to fetch article`)
-    console.error(error)
-    return
+  if (error) {
+    console.error(`Failed to fetch article`);
+    console.error(error);
+    return;
   }
   console.log(`Fetched article with id: ${data.articleSystemId}`);
 });
 
 orders.getOrder(12345).then(({ data, error }) => {
-  if(error) {
-    console.error(`Failed to fetch order.`)
-    console.error(error)
-    return
+  if (error) {
+    console.error(`Failed to fetch order.`);
+    console.error(error);
+    return;
   }
   if (!data?.orderInfo) {
     console.error(`Order has no order info.`);
-    return
+    return;
   }
   console.log(`Fetched order with id: ${data.orderInfo.orderId}`);
 });

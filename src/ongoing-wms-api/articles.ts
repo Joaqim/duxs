@@ -7,9 +7,7 @@ import type {
   PostFileNoFilenameModel,
   PostFileModel,
 } from "./gen/shared.types.js";
-import type {
-  GetArticlesParameterQuery
-} from "./types/articles.types.js";
+import type { GetArticlesParameterQuery } from "./types/articles.types.js";
 import { ClientWrapper } from "./utils.js";
 
 export class ArticlesApiV1 extends ClientWrapper<paths> {
