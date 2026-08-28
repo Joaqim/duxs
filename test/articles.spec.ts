@@ -12,7 +12,7 @@ import {
   test,
 } from "vitest";
 
-import { ArticlesApiV1 } from "../dist/esm/index.js";
+import { ArticlesApiV1 } from "../dist/esm/index.node.js";
 import type { paths } from "../src/ongoing-wms-api/gen/articles.d.ts";
 import { typedHttp } from "./utils.ts";
 

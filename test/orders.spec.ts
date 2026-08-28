@@ -12,7 +12,7 @@ import {
   test,
 } from "vitest";
 
-import { OrdersApiV1 } from "../dist/esm/index.js";
+import { OrdersApiV1 } from "../dist/esm/index.node.js";
 import type { paths } from "../src/ongoing-wms-api/gen/orders.d.ts";
 import { typedHttp } from "./utils.ts";
 

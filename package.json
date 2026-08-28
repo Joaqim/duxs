@@ -3,17 +3,27 @@
   "version": "0.0.1",
   "description": "",
   "exports": {
-    "node": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js"
+    ".": {
+      "node": {
+        "types": "./dist/esm/index.d.ts",
+        "import": "./dist/esm/index.node.js",
+        "require": "./dist/esm/index.node.js"
+      },
+      "default": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.browser.js"
+      }
     },
-    "default": "./dist/esm/index.js"
+    "./package.json": "./package.json"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
   "files": [
     "./dist/**/*.js",
-    "./dist/cjs/*.d.ts"
+    "./dist/**/*.js.map",
+    "./dist/cjs/*.d.ts",
+    "./dist/esm/**/*.d.ts",
+    "./dist/esm/package.json"
   ],
   "scripts": {
     "ts-types:esm": " tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm",
@@ -43,6 +53,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^26.4.0",
+    "dotenv": "^17.4.2",
     "esbuild": "^0.28.2",
     "fetch-json": "^3.5.3",
     "msw": "^2.15.0",
