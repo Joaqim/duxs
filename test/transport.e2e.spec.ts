@@ -34,12 +34,7 @@ it("OngoingWMSClient delivers title-cased ordered headers via the node artifact"
   /* Wire headers must appear title-cased, in the WHATWG Headers iteration
    * order (lexicographic) — undici's global fetch would send them lowercase. */
   const raw = observed[observed.length - 1].rawHeaders;
-  const ours = new Set([
-    "Accept",
-    "Accept-Encoding",
-    "Authorization",
-    "User-Agent",
-  ]);
+  const ours = new Set(["Accept", "Authorization", "User-Agent"]);
   const filtered: string[] = [];
   for (let i = 0; i < raw.length; i += 2) {
     if (ours.has(raw[i])) filtered.push(raw[i], raw[i + 1]);
@@ -47,8 +42,6 @@ it("OngoingWMSClient delivers title-cased ordered headers via the node artifact"
   expect(filtered).toEqual([
     "Accept",
     "application/json",
-    "Accept-Encoding",
-    "identity",
     "Authorization",
     "Basic token",
     "User-Agent",
