@@ -2,6 +2,9 @@ name: Lint, build and test
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   lint_and_test:
     runs-on: ubuntu-latest
