@@ -2,12 +2,12 @@ const esbuild = require("esbuild");
 const fs = require("node:fs");
 const path = require("node:path");
 
-// Rewrites ./transport.js imports to the node implementation for the node
+// Rewrites "./transport" imports to the node implementation for the node
 // ESM invocation only; browser/CJS builds resolve the default transport.ts.
 const transportAliasNode = {
   name: "transport-alias-node",
   setup(build) {
-    build.onResolve({ filter: /transport\.js$/ }, () => ({
+    build.onResolve({ filter: /transport$/ }, () => ({
       path: path.resolve(__dirname, "src/ongoing-wms-api/transport.node.ts"),
     }));
   },
