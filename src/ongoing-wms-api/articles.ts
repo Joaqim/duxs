@@ -9,7 +9,7 @@ import type {
 } from "./gen/shared.types";
 import type { GetArticlesParameterQuery } from "./types/articles.types";
 
-import { ClientWrapper, ExtractFetchResponse } from "./utils";
+import { ClientWrapper } from "./utils";
 export class ArticlesApiV1 extends ClientWrapper<paths> {
   getArticleBySystemId(articleSystemId: number) {
     return this.client.GET("/api/v1/articles/{articleSystemId}", {
