@@ -1,6 +1,6 @@
 import { request as httpRequest } from "node:http";
 import { request as httpsRequest } from "node:https";
-import type { FetchLike } from "./transport.js";
+import type { FetchLike } from "./transport";
 
 // WHATWG Headers iteration lowercases names, and the Ongoing WMS endpoint is
 // sensitive to header casing; reconstruct conventional title-case before

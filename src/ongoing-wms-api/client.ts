@@ -1,11 +1,11 @@
-import type { paths as articlesPath } from "./gen/articles.js";
-import type { paths as ordersPath } from "./gen/orders.js";
+import type { paths as articlesPath } from "./gen/articles";
+import type { paths as ordersPath } from "./gen/orders";
 
 import createClient from "openapi-fetch";
-import { transport } from "./transport.js";
-import { ClientWrapper } from "./utils.js";
-import { ArticlesApiV1 } from "./articles.js";
-import { OrdersApiV1 } from "./orders.js";
+import { transport } from "./transport";
+import { ClientWrapper } from "./utils";
+import { ArticlesApiV1 } from "./articles";
+import { OrdersApiV1 } from "./orders";
 
 export class OngoingWMSClient extends ClientWrapper<articlesPath & ordersPath> {
   public articlesApiV1: ArticlesApiV1;

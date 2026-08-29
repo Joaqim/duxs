@@ -1,15 +1,15 @@
-import type { paths } from "./gen/articles.js";
+import type { paths } from "./gen/articles";
 import type {
   GetArticlesByQueryModel,
   PostArticleModel,
-} from "./gen/articles.types.js";
+} from "./gen/articles.types";
 import type {
   PostFileNoFilenameModel,
   PostFileModel,
-} from "./gen/shared.types.js";
-import type { GetArticlesParameterQuery } from "./types/articles.types.js";
-import { ClientWrapper } from "./utils.js";
+} from "./gen/shared.types";
+import type { GetArticlesParameterQuery } from "./types/articles.types";
 
+import { ClientWrapper, ExtractFetchResponse } from "./utils";
 export class ArticlesApiV1 extends ClientWrapper<paths> {
   getArticleBySystemId(articleSystemId: number) {
     return this.client.GET("/api/v1/articles/{articleSystemId}", {

@@ -1,4 +1,4 @@
-import type { paths } from "./gen/orders.js";
+import type { paths } from "./gen/orders";
 import {
   PostParcelUsingIdTypeModel,
   PostParcelTypeModel,
@@ -13,13 +13,13 @@ import {
   PatchOrderWaybill,
   PatchOrderDeliveryDate,
   PatchFreightPrice,
-} from "./gen/orders.types.js";
+} from "./gen/orders.types";
 import type {
   PostFileModel,
   PostFileNoFilenameModel,
-} from "./gen/shared.types.js";
-import type { OrdersGetAllParamsQuery } from "./types/orders.types.js";
-import { ClientWrapper } from "./utils.js";
+} from "./gen/shared.types";
+import type { OrdersGetAllParamsQuery } from "./types/orders.types";
+import { ClientWrapper } from "./utils";
 
 export class OrdersApiV1 extends ClientWrapper<paths> {
   postParcelUsingId(
