@@ -22,7 +22,7 @@ articles.getArticleBySystemId(123456).then(({ data, error }) => {
   console.log(`Fetched article with id: ${data.articleSystemId}`);
 });
 
-orders.getOrder(12345).then(({ data, error }) => {
+orders.get(12345).then(({ data, error }) => {
   if (error) {
     console.error(`Failed to fetch order.`);
     console.error(error);

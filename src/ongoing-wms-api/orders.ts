@@ -22,7 +22,7 @@ import type { OrdersGetAllParamsQuery } from "./types/orders.types.js";
 import { ClientWrapper } from "./utils.js";
 
 export class OrdersApiV1 extends ClientWrapper<paths> {
-  updateParcelUsingId(
+  postParcelUsingId(
     orderId: number,
     parcelId: number,
     body: PostParcelUsingIdTypeModel,
@@ -85,7 +85,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     );
   }
-  getOrder(orderId: number) {
+  get(orderId: number) {
     return this.client.GET("/api/v1/orders/{orderId}", {
       params: {
         path: {
@@ -94,7 +94,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  updateOrder(orderId: number, body: PostOrderModel) {
+  putOrderUsingOrderId(orderId: number, body: PostOrderModel) {
     return this.client.PUT("/api/v1/orders/{orderId}", {
       params: {
         path: {
@@ -104,7 +104,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  cancelOrder(orderId: number) {
+  delete(orderId: number) {
     return this.client.DELETE("/api/v1/orders/{orderId}", {
       params: {
         path: {
@@ -113,7 +113,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  getOrders(query: OrdersGetAllParamsQuery) {
+  getAll(query: OrdersGetAllParamsQuery) {
     return this.client.GET("/api/v1/orders", {
       params: {
         query,
@@ -144,7 +144,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createWayBillRow(orderId: number, body: PostWayBillRowModel) {
+  postWayBillRow(orderId: number, body: PostWayBillRowModel) {
     return this.client.POST("/api/v1/orders/{orderId}/wayBillRows", {
       params: {
         path: {
@@ -154,7 +154,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateWayBillRow(
+  patchWayBillRow(
     orderId: number,
     wayBillRowId: number,
     body: PostWayBillRowModel,
@@ -194,7 +194,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  putFileByName(
+  putFileUsingFilename(
     orderId: number,
     fileName: string | null,
     body: PostFileNoFilenameModel,
@@ -211,7 +211,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  putFileById(orderId: number, fileId: number, body: PostFileModel) {
+  putFile(orderId: number, fileId: number, body: PostFileModel) {
     return this.client.PUT("/api/v1/orders/{orderId}/files/{fileId}", {
       params: {
         path: {
@@ -232,7 +232,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createFile(orderId: number, body: PostFileModel) {
+  postFile(orderId: number, body: PostFileModel) {
     return this.client.POST("/api/v1/orders/{orderId}/files", {
       params: {
         path: {
@@ -242,7 +242,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateOrderNumber(orderId: number, body: PatchOrderNumberModel) {
+  patchOrderNumber(orderId: number, body: PatchOrderNumberModel) {
     return this.client.PATCH("/api/v1/orders/{orderId}/orderNumber", {
       params: {
         path: {
@@ -252,7 +252,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateTransporter(orderId: number, body: PatchOrderTransporterModel) {
+  patchTransporter(orderId: number, body: PatchOrderTransporterModel) {
     return this.client.PATCH("/api/v1/orders/{orderId}/transporter", {
       params: {
         path: {
@@ -262,7 +262,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateReturnWaybill(orderId: number, body: PatchOrderReturnWaybill) {
+  patchReturnWaybill(orderId: number, body: PatchOrderReturnWaybill) {
     return this.client.PATCH("/api/v1/orders/{orderId}/returnWaybill", {
       params: {
         path: {
@@ -272,7 +272,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateServicePointCode(orderId: number, body: PatchServicePointCode) {
+  patchServicePointCode(orderId: number, body: PatchServicePointCode) {
     return this.client.PATCH("/api/v1/orders/{orderId}/servicePointCode", {
       params: {
         path: {
@@ -282,7 +282,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateWaybill(orderId: number, body: PatchOrderWaybill) {
+  patchWaybill(orderId: number, body: PatchOrderWaybill) {
     return this.client.PATCH("/api/v1/orders/{orderId}/waybill", {
       params: {
         path: {
@@ -292,7 +292,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateDeliveryDate(orderId: number, body: PatchOrderDeliveryDate) {
+  patchDeliveryDate(orderId: number, body: PatchOrderDeliveryDate) {
     return this.client.PATCH("/api/v1/orders/{orderId}/deliveryDate", {
       params: {
         path: {
@@ -302,7 +302,7 @@ export class OrdersApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateFreightPrice(orderId: number, body: PatchFreightPrice) {
+  patchFreightPrice(orderId: number, body: PatchFreightPrice) {
     return this.client.PATCH("/api/v1/orders/{orderId}/freightPrice", {
       params: {
         path: {

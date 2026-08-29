@@ -18,7 +18,7 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  updateArticleBySystemId(articleSystemId: number, body: PostArticleModel) {
+  putArticleBySystemId(articleSystemId: number, body: PostArticleModel) {
     return this.client.PUT("/api/v1/articles/{articleSystemId}", {
       params: {
         path: { articleSystemId },
@@ -45,7 +45,7 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       },
     });
   }
-  createArticlesFile(articleSystemId: number, body: PostFileModel) {
+  postArticlesFile(articleSystemId: number, body: PostFileModel) {
     return this.client.POST("/api/v1/articles/{articleSystemId}/files", {
       params: {
         path: { articleSystemId },
@@ -66,7 +66,7 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  updateArticleFilyById(
+  putArticleFilyById(
     articleSystemId: number,
     fileId: number,
     body: PostFileModel,
