@@ -9,9 +9,31 @@ import type {
 } from "./gen/shared.types";
 import type { GetArticlesParameterQuery } from "./types/articles.types";
 
-import { ClientWrapper } from "./utils";
+import { ClientWrapper, ExtractFetchResponse } from "./utils";
 export class ArticlesApiV1 extends ClientWrapper<paths> {
-  getArticleBySystemId(articleSystemId: number) {
+  /**
+   * @see {@link https://developer.ongoingwarehouse.com/REST/v1/index.html#/Articles/Articles_Get}
+   * @returns {@link GetArticleBySystemIdResponse}
+   *
+   * data: 2xx response if OK; otherwise undefined
+   *
+   * error: 5xx, 4xx, or default response if not OK; otherwise undefined
+   *
+   * response: The original Response which contains status, headers, etc.
+   *
+   * TODO: Typedef returns for envelope of { data?, error?: response: Response
+   * }, preferably via openapi-fetch's existing types:
+   * Readable<ErrorResponse<ResponseObjectMap<T>, Media>>; from `paths` codegen
+   *
+   * We want the clean "GetArticleModel" for documentation purposes, we should
+   * be able to do the same for error messages which are dictated by the
+   * codegen openapi spec in `paths`
+   *
+   * The explicit GetArticleBySystemIdResponse prevent typedocs verbose
+   * external in-line codegen type definition.
+   * But our return type becomes simply: "Promise"
+   */
+  getArticleBySystemId(articleSystemId: number): GetArticleBySystemIdResponse {
     return this.client.GET("/api/v1/articles/{articleSystemId}", {
       params: {
         path: { articleSystemId },
@@ -31,7 +53,10 @@ export class ArticlesApiV1 extends ClientWrapper<paths> {
       body,
     });
   }
-  getArticles(query: GetArticlesParameterQuery) {
+  /**
+   * @returns {@link GetArticlesResponse} Array of articles
+   */
+  getArticles(query: GetArticlesParameterQuery): GetArticlesResponse {
     return this.client.GET("/api/v1/articles", {
       params: {
         query,

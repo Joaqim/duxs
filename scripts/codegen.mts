@@ -7,6 +7,7 @@ import { fetchJson } from "fetch-json";
 interface SpecConfig {
   url?: string;
   specFile: string;
+  docsBaseUrl: string;
 }
 
 const VENDOR_PATH = "vendor";
@@ -14,8 +15,14 @@ const GENERATED_OUTPUT_PATH = "src/ongoing-wms-api/gen";
 const SHARED_TYPES_PATH = `${GENERATED_OUTPUT_PATH}/shared.types.ts`;
 
 const SPECS: Record<string, SpecConfig> = {
-  articles: { specFile: "articles.json" },
-  orders: { specFile: "orders.json" },
+  articles: {
+    specFile: "articles.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  orders: {
+    specFile: "orders.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
 };
 
 const createVendorSpecPath = ({ specFile }: SpecConfig) => `${VENDOR_PATH}/${specFile}`;
@@ -47,25 +54,128 @@ interface SchemaOccurrence {
   schema: unknown;
 }
 
-async function loadSchemas(specName: string): Promise<Record<string, unknown>> {
+interface ParsedSpec {
+  components?: { schemas?: Record<string, unknown> };
+  paths?: Record<
+    string,
+    Record<
+      string,
+      {
+        tags?: string[];
+        operationId?: string;
+        requestBody?: unknown;
+        responses?: unknown;
+        parameters?: unknown;
+      }
+    >
+  >;
+}
+
+async function loadSpec(specName: string): Promise<ParsedSpec> {
   const specPath = createVendorSpecPath(SPECS[specName]);
   const raw = await readFile(specPath, "utf-8");
-  const spec = JSON.parse(raw);
-  return spec?.components?.schemas ?? {};
+  return JSON.parse(raw);
 }
 
 function toAlias(specName: string): string {
   return `${specName[0].toUpperCase()}${specName.slice(1)}Components`;
 }
+type SpecDoc = {
+  paths: Record<
+    string,
+    Record<
+      string,
+      {
+        tags?: string[];
+        operationId?: string;
+        requestBody?: unknown;
+        responses?: unknown;
+        parameters?: unknown;
+      }
+    >
+  >;
+};
+
+// Set this once you've confirmed whether the ReDoc build exposes component-level anchors.
+const HAS_COMPONENT_SCHEMA_ANCHORS = false;
+
+function buildSchemaLinkIndex(
+  specName: string,
+  spec: SpecDoc,
+): Map<string, string> {
+  const base = `https://developer.ongoingwarehouse.com/REST/v1/index.html#`;
+  const index = new Map<string, string>();
+
+  if (HAS_COMPONENT_SCHEMA_ANCHORS) {
+    // If confirmed, this is strictly better: stable, one-to-one, no operation guessing.
+    // Adjust the anchor format to match whatever ReDoc actually emits.
+    return index; // fill in once verified — leaving unset so the fallback below is used until then
+  }
+
+  for (const [, methods] of Object.entries(spec.paths)) {
+    for (const [, op] of Object.entries(methods)) {
+      if (!op.operationId || !op.tags?.[0]) continue;
+      const refs = extractSchemaRefs(op); // walk requestBody/responses/parameters for $ref strings
+      const anchor = `${op.tags[0]}/${op.tags[0]}_${op.operationId}`;
+      for (const schemaName of refs) {
+        // first-in-first-served, mirroring your existing sharedNames dedup philosophy
+        if (!index.has(schemaName)) {
+          index.set(schemaName, `${base}/${anchor}`);
+        }
+      }
+    }
+  }
+  return index;
+}
+
+function extractSchemaRefs(op: unknown): string[] {
+  const names = new Set<string>();
+  const walk = (node: unknown) => {
+    if (node && typeof node === "object") {
+      for (const [key, value] of Object.entries(node)) {
+        if (key === "$ref" && typeof value === "string") {
+          const match = value.match(/#\/components\/schemas\/(.+)$/);
+          if (match) names.add(match[1]);
+        } else {
+          walk(value);
+        }
+      }
+    }
+  };
+  walk(op);
+  return [...names];
+}
+
+function buildSchemaDocComment(
+  name: string,
+  canonicalUrl: string | undefined,
+  extraLine?: string,
+): string {
+  const lines = ["/**"];
+  if (extraLine) lines.push(` * ${extraLine}`);
+  if (canonicalUrl) {
+    lines.push(` * @see {@link ${canonicalUrl} | REST API: ${name}}`);
+  } else {
+    // No resolvable operation reference — still emit the type, just without a dead link.
+    lines.push(` * @see No matching operation found in spec for ${name}.`);
+  }
+  lines.push(" */");
+  return lines.join("\n");
+}
 
 async function generateAllAliasFiles(): Promise<void> {
   const specNames = Object.keys(SPECS);
+  const rawSpecs = new Map<string, ParsedSpec>();
   const schemasBySpec = new Map<string, Record<string, unknown>>();
   const occurrences = new Map<string, SchemaOccurrence[]>();
 
   for (const specName of specNames) {
-    const schemas = await loadSchemas(specName);
+    const spec = await loadSpec(specName);
+    rawSpecs.set(specName, spec);
+
+    const schemas = spec.components?.schemas ?? {};
     schemasBySpec.set(specName, schemas);
+
     for (const [schemaName, schema] of Object.entries(schemas)) {
       const list = occurrences.get(schemaName) ?? [];
       list.push({ specName, schema });
@@ -118,14 +228,29 @@ async function generateAllAliasFiles(): Promise<void> {
       (specName) =>
         `import type { components as ${toAlias(specName)} } from "./${specName}.js";`,
     );
+
+    // Build one link index per spec that's actually used here.
+    const linkIndexBySpec = new Map(
+      usedSpecs.map((specName) => [
+        specName,
+        buildSchemaLinkIndex(specName, rawSpecs.get(specName)!),
+      ]),
+    );
+
     const typeLines = [...sharedNames].sort().map((name) => {
       const specName = canonicalSourceOf.get(name)!;
       const allSpecs = occurrences
         .get(name)!
         .map((e) => e.specName)
         .sort();
+      const url = linkIndexBySpec.get(specName)?.get(name);
+      const comment = buildSchemaDocComment(
+        name,
+        url,
+        `Present identically in: ${allSpecs.join(", ")}`,
+      );
       return [
-        `// present identically in: ${allSpecs.join(", ")}`,
+        comment,
         `export type ${name} = ${toAlias(specName)}["schemas"]["${name}"];`,
       ].join("\n");
     });
@@ -169,6 +294,17 @@ async function generateAllAliasFiles(): Promise<void> {
     }
 
     const alias = toAlias(specName);
+    const linkIndex = buildSchemaLinkIndex(specName, rawSpecs.get(specName)!);
+
+    const typeBlocks = localNames.map((name) => {
+      const url = linkIndex.get(name);
+      const comment = buildSchemaDocComment(name, url);
+      return [
+        comment,
+        `export type ${name} = ${alias}["schemas"]["${name}"];`,
+      ].join("\n");
+    });
+
     const content = [
       "// AUTO-GENERATED. Do not edit by hand — run the codegen script instead.",
       "//",
@@ -176,9 +312,7 @@ async function generateAllAliasFiles(): Promise<void> {
       "",
       `import type { components as ${alias} } from "./${specName}.js";`,
       "",
-      ...localNames.map(
-        (name) => `export type ${name} = ${alias}["schemas"]["${name}"];`,
-      ),
+      ...typeBlocks,
       "",
     ].join("\n");
 
@@ -189,6 +323,40 @@ async function generateAllAliasFiles(): Promise<void> {
   }
 }
 
+// TODO: Not used yet
+/* Should follow this pattern:
+ * /**
+ * Envelope returned by {@link ArticlesApiV1.getArticleBySystemId}.
+ * On success, `data` is a {@link GetArticleModel}.
+ * **/
+/* @see {@link $url} url will be assigned on jsdoc function declaration , for
+ * now out-of-scope of our current codegen */
+function generateOperationResponseAliases(
+  specName: string,
+  spec: ParsedSpec,
+): string[] {
+  const pathsAlias = `${toAlias(specName).replace("Components", "Paths")}`;
+  const lines: string[] = [];
+
+  for (const [path, methods] of Object.entries(spec.paths ?? {})) {
+    for (const [method, op] of Object.entries(methods)) {
+      if (!op.operationId) continue;
+      const typeName = `${toPascalCase(op.operationId)}Response`;
+      const url = linkIndexFor(specName, op);
+      lines.push(
+        [
+          "/**",
+          url
+            ? ` * @see {@link ${url} | REST API: ${op.operationId}}`
+            : ` * @see No matching operation found.`,
+          " */",
+          `export type ${typeName} = ExtractFetchResponse<${pathsAlias}, "${path}", "${method}">;`,
+        ].join("\n"),
+      );
+    }
+  }
+  return lines;
+}
 
 async function run(name: string): Promise<void> {
   const config = SPECS[name];
