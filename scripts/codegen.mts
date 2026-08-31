@@ -4,8 +4,8 @@ import { readFile, writeFile } from "node:fs/promises";
 import { isDeepStrictEqual } from "node:util";
 import { fetchJson } from "fetch-json";
 import {
+  operationKey,
   resolveCollisions,
-  toMethodName,
   toResponseAliasName,
   type NameableOperation,
 } from "./codegen-names.mts";
@@ -60,6 +60,18 @@ interface SchemaOccurrence {
   schema: unknown;
 }
 
+interface ResponseSchema {
+  $ref?: string;
+  type?: string;
+  items?: { $ref?: string };
+}
+
+interface OperationResponses {
+  [status: string]: {
+    content?: { "application/json"?: { schema?: ResponseSchema } };
+  };
+}
+
 interface ParsedSpec {
   components?: { schemas?: Record<string, unknown> };
   paths?: Record<
@@ -69,8 +81,9 @@ interface ParsedSpec {
       {
         tags?: string[];
         operationId?: string;
+        summary?: string;
         requestBody?: unknown;
-        responses?: unknown;
+        responses?: OperationResponses;
         parameters?: unknown;
       }
     >
@@ -327,41 +340,125 @@ async function generateAllAliasFiles(): Promise<void> {
     );
     await writeFile(outputPath, content);
   }
-}
 
-// TODO: Not used yet
-/* Should follow this pattern:
- * /**
- * Envelope returned by {@link ArticlesApiV1.getArticleBySystemId}.
- * On success, `data` is a {@link GetArticleModel}.
- * **/
-/* @see {@link $url} url will be assigned on jsdoc function declaration , for
- * now out-of-scope of our current codegen */
-function generateOperationResponseAliases(
-  specName: string,
-  spec: ParsedSpec,
-): string[] {
-  const pathsAlias = `${toAlias(specName).replace("Components", "Paths")}`;
-  const lines: string[] = [];
+  // 4. Per-operation response aliases: <Method>Response = ApiResponse<Data>
+  for (const specName of specNames) {
+    const spec = rawSpecs.get(specName)!;
+    const localSchemas = new Set(
+      Object.keys(schemasBySpec.get(specName) ?? {}),
+    );
+    const sharedHere = new Set(
+      [...sharedNames].filter((name) =>
+        occurrences.get(name)!.some((o) => o.specName === specName),
+      ),
+    );
 
-  for (const [path, methods] of Object.entries(spec.paths ?? {})) {
-    for (const [method, op] of Object.entries(methods)) {
-      if (!op.operationId) continue;
-      const typeName = `${toPascalCase(op.operationId)}Response`;
-      const url = linkIndexFor(specName, op);
-      lines.push(
+    const ops: NameableOperation[] = [];
+    for (const [path, methods] of Object.entries(spec.paths ?? {})) {
+      for (const [method, op] of Object.entries(methods)) {
+        if (op.operationId)
+          ops.push({ method, path, operationId: op.operationId });
+      }
+    }
+    const names = resolveCollisions(ops);
+
+    // First pass collects data types; imports must precede the aliases that use them.
+    const referencedLocal = new Set<string>();
+    const referencedShared = new Set<string>();
+    const aliases: {
+      aliasName: string;
+      dataExpr: string;
+      summary: string;
+      operationId: string;
+      docsUrl: string;
+    }[] = [];
+
+    for (const [path, methods] of Object.entries(spec.paths ?? {})) {
+      for (const [method, op] of Object.entries(methods)) {
+        if (!op.operationId) continue;
+        const methodName = names.get(operationKey(method, path))!;
+        const aliasName = toResponseAliasName(methodName);
+        const ok = op.responses?.["200"] ?? op.responses?.["201"];
+        const jsonSchema = ok?.content?.["application/json"]?.schema;
+        const refName =
+          typeof jsonSchema?.["$ref"] === "string"
+            ? jsonSchema["$ref"].match(/#\/components\/schemas\/(.+)$/)?.[1]
+            : undefined;
+        const itemRefName =
+          jsonSchema?.["type"] === "array" &&
+          typeof jsonSchema["items"]?.["$ref"] === "string"
+            ? jsonSchema["items"]["$ref"].match(
+                /#\/components\/schemas\/(.+)$/,
+              )?.[1]
+            : undefined;
+        const known = (n: string | undefined) =>
+          n && (localSchemas.has(n) || sharedHere.has(n)) ? n : undefined;
+        const dataName = known(refName) ?? known(itemRefName);
+        const dataExpr = dataName
+          ? refName && known(refName)
+            ? dataName
+            : `${dataName}[]`
+          : "unknown";
+        if (dataName && sharedHere.has(dataName)) {
+          referencedShared.add(dataName);
+        } else if (dataName) {
+          referencedLocal.add(dataName);
+        }
+        const summary = op.summary ?? `Operation ${op.operationId}`;
+        const docsUrl = `https://developer.ongoingwarehouse.com/REST/v1/index.html#/${op.tags?.[0] ?? ""}/${op.operationId}`;
+        aliases.push({
+          aliasName,
+          dataExpr,
+          summary,
+          operationId: op.operationId,
+          docsUrl,
+        });
+      }
+    }
+
+    const typeLines = aliases.map(
+      ({ aliasName, dataExpr, summary, operationId, docsUrl }) =>
         [
           "/**",
-          url
-            ? ` * @see {@link ${url} | REST API: ${op.operationId}}`
-            : ` * @see No matching operation found.`,
+          ` * ${summary}`,
+          ` * @see {@link ${docsUrl} | REST API: ${operationId}}`,
+          ` * Success payload: {@link ${dataExpr}}. Errors: {@link OngoingError}.`,
           " */",
-          `export type ${typeName} = ExtractFetchResponse<${pathsAlias}, "${path}", "${method}">;`,
+          `export type ${aliasName} = ApiResponse<${dataExpr}>;`,
+          "",
         ].join("\n"),
+    );
+
+    const importLines: string[] = [
+      'import type { ApiResponse, OngoingError } from "../utils.js";',
+    ];
+    if (referencedShared.size > 0) {
+      importLines.push(
+        `import type { ${[...referencedShared].sort().join(", ")} } from "./shared.types.js";`,
       );
     }
+    if (referencedLocal.size > 0) {
+      importLines.push(
+        `import type { ${[...referencedLocal].sort().join(", ")} } from "./${specName}.types.js";`,
+      );
+    }
+
+    const content = [
+      "// AUTO-GENERATED. Do not edit by hand — run the codegen script instead.",
+      "//",
+      `// Per-operation response aliases for the ${specName} spec.`,
+      "",
+      ...importLines,
+      "",
+      ...typeLines,
+    ].join("\n");
+
+    const outputPath = `${GENERATED_OUTPUT_PATH}/${specName}.responses.ts`;
+    console.log(
+      `Writing ${typeLines.length} response aliases -> ${outputPath}`,
+    );
+    await writeFile(outputPath, content);
   }
-  return lines;
 }
 
 async function run(name: string): Promise<void> {
