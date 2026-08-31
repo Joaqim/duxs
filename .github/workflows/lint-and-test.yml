@@ -25,5 +25,6 @@ jobs:
       - run: npm run generate:all
       - run: npm run build
       - run: npm test
+      - run: npm run check:example
       - run: npm run lint:check
       - run: npm run format:check
