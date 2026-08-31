@@ -72,22 +72,32 @@ interface OperationResponses {
   };
 }
 
+interface OperationParameter {
+  name?: string;
+  in?: string;
+}
+
+interface RequestBodySchema {
+  $ref?: string;
+  oneOf?: { $ref?: string }[];
+}
+
+interface OperationRequestBody {
+  content?: { "application/json"?: { schema?: RequestBodySchema } };
+}
+
+interface ParsedOperation {
+  tags?: string[];
+  operationId?: string;
+  summary?: string;
+  requestBody?: OperationRequestBody;
+  responses?: OperationResponses;
+  parameters?: OperationParameter[];
+}
+
 interface ParsedSpec {
   components?: { schemas?: Record<string, unknown> };
-  paths?: Record<
-    string,
-    Record<
-      string,
-      {
-        tags?: string[];
-        operationId?: string;
-        summary?: string;
-        requestBody?: unknown;
-        responses?: OperationResponses;
-        parameters?: unknown;
-      }
-    >
-  >;
+  paths?: Record<string, Record<string, ParsedOperation>>;
 }
 
 async function loadSpec(specName: string): Promise<ParsedSpec> {
@@ -145,6 +155,15 @@ function buildSchemaLinkIndex(
     }
   }
   return index;
+}
+
+/**
+ * Ongoing wraps some request bodies in a nullable single-member oneOf instead
+ * of a direct $ref; return the wrapped schema name when that is the shape.
+ */
+function singleRefOfOneOf(oneOf: { $ref?: string }[] | undefined): string | undefined {
+  if (!oneOf || oneOf.length !== 1) return undefined;
+  return oneOf[0]?.["$ref"]?.match(/#\/components\/schemas\/(.+)$/)?.[1];
 }
 
 function extractSchemaRefs(op: unknown): string[] {
@@ -456,6 +475,154 @@ async function generateAllAliasFiles(): Promise<void> {
     const outputPath = `${GENERATED_OUTPUT_PATH}/${specName}.responses.ts`;
     console.log(
       `Writing ${typeLines.length} response aliases -> ${outputPath}`,
+    );
+    await writeFile(outputPath, content);
+  }
+
+  // 5. Base wrapper classes: one method per operation
+  for (const specName of specNames) {
+    const spec = rawSpecs.get(specName)!;
+    const localSchemas = new Set(Object.keys(schemasBySpec.get(specName) ?? {}));
+    const sharedHere = new Set(
+      [...sharedNames].filter((name) =>
+        occurrences.get(name)!.some((o) => o.specName === specName),
+      ),
+    );
+    const schemaSource = (name: string): string | null =>
+      sharedHere.has(name)
+        ? "./shared.types.js"
+        : localSchemas.has(name)
+          ? `./${specName}.types.js`
+          : null;
+
+    const ops: NameableOperation[] = [];
+    for (const [path, methods] of Object.entries(spec.paths ?? {})) {
+      for (const [method, op] of Object.entries(methods)) {
+        if (op.operationId)
+          ops.push({ method, path, operationId: op.operationId });
+      }
+    }
+    const names = resolveCollisions(ops);
+
+    const localImports = new Set<string>();
+    const sharedImports = new Set<string>();
+    const methodBlocks: string[] = [];
+
+    for (const [path, methods] of Object.entries(spec.paths ?? {})) {
+      for (const [method, op] of Object.entries(methods)) {
+        if (!op.operationId) continue;
+        const methodName = names.get(operationKey(method, path))!;
+        const aliasName = toResponseAliasName(methodName);
+
+        const pathParams = [...path.matchAll(/\{([^}]+)\}/g)].map((m) => m[1]);
+        const hasQuery = (op.parameters ?? []).some(
+          (p) => p?.in === "query",
+        );
+        const bodyRef =
+          op.requestBody?.content?.["application/json"]?.schema?.["$ref"]
+            ?.match(/#\/components\/schemas\/(.+)$/)?.[1] ??
+          singleRefOfOneOf(
+            op.requestBody?.content?.["application/json"]?.schema?.["oneOf"],
+          );
+        const bodySource = bodyRef !== undefined ? schemaSource(bodyRef) : null;
+        if (bodyRef !== undefined && bodySource === null) {
+          throw new Error(
+            `Body schema "${bodyRef}" of ${op.operationId} not found in alias files`,
+          );
+        }
+        if (bodyRef !== undefined) {
+          if (bodySource === "./shared.types.js") sharedImports.add(bodyRef);
+          else localImports.add(bodyRef);
+        }
+
+        const args = [
+          ...pathParams.map(
+            (p) => `${p}: ${p.endsWith("Id") ? "number" : "string"}`,
+          ),
+          ...(hasQuery
+            ? [`query: operations["${op.operationId}"]["parameters"]["query"]`]
+            : []),
+          ...(bodyRef !== undefined ? [`body: ${bodyRef}`] : []),
+        ].join(", ");
+
+        const paramsObject = [
+          ...(pathParams.length > 0
+            ? [`path: { ${pathParams.join(", ")} }`]
+            : []),
+          ...(hasQuery ? ["query"] : []),
+        ].join(", ");
+        const fetchOptions = [
+          ...(paramsObject.length > 0 ? [`params: { ${paramsObject} }`]
+            : []),
+          ...(bodyRef !== undefined ? ["body"] : []),
+        ].join(", ");
+
+        const summary = op.summary ?? `Operation ${op.operationId}`;
+        const docsUrl = `https://developer.ongoingwarehouse.com/REST/v1/index.html#/${op.tags?.[0] ?? ""}/${op.operationId}`;
+        const paramDocs = [
+          ...pathParams.map((p) => ` * @param ${p} - path parameter`),
+          ...(hasQuery ? [` * @param query - query parameters`] : []),
+          ...(bodyRef !== undefined
+            ? [` * @param body - request body ({@link ${bodyRef}})`]
+            : []),
+        ].join("\n");
+
+        methodBlocks.push(
+          [
+            "  /**",
+            `   * ${summary}`,
+            `   * @see {@link ${docsUrl} | REST API: ${op.operationId}}`,
+            ...(paramDocs.length > 0 ? [paramDocs] : []),
+            `   * @returns {@link responses.${aliasName}}`,
+            "   */",
+            `  ${methodName}(${args}): Promise<responses.${aliasName}> {`,
+            `    return this.client.${method.toUpperCase()}("${path}", { ${fetchOptions} }) as Promise<responses.${aliasName}>;`,
+            "  }",
+            "",
+          ].join("\n"),
+        );
+      }
+    }
+
+    const className = `${specName[0].toUpperCase()}${specName.slice(1)}ApiV1Base`;
+    const importLines = [
+      `import type { operations, paths } from "./${specName}.js";`,
+      'import { ClientWrapper } from "../utils.js";',
+      `import type * as responses from "./${specName}.responses.js";`,
+      ...(localImports.size > 0
+        ? [
+            `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,
+          ]
+        : []),
+      ...(sharedImports.size > 0
+        ? [
+            `import type { ${[...sharedImports].sort().join(", ")} } from "./shared.types.js";`,
+          ]
+        : []),
+    ];
+
+    const content = [
+      "// AUTO-GENERATED. Do not edit by hand — run the codegen script instead.",
+      "//",
+      `// Base wrapper class for the ${specName} spec. Hand-written subclasses live in`,
+      `// src/ongoing-wms-api/${specName}.ts.`,
+      "//",
+      "// The 'as Promise<...>' downcast is deliberate: openapi-fetch's FetchResponse",
+      "// and ApiResponse are structurally parallel unions, but the vendored specs",
+      "// declare no error responses, so the error branch is typed as OngoingError",
+      "// from observed behavior rather than derived from the spec.",
+      "",
+      ...importLines,
+      "",
+      `export class ${className} extends ClientWrapper<paths> {`,
+      ...methodBlocks,
+      "}",
+      "",
+    ].join("\n");
+
+    const outputPath = `${GENERATED_OUTPUT_PATH}/${specName}.client.ts`;
+    console.log(
+      `Writing ${className} (${methodBlocks.length} methods) -> ${outputPath}`,
     );
     await writeFile(outputPath, content);
   }
