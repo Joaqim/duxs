@@ -12,7 +12,7 @@ import {
 
 import { ArticlesApiV1, OngoingWMSClient } from "../dist/esm/index.node.js";
 import type { paths } from "../src/ongoing-wms-api/gen/articles.d.ts";
-import type { GetArticleModel } from "../dist/esm/ongoing-wms-api/types/articles.types.d.ts";
+import type { GetArticleModel } from "../src/ongoing-wms-api/gen/articles.types";
 import { typedHttp } from "./utils.ts";
 
 const article123321 = import('./__mocks__/article.123321.json') as GetArticleModel;

@@ -1,21 +1,20 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES6",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
     "rootDir": "./",
     "noEmit": true,
-    "composite": true,
-    "sourceMap": true,
     "strict": false,
-    "declaration": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["vitest", "node"],
-    "typeRoots": ["./node_modules/@types"]
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
   },
-  "ts-node": {
-    "transpileOnly": true
-  },
-  "include": ["./test/**/*.ts", "./src/**/*.ts"],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
