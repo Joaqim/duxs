@@ -31,8 +31,8 @@
     "./dist/esm/package.json"
   ],
   "scripts": {
-    "ts-types:esm": "tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm && cp src/ongoing-wms-api/gen/*.d.ts dist/esm/ongoing-wms-api/gen/",
-    "ts-types:cjs": "tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs && cp src/ongoing-wms-api/gen/*.d.ts dist/cjs/ongoing-wms-api/gen/",
+    "ts-types:esm": "tsc -p tsconfig.json --emitDeclarationOnly --outDir dist/esm && cp src/ongoing-wms-api/gen/*.d.ts dist/esm/ongoing-wms-api/gen/ && node scripts/rewrite-dts-specifiers.mts dist/esm",
+    "ts-types:cjs": "tsc -p tsconfig.cjs.json --emitDeclarationOnly --outDir dist/cjs && cp src/ongoing-wms-api/gen/*.d.ts dist/cjs/ongoing-wms-api/gen/ && node scripts/rewrite-dts-specifiers.mts dist/cjs",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "rimraf dist/esm && node ./esbuild.esm.js && npm run ts-types:esm",
     "build:cjs": "rimraf dist/cjs && node ./esbuild.cjs.js && npm run ts-types:cjs",
