@@ -6,7 +6,9 @@ dotenv.config({ quiet: true });
 const { ONGOING_WMS_BASE_URL, ONGOING_WMS_TOKEN } = process.env;
 
 if (!ONGOING_WMS_BASE_URL || !ONGOING_WMS_TOKEN) {
-  console.error("Missing ONGOING_WMS_TOKEN and/or ONGOING_WMS_TOKEN, see .env.example")
+  console.error(
+    "Missing ONGOING_WMS_TOKEN and/or ONGOING_WMS_TOKEN, see .env.example",
+  );
   process.exit(1);
 }
 
@@ -23,7 +25,7 @@ articles.getArticleBySystemId(123456).then(({ data, error }) => {
   console.log(`Fetched article with id: ${data.articleSystemId}`);
 });
 
-orders.get(12345).then(({ data, error }) => {
+orders.getOrderById(12345).then(({ data, error }) => {
   if (error) {
     console.error(`Failed to fetch order.`);
     console.error(error);

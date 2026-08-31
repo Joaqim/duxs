@@ -62,7 +62,7 @@ suite("Orders API V1", async () => {
   const orders = new OrdersApiV1(client);
 
   it("Can fetch Orders", async () => {
-    const { data, error } = await orders.get(12345);
+    const { data, error } = await orders.getOrderById(12345);
 
     expect(data).toEqual({
       ...mockOrder,
