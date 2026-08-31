@@ -9,25 +9,28 @@ interface SpecConfig {
   specFile: string;
 }
 
-const BASE = "src/ongoing-wms-api";
-const SHARED_TYPES_PATH = `${BASE}/gen/shared.types.ts`;
+const VENDOR_PATH = "vendor";
+const GENERATED_OUTPUT_PATH = "src/ongoing-wms-api/gen";
+const SHARED_TYPES_PATH = `${GENERATED_OUTPUT_PATH}/shared.types.ts`;
 
 const SPECS: Record<string, SpecConfig> = {
   articles: { specFile: "articles.json" },
   orders: { specFile: "orders.json" },
 };
 
-const createSpecPath = ({ specFile }: SpecConfig) => `${BASE}/${specFile}`;
+const createVendorSpecPath = ({ specFile }: SpecConfig) => `${VENDOR_PATH}/${specFile}`;
+const createDefinitionsPath = (name: string) => `${GENERATED_OUTPUT_PATH}/${name}.d.ts`;
+const createGeneratedTypesPath = (name: string) => `${GENERATED_OUTPUT_PATH}/${name}.types.ts`;
 
-async function downloadSpec(name: string, config: SpecConfig): Promise<void> {
-  const specPath = createSpecPath(config);
+async function downloadSpec(name: string, config: Required<SpecConfig>): Promise<void> {
+  const specPath = createVendorSpecPath(config);
   console.log(`Fetching ${name} spec from ${config.url}`);
   const data = await fetchJson.get(config.url);
   return await writeFile(specPath, JSON.stringify(data, null, 2));
 }
 
 function generateTypes(name: string, specPath: string): void {
-  const outputPath = `${BASE}/gen/${name}.d.ts`;
+  const outputPath = createDefinitionsPath(name);
   console.log(`Generating ${name} -> ${outputPath}`);
   /* openapi-typescript's peer dependency 'typescript' will most likely
    * conflict with our version of typescript, so instead, we use npx for
@@ -35,21 +38,6 @@ function generateTypes(name: string, specPath: string): void {
   execFileSync("npx", ["openapi-typescript", specPath, "-o", outputPath], {
     stdio: "inherit",
   });
-}
-
-async function run(name: string): Promise<void> {
-  const config = SPECS[name];
-  if (!config) {
-    console.error(
-      `Unknown spec "${name}". Available: ${Object.keys(SPECS).join(", ")}`,
-    );
-    process.exit(1);
-  }
-  const specPath = createSpecPath(config);
-  if (config.url) {
-    await downloadSpec(name, config);
-  }
-  generateTypes(name, specPath);
 }
 
 // ---- alias generation (shared + per-spec) ----
@@ -60,7 +48,7 @@ interface SchemaOccurrence {
 }
 
 async function loadSchemas(specName: string): Promise<Record<string, unknown>> {
-  const specPath = createSpecPath(SPECS[specName]);
+  const specPath = createVendorSpecPath(SPECS[specName]);
   const raw = await readFile(specPath, "utf-8");
   const spec = JSON.parse(raw);
   return spec?.components?.schemas ?? {};
@@ -116,9 +104,9 @@ async function generateAllAliasFiles(): Promise<void> {
   if (conflicts.length > 0) {
     console.error(
       "\n🛑 Fatal: identically-named schemas with different shapes across specs.\n" +
-        "Rename one of them upstream before types can be generated:\n\n" +
-        conflicts.join("\n") +
-        "\n",
+      "Rename one of them upstream before types can be generated:\n\n" +
+      conflicts.join("\n") +
+      "\n",
     );
     process.exit(1);
   }
@@ -171,7 +159,7 @@ async function generateAllAliasFiles(): Promise<void> {
       .filter((name) => !sharedNames.has(name))
       .sort();
 
-    const outputPath = `${BASE}/gen/${specName}.types.ts`;
+    const outputPath = createGeneratedTypesPath(specName);
 
     if (localNames.length === 0) {
       console.log(
@@ -199,6 +187,22 @@ async function generateAllAliasFiles(): Promise<void> {
     );
     await writeFile(outputPath, content);
   }
+}
+
+
+async function run(name: string): Promise<void> {
+  const config = SPECS[name];
+  if (!config) {
+    console.error(
+      `Unknown spec "${name}". Available: ${Object.keys(SPECS).join(", ")}`,
+    );
+    process.exit(1);
+  }
+  if (config.url) {
+    await downloadSpec(name, config as Required<SpecConfig>);
+  }
+  const specPath = createVendorSpecPath(config);
+  generateTypes(name, specPath);
 }
 
 // ---- entrypoint ----
