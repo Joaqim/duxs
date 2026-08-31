@@ -23,7 +23,7 @@ pkgs.buildNpmPackage {
   ];
 
   src = ./.;
-  npmDepsHash = "sha256-2UOsB9DxozwUzgyDLddfFzFeL6Vm7a5XNzIMjBqtgt4=";
+  npmDepsHash = "sha256-3bYo0Ct8qa8qDnhw2imn1G81fp97nAnWWVGFtCR1f/A=";
 
   doCheck = true;
   checkPhase = ''
