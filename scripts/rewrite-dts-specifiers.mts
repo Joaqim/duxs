@@ -109,7 +109,9 @@ async function main(): Promise<void> {
       failures.push(`${label}: ${unresolved.join(", ")}`);
     }
   }
-  console.log(`extensioned ${total} relative specifier(s) in ${files.length} declaration file(s)`);
+  console.log(
+    `extensioned ${total} relative specifier(s) in ${files.length} declaration file(s)`,
+  );
   if (failures.length > 0) {
     throw new Error(
       `unresolvable relative specifiers in emitted declarations:\n  ${failures.join("\n  ")}`,
