@@ -441,7 +441,9 @@ async function generateAllAliasFiles(): Promise<void> {
           "/**",
           ` * ${summary}`,
           ` * @see {@link ${docsUrl} | REST API: ${operationId}}`,
-          ` * Success payload: {@link ${dataExpr}}. Errors: {@link OngoingError}.`,
+          dataExpr === "unknown"
+            ? ` * Success payload: unknown (inline schema, not a named model). Errors: {@link OngoingError}.`
+            : ` * Success payload: {@link ${dataExpr}}. Errors: {@link OngoingError}.`,
           " */",
           `export type ${aliasName} = ApiResponse<${dataExpr}>;`,
           "",
@@ -573,7 +575,7 @@ async function generateAllAliasFiles(): Promise<void> {
             `   * ${summary}`,
             `   * @see {@link ${docsUrl} | REST API: ${op.operationId}}`,
             ...(paramDocs.length > 0 ? [paramDocs] : []),
-            `   * @returns {@link responses.${aliasName}}`,
+            `   * @returns {@link ${aliasName}}`,
             "   */",
             `  ${methodName}(${args}): Promise<responses.${aliasName}> {`,
             `    return this.client.${method.toUpperCase()}("${path}", { ${fetchOptions} }) as Promise<responses.${aliasName}>;`,
@@ -589,6 +591,7 @@ async function generateAllAliasFiles(): Promise<void> {
       `import type { operations, paths } from "./${specName}.js";`,
       'import { ClientWrapper } from "../utils.js";',
       `import type * as responses from "./${specName}.responses.js";`,
+      `export type * from "./${specName}.responses.js";`,
       ...(localImports.size > 0
         ? [
             `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,

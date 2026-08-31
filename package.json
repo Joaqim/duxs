@@ -47,7 +47,7 @@
     "generate:articles": "node scripts/codegen.mts articles",
     "generate:orders": "node scripts/codegen.mts orders",
     "generate:all": "node scripts/codegen.mts all",
-    "docs": "typedoc ./src --out ./docs",
+    "docs": "typedoc --out ./docs",
     "precommit": "npm build",
     "prepush": "npm test"
   },
