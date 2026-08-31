@@ -1,0 +1,113 @@
+{
+  "goodsOwner": {
+    "id": 123,
+    "name": "TEST"
+  },
+  "articleSystemId": 123321,
+  "articleNumber": "ARTICLE001",
+  "articleName": "Sample Article",
+  "productCode": "12345678910121",
+  "unitCode": "",
+  "description": "Our Sample Article",
+  "isStockArticle": true,
+  "isActive": true,
+  "supplierInfo": {
+    "supplierArticleNumber": "",
+    "supplierNumber": "",
+    "supplierName": "",
+    "alternativeSuppliers": []
+  },
+  "barCodeInfo": null,
+  "quantityPerPackage": null,
+  "quantityPerPallet": null,
+  "weight": 0.0012,
+  "length": null,
+  "width": null,
+  "height": null,
+  "volume": null,
+  "purchasePrice": 1.000000,
+  "stockValuationPrice": 1.0000,
+  "customerPrice": 0.00000,
+  "purcaseCurrencyCode": "EUR",
+  "countryOfOriginCode": "SE",
+  "statisticsNumber": "2106909897",
+  "articleGroup": null,
+  "articleCategory": null,
+  "inventoryInfo": {
+    "numberOfItems": 1000.000,
+    "numberOfBookedItems": 50.0,
+    "numberOfLockedItems": 0.000,
+    "toReceiveNumberOfItems": 0.000,
+    "allocatedNumberOfItems": 0.000,
+    "lockedForSaleNumberOfItems": 0.000,
+    "pickedToBeCollectedNumberOfItems": 10000.000,
+    "receivedToBeFinishedNumberOfItems": 0.000,
+    "lastInDate": "2026-08-07T11:38:11.243Z",
+    "sellableNumberOfItems": 250.000,
+    "totalStockValue": 250.000000,
+    "reported": {
+      "pickedToBeReportedNumberOfItems": 50.000,
+      "returnedToBeReportedNumberOfItems": 4.000,
+      "receivedToBeReportedNumberOfItems": 0.000
+    }
+  },
+  "articleDataLastUpdated": "2026-08-28T13:11:00.000Z",
+  "articleKind": "Production",
+  "stockLimit": null,
+  "minimumReorderQuantity": null,
+  "netWeight": null,
+  "freeValues": {
+    "freeDecimal1": null,
+    "freeDecimal2": null,
+    "freeDecimal3": null,
+    "freeDecimal4": null,
+    "freeBoolean1": false,
+    "freeBoolean2": false,
+    "freeBoolean3": false,
+    "freeText1": "",
+    "freeText2": "",
+    "freeText3": "",
+    "freeText4": "",
+    "freeText5": "",
+    "freeText6": "",
+    "freeText7": "",
+    "freeText8": "",
+    "freeBoolean4": false
+  },
+  "subQuantityPerItem": null,
+  "classes": null,
+  "customsDescription": "Dummy article",
+  "taricNumbersInfo": null,
+  "defaultLocationMaxNumberOfItems": null,
+  "defaultLocationStockLimit": null,
+  "linkToPicture": "",
+  "storageProperties": {
+    "isObsolete": false,
+    "isSerialNumberArticle": false,
+    "isBatchArticle": false,
+    "isExpiryDateArticle": true
+  },
+  "defaultLocation": {
+    "name": ""
+  },
+  "minDaysToExpiryDateAllowedOnDelivery": null,
+  "articleColor": null,
+  "articleSize": null,
+  "additionalStatisticsNumber": "",
+  "customsExportConditions": "",
+  "articleNameTranslations": [],
+  "articleHandlingComments": {
+    "articleInboundHandlingComment": "",
+    "articlePickingHandlingComment": "",
+    "articleReturnHandlingComment": ""
+  },
+  "storageClass": null,
+  "goodsCategory": null,
+  "created": "2026-08-28T10:00:00.000Z",
+  "replacementArticleInfo": null,
+  "dangerousGoodsMeasures": {
+    "dangerousGoodsWeight": null,
+    "dangerousGoodsNetWeight": null,
+    "dangerousGoodsVolume": null
+  }
+}
