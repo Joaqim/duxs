@@ -3,6 +3,12 @@ import { execFileSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { isDeepStrictEqual } from "node:util";
 import { fetchJson } from "fetch-json";
+import {
+  resolveCollisions,
+  toMethodName,
+  toResponseAliasName,
+  type NameableOperation,
+} from "./codegen-names.mts";
 
 interface SpecConfig {
   url?: string;
