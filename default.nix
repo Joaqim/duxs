@@ -25,6 +25,15 @@ pkgs.buildNpmPackage {
   src = ./.;
   npmDepsHash = "sha256-2UOsB9DxozwUzgyDLddfFzFeL6Vm7a5XNzIMjBqtgt4=";
 
+  doCheck = true;
+  checkPhase = ''
+    runHook preCheck
+
+    npm test
+
+    runHook postCheck
+  '';
+
   postPatch = ''
     # Using local openapi-typescript for compilation
     substituteInPlace ./scripts/codegen.mts --replace-fail '"npx", ["openapi-typescript",' '"openapi-typescript", ['
