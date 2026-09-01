@@ -1,5 +1,16 @@
+import type { paths as articleItemsPath } from "./gen/articleItems";
 import type { paths as articlesPath } from "./gen/articles";
+import type { paths as goodsOwnersPath } from "./gen/goodsOwners";
+import type { paths as inventoryAdjustmentsPath } from "./gen/inventoryAdjustments";
+import type { paths as invoicesPath } from "./gen/invoices";
+import type { paths as movementsPath } from "./gen/movements";
 import type { paths as ordersPath } from "./gen/orders";
+import type { paths as parcelTypesPath } from "./gen/parcelTypes";
+import type { paths as productionOrdersPath } from "./gen/productionOrders";
+import type { paths as purchaseOrdersPath } from "./gen/purchaseOrders";
+import type { paths as returnOrdersPath } from "./gen/returnOrders";
+import type { paths as transporterContractsPath } from "./gen/transporterContracts";
+import type { paths as warehousesPath } from "./gen/warehouses";
 
 import createClient from "openapi-fetch";
 import { transport } from "./transport";
@@ -18,7 +29,21 @@ import { ReturnOrdersApiV1 } from "./returnOrders";
 import { TransporterContractsApiV1 } from "./transporterContracts";
 import { WarehousesApiV1 } from "./warehouses";
 
-export class OngoingWMSClient extends ClientWrapper<articlesPath & ordersPath> {
+export class OngoingWMSClient extends ClientWrapper<
+  articleItemsPath &
+  articlesPath &
+  goodsOwnersPath &
+  inventoryAdjustmentsPath &
+  invoicesPath &
+  movementsPath &
+  ordersPath &
+  parcelTypesPath &
+  productionOrdersPath &
+  purchaseOrdersPath &
+  returnOrdersPath &
+  transporterContractsPath &
+  warehousesPath
+> {
   public articleItemsApiV1: ArticleItemsApiV1;
   public articlesApiV1: ArticlesApiV1;
   public goodsOwnersApiV1: GoodsOwnersApiV1;
