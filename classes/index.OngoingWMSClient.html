@@ -14,11 +14,11 @@
 <section class="tsd-panel tsd-hierarchy" data-refl="2171">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
-<li class="tsd-hierarchy-item"><span class="tsd-signature-type">ClientWrapper</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">articlesPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">ordersPath</span><span class="tsd-signature-symbol">&gt;</span>
+<li class="tsd-hierarchy-item"><span class="tsd-signature-type">ClientWrapper</span><span class="tsd-signature-symbol">&lt;</span><br/>    <span class="tsd-signature-type">articleItemsPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">articlesPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">goodsOwnersPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">inventoryAdjustmentsPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">invoicesPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">movementsPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">ordersPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">parcelTypesPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">productionOrdersPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">purchaseOrdersPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">returnOrdersPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">transporterContractsPath</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">warehousesPath</span><span class="tsd-signature-symbol">,</span><br/><span class="tsd-signature-symbol">&gt;</span>
 <ul class="tsd-hierarchy">
 <li class="tsd-hierarchy-item"><span class="tsd-hierarchy-target">OngoingWMSClient</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L21">ongoing-wms-api/client.ts:21</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L32">ongoing-wms-api/client.ts:32</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-accordion" open><summary class="tsd-accordion-summary tsd-index-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
@@ -60,9 +60,23 @@
 <li><span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">{</span> <span class="tsd-kind-property">BASE_URL</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">;</span> <span class="tsd-kind-property">TOKEN</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span> <span class="tsd-signature-symbol">}</span></span></li>
 <li><span><span class="tsd-kind-parameter">fetch</span>: <a href="../types/index.FetchLike.html" class="tsd-signature-type tsd-kind-type-alias">FetchLike</a> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = transport</span></span></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="" class="tsd-signature-type tsd-kind-class">OngoingWMSClient</a></h4><aside class="tsd-sources">
-<p>Overrides ClientWrapper&lt;articlesPath &amp; ordersPath&gt;.constructor</p>
+<p>Overrides ClientWrapper&lt;
+  articleItemsPath &amp;
+  articlesPath &amp;
+  goodsOwnersPath &amp;
+  inventoryAdjustmentsPath &amp;
+  invoicesPath &amp;
+  movementsPath &amp;
+  ordersPath &amp;
+  parcelTypesPath &amp;
+  productionOrdersPath &amp;
+  purchaseOrdersPath &amp;
+  returnOrdersPath &amp;
+  transporterContractsPath &amp;
+  warehousesPath
+&gt;.constructor</p>
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L36">ongoing-wms-api/client.ts:36</a></li></ul></aside></div></li></ul></section></section></details>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L61">ongoing-wms-api/client.ts:61</a></li></ul></aside></div></li></ul></section></section></details>
 <details class="tsd-panel-group tsd-member-group tsd-accordion" open><summary class="tsd-accordion-summary" data-key="section-Properties"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>
 <h2 class="tsd-anchor-link" id="properties-1">Properties<a href="#properties-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2></summary>
 <section>
@@ -70,73 +84,73 @@
 <h3 class="tsd-anchor-link" id="articleitemsapiv1"><span>article<wbr/>Items<wbr/>Api<wbr/>V1</span><a href="#articleitemsapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">articleItemsApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.ArticleItemsApiV1.html" class="tsd-signature-type tsd-kind-class">ArticleItemsApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L22">ongoing-wms-api/client.ts:22</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L47">ongoing-wms-api/client.ts:47</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="articlesapiv1"><span>articles<wbr/>Api<wbr/>V1</span><a href="#articlesapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">articlesApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.ArticlesApiV1.html" class="tsd-signature-type tsd-kind-class">ArticlesApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L23">ongoing-wms-api/client.ts:23</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L48">ongoing-wms-api/client.ts:48</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-protected tsd-is-inherited">
 <h3 class="tsd-anchor-link" id="client"><code class="tsd-tag">Protected</code><span>client</span><a href="#client" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
-<div class="tsd-signature"><span class="tsd-kind-property">client</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Client</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
+<div class="tsd-signature"><span class="tsd-kind-property">client</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Client</span><span class="tsd-signature-symbol">&lt;</span><br/>    <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span> <span class="tsd-signature-symbol">&amp;</span> <span class="tsd-signature-type">paths</span><span class="tsd-signature-symbol">,</span><br/><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <p>Inherited from ClientWrapper.client</p>
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/utils.ts#L23">ongoing-wms-api/utils.ts:23</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/utils.ts#L23">ongoing-wms-api/utils.ts:23</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="goodsownersapiv1"><span>goods<wbr/>Owners<wbr/>Api<wbr/>V1</span><a href="#goodsownersapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">goodsOwnersApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.GoodsOwnersApiV1.html" class="tsd-signature-type tsd-kind-class">GoodsOwnersApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L24">ongoing-wms-api/client.ts:24</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L49">ongoing-wms-api/client.ts:49</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="inventoryadjustmentsapiv1"><span>inventory<wbr/>Adjustments<wbr/>Api<wbr/>V1</span><a href="#inventoryadjustmentsapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">inventoryAdjustmentsApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.InventoryAdjustmentsApiV1.html" class="tsd-signature-type tsd-kind-class">InventoryAdjustmentsApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L25">ongoing-wms-api/client.ts:25</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L50">ongoing-wms-api/client.ts:50</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="invoicesapiv1"><span>invoices<wbr/>Api<wbr/>V1</span><a href="#invoicesapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">invoicesApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.InvoicesApiV1.html" class="tsd-signature-type tsd-kind-class">InvoicesApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L26">ongoing-wms-api/client.ts:26</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L51">ongoing-wms-api/client.ts:51</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="movementsapiv1"><span>movements<wbr/>Api<wbr/>V1</span><a href="#movementsapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">movementsApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.MovementsApiV1.html" class="tsd-signature-type tsd-kind-class">MovementsApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L27">ongoing-wms-api/client.ts:27</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L52">ongoing-wms-api/client.ts:52</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="ordersapiv1"><span>orders<wbr/>Api<wbr/>V1</span><a href="#ordersapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">ordersApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.OrdersApiV1.html" class="tsd-signature-type tsd-kind-class">OrdersApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L28">ongoing-wms-api/client.ts:28</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L53">ongoing-wms-api/client.ts:53</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="parceltypesapiv1"><span>parcel<wbr/>Types<wbr/>Api<wbr/>V1</span><a href="#parceltypesapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">parcelTypesApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.ParcelTypesApiV1.html" class="tsd-signature-type tsd-kind-class">ParcelTypesApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L29">ongoing-wms-api/client.ts:29</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L54">ongoing-wms-api/client.ts:54</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="productionordersapiv1"><span>production<wbr/>Orders<wbr/>Api<wbr/>V1</span><a href="#productionordersapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">productionOrdersApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.ProductionOrdersApiV1.html" class="tsd-signature-type tsd-kind-class">ProductionOrdersApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L30">ongoing-wms-api/client.ts:30</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L55">ongoing-wms-api/client.ts:55</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="purchaseordersapiv1"><span>purchase<wbr/>Orders<wbr/>Api<wbr/>V1</span><a href="#purchaseordersapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">purchaseOrdersApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.PurchaseOrdersApiV1.html" class="tsd-signature-type tsd-kind-class">PurchaseOrdersApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L31">ongoing-wms-api/client.ts:31</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L56">ongoing-wms-api/client.ts:56</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="returnordersapiv1"><span>return<wbr/>Orders<wbr/>Api<wbr/>V1</span><a href="#returnordersapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">returnOrdersApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.ReturnOrdersApiV1.html" class="tsd-signature-type tsd-kind-class">ReturnOrdersApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L32">ongoing-wms-api/client.ts:32</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L57">ongoing-wms-api/client.ts:57</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="transportercontractsapiv1"><span>transporter<wbr/>Contracts<wbr/>Api<wbr/>V1</span><a href="#transportercontractsapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">transporterContractsApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.TransporterContractsApiV1.html" class="tsd-signature-type tsd-kind-class">TransporterContractsApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L33">ongoing-wms-api/client.ts:33</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L58">ongoing-wms-api/client.ts:58</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="warehousesapiv1"><span>warehouses<wbr/>Api<wbr/>V1</span><a href="#warehousesapiv1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">warehousesApiV1</span><span class="tsd-signature-symbol">:</span> <a href="index.WarehousesApiV1.html" class="tsd-signature-type tsd-kind-class">WarehousesApiV1</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/795189bd4f87eb027f9af7386d7b884e53d16799/src/ongoing-wms-api/client.ts#L34">ongoing-wms-api/client.ts:34</a></li></ul></aside></section></section></details></div>
+<li>Defined in <a href="https://github.com/Joaqim/duxs/blob/7872e8676cb9e717084b8deedfe5c6e03da4b338/src/ongoing-wms-api/client.ts#L59">ongoing-wms-api/client.ts:59</a></li></ul></aside></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
