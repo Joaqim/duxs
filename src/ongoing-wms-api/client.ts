@@ -31,18 +31,18 @@ import { WarehousesApiV1 } from "./warehouses";
 
 export class OngoingWMSClient extends ClientWrapper<
   articleItemsPath &
-  articlesPath &
-  goodsOwnersPath &
-  inventoryAdjustmentsPath &
-  invoicesPath &
-  movementsPath &
-  ordersPath &
-  parcelTypesPath &
-  productionOrdersPath &
-  purchaseOrdersPath &
-  returnOrdersPath &
-  transporterContractsPath &
-  warehousesPath
+    articlesPath &
+    goodsOwnersPath &
+    inventoryAdjustmentsPath &
+    invoicesPath &
+    movementsPath &
+    ordersPath &
+    parcelTypesPath &
+    productionOrdersPath &
+    purchaseOrdersPath &
+    returnOrdersPath &
+    transporterContractsPath &
+    warehousesPath
 > {
   public articleItemsApiV1: ArticleItemsApiV1;
   public articlesApiV1: ArticlesApiV1;
