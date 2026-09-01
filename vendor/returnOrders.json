@@ -1,0 +1,1230 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/returnOrders/returnCauses": {
+      "get": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Get all return causes.",
+        "operationId": "ReturnOrders_GetReturnCauses",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReturnCausesModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Create or update a return cause type. If there is no return cause with the specified code, it will be created. Otherwise, the existing return cause will be updated.",
+        "operationId": "ReturnOrders_PutReturnCause",
+        "requestBody": {
+          "x-name": "m",
+          "description": "An object containing the return cause data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostReturnCauseModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReturnCauseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/returnCauses/{returnCauseId}": {
+      "put": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Update a return cause. The ID will be used to identify the return cause.",
+        "operationId": "ReturnOrders_PutReturnCauseUsingId",
+        "parameters": [
+          {
+            "name": "returnCauseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "An object containing the return cause type data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostReturnCauseModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReturnCauseResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/{returnOrderId}": {
+      "get": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Get a return order using the return order ID.",
+        "operationId": "ReturnOrders_GetByReturnOrderId",
+        "parameters": [
+          {
+            "name": "returnOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Return order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A return order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReturnOrderModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Cancel a return order.",
+        "operationId": "ReturnOrders_Delete",
+        "parameters": [
+          {
+            "name": "returnOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Return order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders": {
+      "get": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Get a list of return orders which match the specified search criteria.",
+        "operationId": "ReturnOrders_Get",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "returnOrderNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "A list of return order numbers",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 2
+          },
+          {
+            "name": "customerOrderNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "A list of customer order numbers",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "goodsReturnedFromDate",
+            "in": "query",
+            "description": "Only return orders where a return has been made after this date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "returnOrderStatusFrom",
+            "in": "query",
+            "description": "Only return orders whose return order status is greater than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "returnOrderStatusTo",
+            "in": "query",
+            "description": "Only return orders whose return order status is less than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of return orders.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetReturnOrderModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Create or update a return order.",
+        "operationId": "ReturnOrders_PutReturnOrder",
+        "requestBody": {
+          "x-name": "o",
+          "description": "The return order.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostReturnOrderModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "A message indicating success or failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Cancel a return order using the return order number.",
+        "operationId": "ReturnOrders_DeleteByOrderNumber",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "returnOrderNumber",
+            "in": "query",
+            "required": true,
+            "description": "Return order number.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/statuses": {
+      "get": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Get all return order statuses.",
+        "operationId": "ReturnOrders_GetOrderStatuses",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetReturnOrderStatusesModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/{returnOrderId}/returnOrderStatus": {
+      "patch": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Update the status of a return order.",
+        "operationId": "ReturnOrders_PatchStatus",
+        "parameters": [
+          {
+            "name": "returnOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Return order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new return order status.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchReturnOrderStatus"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/{returnOrderId}/freeDateTime1": {
+      "patch": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Update the free date time 1 on return order.",
+        "operationId": "ReturnOrders_PatchFreeDateTime1",
+        "parameters": [
+          {
+            "name": "returnOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Return order ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the indate",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchReturnOrderFreeDateTime1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/returnOrders/{returnOrderId}/returnOrderHandlingComment": {
+      "patch": {
+        "tags": [
+          "ReturnOrders"
+        ],
+        "summary": "Update the return order handling comment.",
+        "operationId": "ReturnOrders_PatchReturnOrderHandlingComment",
+        "parameters": [
+          {
+            "name": "returnOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Return order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new return order handling comment.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchReturnOrderHandlingComment"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchReturnOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostReturnCauseModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId",
+          "code",
+          "name"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "isRemoveCause": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isChangeCause": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isReturnCommentMandatory": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnCausesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnCauses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetReturnCauseModel"
+            }
+          }
+        }
+      },
+      "PostReturnCauseResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnCauseId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderInfo"
+              }
+            ]
+          },
+          "customerOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderCustomerOrderInfo"
+              }
+            ]
+          },
+          "returnOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetReturnOrderLine"
+            }
+          }
+        }
+      },
+      "PostReturnOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostReturnOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId",
+          "returnOrderNumber",
+          "customerOrder",
+          "returnOrderLines"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "returnOrderNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customerOrder": {
+            "$ref": "#/components/schemas/PostReturnOrderCustomerOrder"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "returnOrderLines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostReturnOrderLine"
+            }
+          },
+          "warehouseId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tracking": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostReturnOrderTracking"
+            }
+          },
+          "returnOrderHandlingComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostReturnOrderFreeValuesModel"
+              }
+            ]
+          }
+        }
+      },
+      "GetReturnOrderStatusesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderStatuses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetReturnOrderStatusModel"
+            }
+          }
+        }
+      },
+      "PatchReturnOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "returnOrderStatusNumber"
+        ],
+        "properties": {
+          "returnOrderStatusNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PatchReturnOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchReturnOrderFreeDateTime1": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PatchReturnOrderHandlingComment": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "returnOrderHandlingComment"
+        ],
+        "properties": {
+          "returnOrderHandlingComment": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "GetReturnCauseModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRemoveCause": {
+            "type": "boolean"
+          },
+          "isChangeCause": {
+            "type": "boolean"
+          },
+          "isReturnCommentMandatory": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetReturnOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "returnOrderRowNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerOrderLine": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderLineCustomerOrderLine"
+              }
+            ]
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderLineArticle"
+              }
+            ]
+          },
+          "returnCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "returnedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "pickedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "toBeReturnedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "returnedRemovedByInventoryNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "returnedArticleItems": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetReturnedArticleItem"
+            }
+          }
+        }
+      },
+      "GetReturnOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "returnOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "returnOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "returnOrderStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderStatus"
+              }
+            ]
+          },
+          "warehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderWarehouse"
+              }
+            ]
+          },
+          "returnOrderHandlingComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderFreeValues"
+              }
+            ]
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "returnOrderArrivalTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "returnOrderCreatedBy": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetReturnOrderCreatedBy"
+              }
+            ]
+          }
+        }
+      },
+      "GetReturnOrderCustomerOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostReturnOrderCustomerOrder": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PostReturnOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "returnOrderRowNumber",
+          "customerOrderLine",
+          "toBeReturnedNumberOfItems"
+        ],
+        "properties": {
+          "returnOrderRowNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "customerOrderLine": {
+            "$ref": "#/components/schemas/PostReturnOrderLineCustomerOrderLine"
+          },
+          "toBeReturnedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "returnCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "returnOrderLineComment": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostReturnOrderTracking": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "waybill": {
+            "type": "string",
+            "nullable": true
+          },
+          "trackingUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostReturnOrderFreeValuesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnedArticleItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "batch": {
+            "type": "string",
+            "nullable": true
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "returnTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "returnComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "isReturnRemovedByInventory": {
+            "type": "boolean"
+          },
+          "returnCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "articleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "articleItemCategory": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "articleItemClasses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IdCodeName"
+            }
+          }
+        }
+      },
+      "GetReturnOrderLineCustomerOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerOrderRowNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderLineArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderWarehouse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetReturnOrderCreatedBy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostReturnOrderLineCustomerOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderLineId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "IdCodeName": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

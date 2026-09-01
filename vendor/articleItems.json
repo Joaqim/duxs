@@ -1,0 +1,883 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/articleItems/statuses": {
+      "get": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Get all article item statuses.",
+        "operationId": "ArticleItems_GetArticleItemStatuses",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleItemStatusModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Create or update an article item status. If there is no article item with the specified code, it will be created. Otherwise, the existing status will be updated.",
+        "operationId": "ArticleItems_PutArticleItemStatus",
+        "requestBody": {
+          "x-name": "m",
+          "description": "An object containing the article item status data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostArticleItemStatusModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostArticleItemStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/articleItems": {
+      "get": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Get all article items which match the specified search criteria. The search criteria are specified as query parameters.",
+        "operationId": "ArticleItems_GetArticleItems",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "articleNumber",
+            "in": "query",
+            "description": "Only return article items for this article number (only 1 article number may be specified).",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "articleSystemIdFrom",
+            "in": "query",
+            "description": "Only return articles whose article system ID is greater than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "maxArticlesToGet",
+            "in": "query",
+            "description": "Maximum number of articles to return.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "articleNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Only return article items for these article numbers (several article numbers may be specified).",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 5
+          },
+          {
+            "name": "locationNames",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Only return article items which are at these locations (several location names may be specified).",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 6
+          },
+          {
+            "name": "articleItemStatusCodes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Only return article items which are assigned with these article item statuses (several article item status codes may be specified).",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 7
+          },
+          {
+            "name": "batchNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Only return article items with these batch numbers (several batch numbers may be specified).",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 8
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of article items, specified per article",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetArticleItemsModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/articleItems/byQuery": {
+      "post": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Get all article items which match the specified search criteria. The search criteria are specified in the request body.",
+        "operationId": "ArticleItems_GetArticleItemsByQuery",
+        "requestBody": {
+          "x-name": "m",
+          "description": "An object containing the search query.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetArticleItemsByQueryModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "A list of article items, specified per article",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetArticleItemsModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/articleItems/{articleItemId}/isLocked": {
+      "patch": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Update \"is locked\".",
+        "operationId": "ArticleItems_PatchIsLocked",
+        "parameters": [
+          {
+            "name": "articleItemId",
+            "in": "path",
+            "required": true,
+            "description": "Article item ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Information about lock status.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchArticleItemIsLockedModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchArticleItemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/articleItems/{articleItemId}/batch": {
+      "patch": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Update batch.",
+        "operationId": "ArticleItems_PatchBatch",
+        "parameters": [
+          {
+            "name": "articleItemId",
+            "in": "path",
+            "required": true,
+            "description": "Article item ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Batch number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchArticleItemBatchModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchArticleItemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/articleItems/{articleItemId}/articleItemStatus": {
+      "patch": {
+        "tags": [
+          "ArticleItems"
+        ],
+        "summary": "Update article item status.",
+        "operationId": "ArticleItems_PatchArticleItemStatus",
+        "parameters": [
+          {
+            "name": "articleItemId",
+            "in": "path",
+            "required": true,
+            "description": "Article item ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Information about article item status (ID or code).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchArticleItemStatusModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchArticleItemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostArticleItemStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId",
+          "code",
+          "name"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "isLocked": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "isLockedForSale": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "ArticleItemStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemStatuses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetArticleItemStatusModel"
+            }
+          }
+        }
+      },
+      "PostArticleItemStatusResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetArticleItemsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetArticleItemInfo"
+            }
+          },
+          "goodsOwner": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemGoodsOwner"
+              }
+            ]
+          }
+        }
+      },
+      "GetArticleItemsByQueryModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleSystemIdFrom": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxArticlesToGet": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "articleNumbers": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "locationNames": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "articleItemStatusCodes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "batchNumbers": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "PatchArticleItemIsLockedModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isLocked"
+        ],
+        "properties": {
+          "isLocked": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchArticleItemResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchArticleItemBatchModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "batchNumber"
+        ],
+        "properties": {
+          "batchNumber": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PatchArticleItemStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "articleItemStatusCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "advanced": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PatchArticleItemStatusAdvanced"
+              }
+            ]
+          }
+        }
+      },
+      "GetArticleItemStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isLocked": {
+            "type": "boolean"
+          },
+          "isLockedForSale": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GetArticleItemInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "batch": {
+            "type": "string",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isLocked": {
+            "type": "boolean"
+          },
+          "isLockedForSale": {
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "warehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemWarehouse"
+              }
+            ]
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemPurchaseOrderInfo"
+              }
+            ]
+          },
+          "lockCauses": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemLockCauses"
+              }
+            ]
+          },
+          "prices": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemInfoPrices"
+              }
+            ]
+          },
+          "secondNumberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "productionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemFreeValues"
+              }
+            ]
+          },
+          "articleItemClasses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IdCodeName"
+            }
+          }
+        }
+      },
+      "GetArticleItemGoodsOwner": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchArticleItemStatusAdvanced": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "allowUpdatingAllocatedItem": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "IdCodeName": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetArticleItemWarehouse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetArticleItemPurchaseOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseOrderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetArticleItemPurchaseOrderStatus"
+              }
+            ]
+          }
+        }
+      },
+      "GetArticleItemLockCauses": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "byAllocation": {
+            "type": "boolean"
+          },
+          "byInventory": {
+            "type": "boolean"
+          },
+          "byItemLock": {
+            "type": "boolean"
+          },
+          "byLocation": {
+            "type": "boolean"
+          },
+          "byStatus": {
+            "type": "boolean"
+          },
+          "byWarehouseTransferOrder": {
+            "type": "boolean"
+          }
+        }
+      },
+      "GetArticleItemInfoPrices": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetArticleItemFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemFreeText1": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetArticleItemPurchaseOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

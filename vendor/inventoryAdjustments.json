@@ -1,0 +1,410 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/inventoryAdjustments/{inventoryId}": {
+      "get": {
+        "tags": [
+          "InventoryAdjustments"
+        ],
+        "summary": "Get a specific inventory adjustment.",
+        "operationId": "InventoryAdjustments_Get",
+        "parameters": [
+          {
+            "name": "inventoryId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the inventory adjustment.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInventoryAdjustmentsLine"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/inventoryAdjustments": {
+      "get": {
+        "tags": [
+          "InventoryAdjustments"
+        ],
+        "summary": "Get all inventory adjustments which match the specified search criteria.",
+        "operationId": "InventoryAdjustments_GetAll",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "The 'from' time. If specified, returns inventory adjustments which were made after this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "Obsolete, do not use.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "toTime",
+            "in": "query",
+            "description": "The 'to' time. If specified, returns inventory adjustments which were made before this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "isReported",
+            "in": "query",
+            "description": "Only return inventory adjustments which have not been marked as 'reported'.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetInventoryAdjustmentsLine"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/inventoryAdjustments/{inventoryId}/articles/{articleSystemId}/setReported": {
+      "patch": {
+        "tags": [
+          "InventoryAdjustments"
+        ],
+        "summary": "Sets the 'reported' flag on an inventory to true for the specified article.",
+        "operationId": "InventoryAdjustments_PatchInventoryAdjustmentArticlesReported",
+        "parameters": [
+          {
+            "name": "inventoryId",
+            "in": "path",
+            "required": true,
+            "description": "Inventory ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "articleSystemId",
+            "in": "path",
+            "required": true,
+            "description": "Article system ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchInventoryAdjustmentArticlesReportedResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetInventoryAdjustmentsLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInventoryAdjustmentArticle"
+              }
+            ]
+          },
+          "inventoryAdjustments": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetInventoryAdjustment"
+            }
+          }
+        }
+      },
+      "PatchInventoryAdjustmentArticlesReportedResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PatchInventoryAdjustmentArticlesReportedItems"
+            }
+          }
+        }
+      },
+      "GetInventoryAdjustment": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inventoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "inventoryTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "articleItemComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "inventoryItemComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "inventoryAdjustmentCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "warehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInventoryAdjustmentWarehouse"
+              }
+            ]
+          },
+          "prices": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInventoryAdjustmentPrices"
+              }
+            ]
+          },
+          "articleItemClasses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IdCodeName"
+            }
+          }
+        }
+      },
+      "GetInventoryAdjustmentArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "productCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "prices": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInventoryAdjustmentArticlePrices"
+              }
+            ]
+          }
+        }
+      },
+      "PatchInventoryAdjustmentArticlesReportedItems": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inventoryArticleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "IdCodeName": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInventoryAdjustmentWarehouse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInventoryAdjustmentPrices": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "inOrderLineUnitPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetInventoryAdjustmentArticlePrices": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "stockValuationPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

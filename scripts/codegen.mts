@@ -21,14 +21,58 @@ const GENERATED_OUTPUT_PATH = "src/ongoing-wms-api/gen";
 const SHARED_TYPES_PATH = `${GENERATED_OUTPUT_PATH}/shared.types.ts`;
 
 const SPECS: Record<string, SpecConfig> = {
+  articleItems: {
+    specFile: "articleItems.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
   articles: {
     specFile: "articles.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  goodsOwners: {
+    specFile: "goodsOwners.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  inventoryAdjustments: {
+    specFile: "inventoryAdjustments.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  invoices: {
+    specFile: "invoices.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  movements: {
+    specFile: "movements.json",
     docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
   },
   orders: {
     specFile: "orders.json",
     docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
   },
+  parcelTypes: {
+    specFile: "parcelTypes.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  productionOrders: {
+    specFile: "productionOrders.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  purchaseOrders: {
+    specFile: "purchaseOrders.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  returnOrders: {
+    specFile: "returnOrders.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  transporterContracts: {
+    specFile: "transporterContracts.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  },
+  warehouses: {
+    specFile: "warehouses.json",
+    docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
+  }
 };
 
 const createVendorSpecPath = ({ specFile }: SpecConfig) => `${VENDOR_PATH}/${specFile}`;
@@ -405,10 +449,10 @@ async function generateAllAliasFiles(): Promise<void> {
             : undefined;
         const itemRefName =
           jsonSchema?.["type"] === "array" &&
-          typeof jsonSchema["items"]?.["$ref"] === "string"
+            typeof jsonSchema["items"]?.["$ref"] === "string"
             ? jsonSchema["items"]["$ref"].match(
-                /#\/components\/schemas\/(.+)$/,
-              )?.[1]
+              /#\/components\/schemas\/(.+)$/,
+            )?.[1]
             : undefined;
         const known = (n: string | undefined) =>
           n && (localSchemas.has(n) || sharedHere.has(n)) ? n : undefined;
@@ -594,13 +638,13 @@ async function generateAllAliasFiles(): Promise<void> {
       `export type * from "./${specName}.responses.js";`,
       ...(localImports.size > 0
         ? [
-            `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,
-          ]
+          `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,
+        ]
         : []),
       ...(sharedImports.size > 0
         ? [
-            `import type { ${[...sharedImports].sort().join(", ")} } from "./shared.types.js";`,
-          ]
+          `import type { ${[...sharedImports].sort().join(", ")} } from "./shared.types.js";`,
+        ]
         : []),
     ];
 

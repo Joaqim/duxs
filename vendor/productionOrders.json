@@ -1,0 +1,1189 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/productionOrders/{productionOrderId}": {
+      "get": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Get a production order using the production order ID.",
+        "operationId": "ProductionOrders_GetByProductionOrderId",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Production order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A production order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetProductionOrderModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders": {
+      "get": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Get a list of production orders which match the specified search criteria.",
+        "operationId": "ProductionOrders_GetByFilter",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "productionOrderNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "A list of production order numbers",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 2
+          },
+          {
+            "name": "productionOrderStatusFrom",
+            "in": "query",
+            "description": "Minimum production order status",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "productionOrderStatusTo",
+            "in": "query",
+            "description": "Maximum production order status",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "lastProducedTimeFrom",
+            "in": "query",
+            "description": "Only return production orders where something has been produced after this time",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "lastProducedTimeTo",
+            "in": "query",
+            "description": "Only return production orders where something has been produced before this time",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 6
+          },
+          {
+            "name": "onlyNotFullyProducedProductionOrders",
+            "in": "query",
+            "description": "Only return production orders where production has started but is not yet complete",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 7
+          },
+          {
+            "name": "productionOrderFreeBoolean1",
+            "in": "query",
+            "description": "Filter for production orders where the free boolean 1 value equals this value",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 8
+          },
+          {
+            "name": "productionOrderFreeBoolean2",
+            "in": "query",
+            "description": "Filter for production orders where the free boolean 2 value equals this value",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 9
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of production orders.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetProductionOrderModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Create or update a production order.",
+        "operationId": "ProductionOrders_PutProductionOrder",
+        "requestBody": {
+          "x-name": "o",
+          "description": "The production order.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostProductionOrderModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "A message indicating success or failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostProductionOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders/{productionOrderId}/freeBoolean1": {
+      "patch": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Update the free boolean 1 on an existing production order.",
+        "operationId": "ProductionOrders_PatchFreeBoolean1",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Production order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free boolean 1.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchProductionOrderFreeBoolean1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchProductionOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders/{productionOrderId}/freeBoolean2": {
+      "patch": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Update the free boolean 2 on an existing production order.",
+        "operationId": "ProductionOrders_PatchFreeBoolean2",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Production order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free boolean 2.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchProductionOrderFreeBoolean2"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchProductionOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders/{productionOrderId}/freeText1": {
+      "patch": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Update the free text 1 on an existing production order.",
+        "operationId": "ProductionOrders_PatchFreeText1",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Production order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free text 1.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchProductionOrderFreeText1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchProductionOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders/{productionOrderId}/setReportedNumberOfItemsToProducedNumberOfItems": {
+      "patch": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Sets the reported number of items on each production order line to the produced number of items.",
+        "operationId": "ProductionOrders_PatchSetReportedNumberOfItemsToProducedNumberOfItems",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the production order",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/productionOrders/{productionOrderId}/lines/{productionOrderLineId}/reportedNumberOfItems": {
+      "patch": {
+        "tags": [
+          "ProductionOrders"
+        ],
+        "summary": "Update the reported number of items on a particular production order line.",
+        "operationId": "ProductionOrders_PatchReportedNumberOfItems",
+        "parameters": [
+          {
+            "name": "productionOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the production order",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "productionOrderLineId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the production order line",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the reported number of items",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchProductionOrderReportedNumberOfItems"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetProductionOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderInfo"
+              }
+            ]
+          },
+          "productionOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetProductionOrderLine"
+            }
+          },
+          "productionOrderDisassemblyLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetProductionOrderDisassemblyLine"
+            }
+          }
+        }
+      },
+      "PostProductionOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId",
+          "productionOrderNumber"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productionOrderNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "productionOrderType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "productionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostProductionOrderFreeValuesModel"
+              }
+            ]
+          },
+          "productionOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostProductionOrderLine"
+            }
+          },
+          "productionOrderDisassemblyLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostProductionOrderDisassemblyLine"
+            }
+          },
+          "plannedEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PostProductionOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchProductionOrderFreeBoolean1": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeBoolean1"
+        ],
+        "properties": {
+          "freeBoolean1": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchProductionOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchProductionOrderFreeBoolean2": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeBoolean2"
+        ],
+        "properties": {
+          "freeBoolean2": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchProductionOrderFreeText1": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText1"
+        ],
+        "properties": {
+          "freeText1": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchProductionOrderReportedNumberOfItems": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reportedNumberOfItems"
+        ],
+        "properties": {
+          "reportedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "GetProductionOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productionOrderLineNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "productionOrderLineComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineArticle"
+              }
+            ]
+          },
+          "orderedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "producedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "consumed": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetProductionOrderLineConsumedInfo"
+            }
+          },
+          "produced": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetProductionOrderLineProducedInfo"
+            }
+          },
+          "productionOrderDisassemblyLine": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineDisassemblyLine"
+              }
+            ]
+          },
+          "reportedNumberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderDisassemblyLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderDisassemblyLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productionOrderDisassemblyLineNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "toDisassembleNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "toProduceNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "toConsumeNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "producedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "consumedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineDisassemblyArticle"
+              }
+            ]
+          }
+        }
+      },
+      "GetProductionOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productionOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "productionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startProductionTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endProductionTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "productionOrderStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderStatus"
+              }
+            ]
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderFreeValues"
+              }
+            ]
+          },
+          "plannedEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "productionOrderType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          }
+        }
+      },
+      "PostProductionOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "productionOrderLineNumber",
+          "articleNumber",
+          "toProduceNumberOfItems"
+        ],
+        "properties": {
+          "productionOrderLineNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "articleNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "toProduceNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "toProduceBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "toProduceSerial": {
+            "type": "string",
+            "nullable": true
+          },
+          "minDaysToExpiryDate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productionOrderLineSpecification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostProductionOrderLineSpecification"
+              }
+            ]
+          },
+          "toProduceArticleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "toConsumeArticleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          }
+        }
+      },
+      "PostProductionOrderDisassemblyLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "productionOrderDisassemblyLineNumber",
+          "articleNumber",
+          "toDisassembleNumberOfItems"
+        ],
+        "properties": {
+          "productionOrderDisassemblyLineNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "articleNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "toDisassembleNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostProductionOrderFreeValuesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeBoolean1": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeBoolean2": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderLineConsumedInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "producedArticleItemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineConsumedArticle"
+              }
+            ]
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "purchaseOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineConsumedPurchaseOrderInfo"
+              }
+            ]
+          },
+          "productionOrderLineSpecificationLineInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineSpecificationLineInfo"
+              }
+            ]
+          }
+        }
+      },
+      "GetProductionOrderLineProducedInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetProductionOrderLineProducedArticle"
+              }
+            ]
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "GetProductionOrderLineArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderLineDisassemblyLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "productionOrderDisassemblyLineId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetProductionOrderLineDisassemblyArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeBoolean1": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeBoolean2": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PostProductionOrderLineSpecification": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "toConsume": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostProductionOrderLineSpecificationArticleLine"
+            }
+          }
+        }
+      },
+      "GetProductionOrderLineConsumedArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderLineConsumedPurchaseOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderLineSpecificationLineInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ProductionOrderLineSpecificationLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductionOrderLineSpecificationLineNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetProductionOrderLineProducedArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostProductionOrderLineSpecificationArticleLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "articleNumber",
+          "specificationLineNumber",
+          "toConsumeNumberOfItems"
+        ],
+        "properties": {
+          "articleNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "specificationLineNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "toConsumeNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

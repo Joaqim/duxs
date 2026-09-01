@@ -1,0 +1,3865 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/purchaseOrders/statuses": {
+      "get": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Get all purchase order statuses.",
+        "operationId": "PurchaseOrders_GetPurchaseOrderStatuses",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPurchaseOrderStatusesModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/types": {
+      "get": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Get all purchase order types for a particular goods owner.",
+        "operationId": "PurchaseOrders_GetPurchaseOrderTypes",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPurchaseOrderTypesModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}": {
+      "get": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Get a purchase order.",
+        "operationId": "PurchaseOrders_Get",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "includePurchaseOrderPalletItems",
+            "in": "query",
+            "description": "Advanced option. If true, then we will return the field advanced.purchaseOrderPalletItems.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPurchaseOrderModel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update a purchase order.",
+        "operationId": "PurchaseOrders_Put",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "o",
+          "description": "Purchase order object, containing all purchase order data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostPurchaseOrderModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Cancel a purchase order.",
+        "operationId": "PurchaseOrders_Delete",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders": {
+      "get": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Get all purchase orders which match the specified search criteria.",
+        "operationId": "PurchaseOrders_GetAll",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderNumber",
+            "in": "query",
+            "description": "Purchase order number.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "lastReceiveTimeFrom",
+            "in": "query",
+            "description": "Filter for purchase orders where goods have been received after this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "lastReceiveTimeTo",
+            "in": "query",
+            "description": "Filter for purchase orders where goods have been received before this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "purchaseOrderStatusFrom",
+            "in": "query",
+            "description": "Filter for purchase orders whose order status is greater than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "purchaseOrderStatusTo",
+            "in": "query",
+            "description": "Filter for purchase orders whose order status is less than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 6
+          },
+          {
+            "name": "onlyPurchaseOrdersWithOrderLinesToReport",
+            "in": "query",
+            "description": "Filter for purchase orders where at least one line has ReportedNumberOfItems != ReceivedNumberOfItems.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 7
+          },
+          {
+            "name": "purchaseOrderIdFrom",
+            "in": "query",
+            "description": "Only return purchase orders whose purchase order ID is greater than or equal to this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 8
+          },
+          {
+            "name": "maxPurchaseOrdersToGet",
+            "in": "query",
+            "description": "The maximum number of purchase orders to return.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 9
+          },
+          {
+            "name": "purchaseOrderStatusChangedTimeFrom",
+            "in": "query",
+            "description": "Only return purchase orders whose status has changed after this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 10
+          },
+          {
+            "name": "purchaseOrderNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 11
+          },
+          {
+            "name": "articleNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Filter for purchase orders which contains at least one of these article numbers.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 12
+          },
+          {
+            "name": "inDateFrom",
+            "in": "query",
+            "description": "Filter for purchase orders where the expected indate is after this date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 13
+          },
+          {
+            "name": "inDateTo",
+            "in": "query",
+            "description": "Filter for purchase orders where the expected indate is before this date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 14
+          },
+          {
+            "name": "purchaseOrderTypeCode",
+            "in": "query",
+            "description": "Filter for purchase orders with the specified purchase order type code.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 15
+          },
+          {
+            "name": "purchaseOrderHeadOrLinesChangedTimeFrom",
+            "in": "query",
+            "description": "Filter for purchase orders where either the header or lines have been changed after this time.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 16
+          },
+          {
+            "name": "includePurchaseOrderPalletItems",
+            "in": "query",
+            "description": "Advanced option. If true, then we will return the field advanced.purchaseOrderPalletItems.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 17
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetPurchaseOrderModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Create or update a purchase order. If no purchase order with the specified purchase order number exists, a new purchase order will be created. Otherwise the existing purchase order will be updated.",
+        "operationId": "PurchaseOrders_Put2",
+        "requestBody": {
+          "x-name": "o",
+          "description": "Purchase order object, containing all purchase order data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostPurchaseOrderModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Cancel a purchase order using the purchase order number.",
+        "operationId": "PurchaseOrders_DeleteByOrderNumber",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderNumber",
+            "in": "query",
+            "required": true,
+            "description": "Purchase order number.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeText1": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 1 on a purchase order line.",
+        "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeText1",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderLineId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order line",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free text",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderLineFreeText1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeDecimal1": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free decimal 1 on a purchase order line.",
+        "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeDecimal1",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderLineId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order line",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free decimal",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderLineFreeDecimal1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeText2": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 2 on a purchase order line.",
+        "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeText2",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderLineId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order line",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new free text",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderLineFreeText2"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/setReportedNumberOfItemsToReceivedNumberOfItems": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Sets the reported number of items on each purchase order line to the received number of items.",
+        "operationId": "PurchaseOrders_PatchSetReportedNumberOfItemsToReceivedNumberOfItems",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/reportedNumberOfItems": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update the reported number of items on a particular purchase order line.",
+        "operationId": "PurchaseOrders_PatchReportedNumberOfItems",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "purchaseOrderLineId",
+            "in": "path",
+            "required": true,
+            "description": "Ongoing WMS internal ID of the purchase order line",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the reported number of items",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderReportedNumberOfItemsModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderIsReturnType": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update IsReturnInOrder on purchase order.",
+        "operationId": "PurchaseOrders_PatchPurchaseOrderIsReturnType",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing IsReturnInOrder",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderIsReturnType"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeText1": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 1 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeText1",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing free text 1",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeText1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeText2": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 2 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeText2",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing free text 2",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeText2"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeText3": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 3 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeText3",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing free text 3",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeText3"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeText4": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 4 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeText4",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing free text 4",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeText4"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeText5": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update free text 5 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeText5",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing free text 5",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeText5"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeBool1": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update FreeBool1 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeBool1",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing FreeBool1",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeBool1"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/freeBool2": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update FreeBool2 on purchase order.",
+        "operationId": "PurchaseOrders_PatchFreeBool2",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing FreeBool2",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderFreeBool2"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/inDate": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update the indate on purchase order.",
+        "operationId": "PurchaseOrders_PatchInDate",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the indate",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderInDate"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/advisedDate": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update the advisedDate on purchase order.",
+        "operationId": "PurchaseOrders_PatchAdvisedDate",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase orders ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the advised date",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderAdvisedDate"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderStatus": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update the status of a purchase order.",
+        "operationId": "PurchaseOrders_PatchStatus",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "PurchaseOrderId.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new purchase order status.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderStatus"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderNumber": {
+      "patch": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update the purchase order number of a purchase order. Note that the system will not verify that the order number is unique.",
+        "operationId": "PurchaseOrders_PatchPurchaseOrderNumber",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "PurchaseOrderId.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "m",
+          "description": "Object containing the new purchase order number .",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchPurchaseOrderNumber"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatchPurchaseOrderResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/articleItems": {
+      "put": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Add article items to a purchase order.",
+        "operationId": "PurchaseOrders_PutArticleItems",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "The purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "items",
+          "description": "The article items which you want to add.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostPurchaseOrderArticleItemsModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseOrderArticleItemResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/files": {
+      "get": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Get all files which are attached to a specific purchase order.",
+        "operationId": "PurchaseOrders_GetFiles",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetFileModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Create a new file and attach it to a purchase order.",
+        "operationId": "PurchaseOrders_PostPurchaseOrderFile",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "o",
+          "description": "File object, containing all file data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostFileModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFileResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Create or update a file which is attached to a purchase order. The filename will be used to check if the file already exists.",
+        "operationId": "PurchaseOrders_PutFileUsingFilename",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "required": true,
+            "description": "File name.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "o",
+          "description": "File object, containing all file data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostFileNoFilenameModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFileResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/purchaseOrders/{purchaseOrderId}/files/{fileId}": {
+      "put": {
+        "tags": [
+          "PurchaseOrders"
+        ],
+        "summary": "Update a file which is attached to a purchase order.",
+        "operationId": "PurchaseOrders_PutFile",
+        "parameters": [
+          {
+            "name": "purchaseOrderId",
+            "in": "path",
+            "required": true,
+            "description": "Purchase order ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "fileId",
+            "in": "path",
+            "required": true,
+            "description": "File ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "o",
+          "description": "File object, containing all file data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostFileModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostFileResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetPurchaseOrderStatusesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "orderStatuses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderStatusModel"
+            }
+          }
+        }
+      },
+      "GetPurchaseOrderTypesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderTypes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderTypeModel"
+            }
+          }
+        }
+      },
+      "PostPurchaseOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "goodsOwnerId",
+          "purchaseOrderNumber"
+        ],
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "supplierOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "supplierInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderSupplierInfo"
+              }
+            ]
+          },
+          "purchaseOrderType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "purchaseOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderLine"
+            }
+          },
+          "purchaseOrderRemark": {
+            "type": "string",
+            "nullable": true
+          },
+          "warehouseId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderFreeValues"
+              }
+            ]
+          },
+          "advanced": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderAdvanced"
+              }
+            ]
+          },
+          "customsInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderCustoms"
+              }
+            ]
+          },
+          "sellerInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderSellerInfo"
+              }
+            ]
+          },
+          "invoiceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "classes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderClass"
+            }
+          },
+          "tracking": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderTracking"
+            }
+          },
+          "textLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderTextLine"
+            }
+          },
+          "wayOfDelivery": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "goodsOwnerPurchaseOrderId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "goodsOwner": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderGoodsOwner"
+              }
+            ]
+          },
+          "supplierInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderSupplierInfo"
+              }
+            ]
+          },
+          "purchaseOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderInfo"
+              }
+            ]
+          },
+          "purchaseOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderLine"
+            }
+          },
+          "sellerInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderSellerInfo"
+              }
+            ]
+          },
+          "classes": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderClass"
+            }
+          },
+          "textLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderTextLine"
+            }
+          }
+        }
+      },
+      "PostPurchaseOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchPurchaseOrderLineFreeText1": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText1"
+        ],
+        "properties": {
+          "freeText1": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PatchPurchaseOrderLineFreeDecimal1": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeDecimal1": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "PatchPurchaseOrderLineFreeText2": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText2"
+        ],
+        "properties": {
+          "freeText2": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PatchPurchaseOrderReportedNumberOfItemsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "reportedNumberOfItems"
+        ],
+        "properties": {
+          "reportedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          }
+        }
+      },
+      "PatchPurchaseOrderIsReturnType": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "purchaseOrderIsReturnType"
+        ],
+        "properties": {
+          "purchaseOrderIsReturnType": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchPurchaseOrderResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeText1": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText1"
+        ],
+        "properties": {
+          "freeText1": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeText2": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText2"
+        ],
+        "properties": {
+          "freeText2": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeText3": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText3"
+        ],
+        "properties": {
+          "freeText3": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeText4": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText4"
+        ],
+        "properties": {
+          "freeText4": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeText5": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeText5"
+        ],
+        "properties": {
+          "freeText5": {
+            "type": "string"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeBool1": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeBool1"
+        ],
+        "properties": {
+          "freeBool1": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchPurchaseOrderFreeBool2": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "freeBool2"
+        ],
+        "properties": {
+          "freeBool2": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PatchPurchaseOrderInDate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "PatchPurchaseOrderAdvisedDate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "advisedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PatchPurchaseOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "purchaseOrderStatusNumber"
+        ],
+        "properties": {
+          "purchaseOrderStatusNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PatchPurchaseOrderNumber": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "purchaseOrderNumber"
+        ],
+        "properties": {
+          "purchaseOrderNumber": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 1
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderArticleItemModel"
+            }
+          }
+        }
+      },
+      "PurchaseOrderArticleItemResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "messages": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PurchaseOrderArticleItemResponseMessage"
+            }
+          }
+        }
+      },
+      "PostFileModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fileName",
+          "mimeType",
+          "fileDataBase64"
+        ],
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mimeType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fileDataBase64": {
+            "type": "string",
+            "minLength": 1
+          },
+          "advanced": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostFileAdvanced"
+              }
+            ]
+          },
+          "fileWillBeDeletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PostFileNoFilenameModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mimeType",
+          "fileDataBase64"
+        ],
+        "properties": {
+          "mimeType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fileDataBase64": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PostFileResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fileId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetFileModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileDataBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderStatusModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderTypeModel": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CodeNamePair"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PostPurchaseOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rowNumber",
+          "articleNumber"
+        ],
+        "properties": {
+          "rowNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "articleNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleItemStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalOrderLineId": {
+            "type": "string",
+            "nullable": true
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "serialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "productionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lineFreeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderLineFreeValues"
+              }
+            ]
+          },
+          "lineType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "returnCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "textLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PostPurchaseOrderTextLine"
+            }
+          },
+          "articleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderClass": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderTracking": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "waybill": {
+            "type": "string",
+            "nullable": true
+          },
+          "trackingUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderTextLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rowNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderSupplierInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "supplierNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplierName": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplierAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderSupplierAddress"
+              }
+            ]
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText2": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText3": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText4": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText5": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDecimal1": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "freeDecimal2": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "freeBoolean1": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeBoolean2": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeDecimal3": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderAdvanced": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "advisedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "purchaseOrderStatusCreated": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "purchaseOrderIsReturnType": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "customer": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderCustomer"
+              }
+            ]
+          }
+        }
+      },
+      "PostPurchaseOrderCustoms": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "termsOfDeliveryType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "termsOfDeliveryTypeLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "customsDeclaredDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderSellerInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sellerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "sellerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sellerAddress": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderSellerAddress"
+              }
+            ]
+          }
+        }
+      },
+      "GetPurchaseOrderLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rowNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderArticle"
+              }
+            ]
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowPrice": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "advisedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "receivedNumberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "reportedNumberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "articleItems": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderArticleItem"
+            }
+          },
+          "subPurchaseOrderLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderLine"
+            }
+          },
+          "externalOrderLineId": {
+            "type": "string",
+            "nullable": true
+          },
+          "lineType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderLineFreeValues"
+              }
+            ]
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "textLines": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderTextLine"
+            }
+          },
+          "returnCause": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "currency": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          }
+        }
+      },
+      "GetPurchaseOrderClass": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CodeNamePair"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetPurchaseOrderTextLine": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rowNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderGoodsOwner": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderSupplierInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "supplierNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplierName": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderSupplierAddress"
+              }
+            ]
+          }
+        }
+      },
+      "GetPurchaseOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplierOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseOrderStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderStatus"
+              }
+            ]
+          },
+          "purchaseOrderType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "purchaseOrderRemark": {
+            "type": "string",
+            "nullable": true
+          },
+          "warehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderWarehouse"
+              }
+            ]
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "advanced": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetAdvancedPurchaseOrderInfo"
+              }
+            ]
+          },
+          "freeValues": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderFreeValues"
+              }
+            ]
+          },
+          "invoiceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdByUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderCreatedByUser"
+              }
+            ]
+          },
+          "wayOfDelivery": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "goodsOwnerPurchaseOrderId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderSellerInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sellerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "sellerName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "purchaseOrderLineId"
+        ],
+        "properties": {
+          "purchaseOrderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "batch": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "length": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "width": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "height": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "productionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "advanced": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderArticleItemAdvancedModel"
+              }
+            ]
+          },
+          "articleItemCategory": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          }
+        }
+      },
+      "PurchaseOrderArticleItemResponseMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderLineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostFileAdvanced": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "printingInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostFilePrintingInfo"
+              }
+            ]
+          }
+        }
+      },
+      "PostPurchaseOrderLineFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeDecimal1": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText2": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderSupplierAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "telePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobilePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryStateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryInstruction": {
+            "type": "string",
+            "nullable": true
+          },
+          "isVisible": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyBySMS": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyByEmail": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyByTelephone": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderCustomer": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderCustomerAddress"
+              }
+            ]
+          }
+        }
+      },
+      "PostPurchaseOrderSellerAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "telePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobilePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryStateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryInstruction": {
+            "type": "string",
+            "nullable": true
+          },
+          "isVisible": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyBySMS": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyByEmail": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "notifyByTelephone": {
+            "type": "boolean",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderArticleItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originalArticleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "caseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "receivedByUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderArticleItemReceivedByUser"
+              }
+            ]
+          },
+          "isLocked": {
+            "type": "boolean"
+          },
+          "isLockedForSale": {
+            "type": "boolean"
+          },
+          "articleItemFreeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleItemPalletItemInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderArticleItemPalletItem"
+              }
+            ]
+          },
+          "secondNumberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "articleItemClasses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IdCodeName"
+            }
+          }
+        }
+      },
+      "GetPurchaseOrderArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "productCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderLineFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText2": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDateTime1": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "freeDecimal1": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderSupplierAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderWarehouse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetAdvancedPurchaseOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "arrivalDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "purchaseOrderIsReturnType": {
+            "type": "boolean"
+          },
+          "advisedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "customsDeclaredDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "customerInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderCustomerInfo"
+              }
+            ]
+          },
+          "purchaseOrderPalletItems": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetPurchaseOrderPalletItem"
+            }
+          }
+        }
+      },
+      "GetPurchaseOrderFreeValues": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "freeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText2": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText3": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText4": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeText5": {
+            "type": "string",
+            "nullable": true
+          },
+          "freeDecimal1": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "freeDecimal2": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "freeBool1": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeBool2": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "freeDecimal3": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderCreatedByUser": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemAdvancedModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemParcel": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderArticleItemParcelModel"
+              }
+            ]
+          },
+          "secondNumberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "PostFilePrintingInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "reportId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "printAsUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostFilePrintAsUser"
+              }
+            ]
+          },
+          "printAsWorkstation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostFilePrintAsWorkstation"
+              }
+            ]
+          }
+        }
+      },
+      "PostPurchaseOrderCustomerAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobilePhone": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "IdCodeName": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderArticleItemReceivedByUser": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetPurchaseOrderArticleItemPalletItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "palletItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "palletItemLabelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "outDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "palletItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderArticleItemPalletItemStatus"
+              }
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "tareWeight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderPalletItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "palletItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "palletItemLabelId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "inDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "outDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "palletItemStatus": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderPalletItemStatus"
+              }
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "tareWeight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "length": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "width": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "height": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderCustomerInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetPurchaseOrderCustomerAddress"
+              }
+            ]
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemParcelModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "parcelNumber"
+        ],
+        "properties": {
+          "parcelNumber": {
+            "type": "string",
+            "minLength": 1
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "parcelType": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderArticleItemParcelTypeModel"
+              }
+            ]
+          },
+          "dimensions": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PostPurchaseOrderArticleItemParcelDimensionsModel"
+              }
+            ]
+          }
+        }
+      },
+      "PostFilePrintAsUser": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "PostFilePrintAsWorkstation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "workstationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderArticleItemPalletItemStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderPalletItemStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetPurchaseOrderCustomerAddress": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobilePhone": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemParcelTypeModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PostPurchaseOrderArticleItemParcelDimensionsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "weight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "length": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "width": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "height": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "loadMeters": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "tareWeight": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

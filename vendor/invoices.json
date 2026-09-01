@@ -1,0 +1,584 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/invoices": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "Get all invoices which match the specified search criteria. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
+        "operationId": "Invoices_Get",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "invoiceIds",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Only return the specific invoice IDs.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "x-position": 2
+          },
+          {
+            "name": "isExported",
+            "in": "query",
+            "description": "Filter for invoices which have (or have not) been marked as exported.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "invoiceExportedDateFrom",
+            "in": "query",
+            "description": "Only return invoices which have been exported after this date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "invoiceExportedDateTo",
+            "in": "query",
+            "description": "Only return invoices which have been exported before this date.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "invoiceDateFrom",
+            "in": "query",
+            "description": "Only return invoices whose invoice date is later than this.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 6
+          },
+          {
+            "name": "invoiceDateTo",
+            "in": "query",
+            "description": ">Only return invoices whose invoice date is earlier than this.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 7
+          },
+          {
+            "name": "invoiceIdFrom",
+            "in": "query",
+            "description": ">Only return invoices whose IDs are larger than this.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 8
+          },
+          {
+            "name": "maxInvoicesToGet",
+            "in": "query",
+            "description": "Maximum number of invoices to return.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 9
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetInvoiceModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/invoices/{invoiceId}": {
+      "get": {
+        "tags": [
+          "Invoices"
+        ],
+        "summary": "Get an invoice. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
+        "operationId": "Invoices_GetById",
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "description": "Invoice ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInvoiceModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetInvoiceModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "goodsOwner": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceGoodsOwner"
+              }
+            ]
+          },
+          "invoiceInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceInfo"
+              }
+            ]
+          },
+          "invoiceCharges": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetInvoiceCharge"
+            }
+          }
+        }
+      },
+      "GetInvoiceCharge": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "chargeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "actionDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "profitCenterCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "container": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceArticle": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceArticle"
+              }
+            ]
+          },
+          "orderContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceOrderContext"
+              }
+            ]
+          },
+          "purchaseOrderContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoicePurchaseOrderContext"
+              }
+            ]
+          },
+          "palletItemContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceParcelContext"
+              }
+            ]
+          },
+          "articleItemContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceArticleItemContext"
+              }
+            ]
+          },
+          "articleContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceArticleContext"
+              }
+            ]
+          },
+          "profitCenterId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "profitCenterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "byUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceUserInfo"
+              }
+            ]
+          },
+          "parcelTypeContext": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceParcelTypeContext"
+              }
+            ]
+          }
+        }
+      },
+      "GetInvoiceGoodsOwner": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "financialCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsLocationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerInvoiceCurrencyCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "invoiceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "invoicePeriodStart": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "invoicePeriodEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "invoiceAmount": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "isExported": {
+            "type": "boolean"
+          },
+          "invoiceYourOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceYourReference": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "account": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetInvoiceOrderContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "consignee": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceOrderConsigneeContext"
+              }
+            ]
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark": {
+            "type": "string",
+            "nullable": true
+          },
+          "wayBill": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporter": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceOrderTransporterContext"
+              }
+            ]
+          },
+          "returnTransporter": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetInvoiceOrderReturnTransporterContext"
+              }
+            ]
+          }
+        }
+      },
+      "GetInvoicePurchaseOrderContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceParcelContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "parcelId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetInvoiceArticleItemContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scannedSerial": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceArticleContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetInvoiceUserInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetInvoiceParcelTypeContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "parcelTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parcelTypeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "parcelTypeCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceOrderConsigneeContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "consigneeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceOrderTransporterContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetInvoiceOrderReturnTransporterContext": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

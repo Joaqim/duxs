@@ -1,0 +1,333 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/goodsOwners": {
+      "get": {
+        "tags": [
+          "GoodsOwners"
+        ],
+        "operationId": "GoodsOwners_GetGoodsOwners",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGoodsOwnersModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/goodsOwners/{id}": {
+      "get": {
+        "tags": [
+          "GoodsOwners"
+        ],
+        "operationId": "GoodsOwners_GetGoodsOwnerById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "\nor\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGoodsOwnerModel"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GetGoodsOwnerModel"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GetGoodsOwnerModel"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetGoodsOwnersModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "goodsOwners": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetGoodsOwnerModel"
+            }
+          }
+        }
+      },
+      "GetGoodsOwnerModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "goodsOwnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "goodsOwnerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "isTrainingGoodsOwner": {
+            "type": "boolean"
+          },
+          "goodsOwnerGroup": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerAddressModel"
+              }
+            ]
+          },
+          "references": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerReferencesModel"
+              }
+            ]
+          },
+          "defaultWarehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerWarehouseModel"
+              }
+            ]
+          },
+          "goodsOwnerClasses": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CodeNamePair"
+            }
+          },
+          "invoicingCurrency": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CodeNamePair"
+              }
+            ]
+          },
+          "logo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerFileModel"
+              }
+            ]
+          }
+        }
+      },
+      "CodeNamePair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetGoodsOwnerAddressModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryStateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryInstruction": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerAddressNotificationModel"
+              }
+            ]
+          },
+          "smsNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerAddressNotificationModel"
+              }
+            ]
+          },
+          "telephoneNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetGoodsOwnerAddressNotificationModel"
+              }
+            ]
+          }
+        }
+      },
+      "GetGoodsOwnerReferencesModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "financialCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsLocationCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerContactReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerReference": {
+            "type": "string",
+            "nullable": true
+          },
+          "goodsOwnerAdviseEmail": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetGoodsOwnerWarehouseModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "warehouseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warehouseName": {
+            "type": "string",
+            "nullable": true
+          },
+          "warehouseCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetGoodsOwnerFileModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileDataBase64": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetGoodsOwnerAddressNotificationModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "toBeNotified": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

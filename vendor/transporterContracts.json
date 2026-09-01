@@ -1,0 +1,90 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/transporterContracts": {
+      "get": {
+        "tags": [
+          "TransporterContracts"
+        ],
+        "summary": "Get all transporter contracts for a specific goods owner. The response will include all transporter codes which are available for the goods owner.",
+        "operationId": "TransporterContracts_Get",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/GetTransporterContract"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetTransporterContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "ediCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporterCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporterServiceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporterServices": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetTransporterService"
+            }
+          }
+        }
+      },
+      "GetTransporterService": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transporterServiceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "transporterServiceCode": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

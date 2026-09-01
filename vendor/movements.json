@@ -1,0 +1,279 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/movements": {
+      "get": {
+        "tags": [
+          "Movements"
+        ],
+        "summary": "Get physical warehouse movements.",
+        "operationId": "Movements_GetMovements",
+        "parameters": [
+          {
+            "name": "goodsOwnerId",
+            "in": "query",
+            "required": true,
+            "description": "Goods owner ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "moveTimeFrom",
+            "in": "query",
+            "required": true,
+            "description": "Move time from.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "moveTimeTo",
+            "in": "query",
+            "description": "Move time to.",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "articleNumbers",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Article numbers.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 4
+          },
+          {
+            "name": "fromWarehouseId",
+            "in": "query",
+            "description": "From warehouse ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 5
+          },
+          {
+            "name": "toWarehouseId",
+            "in": "query",
+            "description": "To Warehouse ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 6
+          },
+          {
+            "name": "onlyMovementsBetweenDifferentWarehouses",
+            "in": "query",
+            "description": "Only return movements between different warehouses.",
+            "schema": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "x-position": 7
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMovementsModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetMovementsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "movements": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/GetMovementModel"
+            }
+          }
+        }
+      },
+      "GetMovementModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementArticle"
+              }
+            ]
+          },
+          "numberOfItems": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "serial": {
+            "type": "string",
+            "nullable": true
+          },
+          "batchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "purchaseOrderInfo": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementPurchaseOrderInfo"
+              }
+            ]
+          },
+          "moveTime": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fromLocation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementLocationInfo"
+              }
+            ]
+          },
+          "toLocation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementLocationInfo"
+              }
+            ]
+          },
+          "fromWarehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementWarehouseInfo"
+              }
+            ]
+          },
+          "toWarehouse": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementWarehouseInfo"
+              }
+            ]
+          },
+          "originalArticleItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "byUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GetMovementUserInfo"
+              }
+            ]
+          }
+        }
+      },
+      "GetMovementArticle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "articleSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetMovementPurchaseOrderInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "purchaseOrderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "purchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetMovementLocationInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "location": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetMovementWarehouseInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetMovementUserInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}

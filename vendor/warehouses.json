@@ -1,0 +1,433 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1/warehouses": {
+      "get": {
+        "tags": [
+          "Warehouses"
+        ],
+        "summary": "Get all warehouses which have been set up in the system.",
+        "operationId": "Warehouses_Get",
+        "responses": {
+          "200": {
+            "description": "A list of warehouses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/WarehouseModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/warehouses/{warehouseId}/zones": {
+      "get": {
+        "tags": [
+          "Warehouses"
+        ],
+        "summary": "Get all zones (including aisles and locations) for a particular warehouse.",
+        "operationId": "Warehouses_GetZonesForWarehouse",
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "required": true,
+            "description": "The warehouse ID",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of zones",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/ZoneModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/warehouses/zones": {
+      "get": {
+        "tags": [
+          "Warehouses"
+        ],
+        "summary": "Get all zones (including aisles and locations) for all warehouses.",
+        "operationId": "Warehouses_GetAllZones",
+        "responses": {
+          "200": {
+            "description": "A list of zones",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/ZoneModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/warehouses/locations/types": {
+      "get": {
+        "tags": [
+          "Warehouses"
+        ],
+        "summary": "Get all location types.",
+        "operationId": "Warehouses_GetLocationTypes",
+        "responses": {
+          "200": {
+            "description": "A list of location types",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "$ref": "#/components/schemas/LocationTypeModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WarehouseModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseAddressModel"
+              }
+            ]
+          }
+        }
+      },
+      "ZoneModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PositionModel"
+              }
+            ]
+          },
+          "aisles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AisleModel"
+            }
+          },
+          "warehouseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "warehouseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "warehouseName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LocationTypeModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WarehouseAddressModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "address3": {
+            "type": "string",
+            "nullable": true
+          },
+          "postCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryStateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "deliveryInstruction": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressFreeText1": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseAddressNotification"
+              }
+            ]
+          },
+          "emailNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseAddressNotification"
+              }
+            ]
+          },
+          "smsNotification": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseAddressNotification"
+              }
+            ]
+          },
+          "addressFreeText2": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AisleModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PositionModel"
+              }
+            ]
+          },
+          "locations": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/LocationModel"
+            }
+          }
+        }
+      },
+      "PositionModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "x": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "y": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "WarehouseAddressNotification": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "toBeNotified": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LocationModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "barcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LocationPositionModel"
+              }
+            ]
+          },
+          "locationTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "pickingPriority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isPickingLocation": {
+            "type": "boolean"
+          },
+          "isLocked": {
+            "type": "boolean"
+          },
+          "isLockedForSale": {
+            "type": "boolean"
+          },
+          "dimensions": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LocationDimensionsModel"
+              }
+            ]
+          }
+        }
+      },
+      "LocationPositionModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "x": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "y": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "z": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "LocationDimensionsModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "length": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "width": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          },
+          "height": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}
