@@ -63,6 +63,8 @@ orders.get(12345).then(({ data, error, response }) => {
 });
 ```
 
-```
+Output:
 
+```
+404: ArticleSystemId 123 not found -
 ```
