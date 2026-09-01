@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/purchaseOrders/statuses": {
       "get": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Get all purchase order statuses.",
         "operationId": "PurchaseOrders_GetPurchaseOrderStatuses",
         "responses": {
@@ -24,9 +22,7 @@
     },
     "/api/v1/purchaseOrders/types": {
       "get": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Get all purchase order types for a particular goods owner.",
         "operationId": "PurchaseOrders_GetPurchaseOrderTypes",
         "parameters": [
@@ -57,9 +53,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}": {
       "get": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Get a purchase order.",
         "operationId": "PurchaseOrders_Get",
         "parameters": [
@@ -99,9 +93,7 @@
         }
       },
       "put": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update a purchase order.",
         "operationId": "PurchaseOrders_Put",
         "parameters": [
@@ -144,9 +136,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Cancel a purchase order.",
         "operationId": "PurchaseOrders_Delete",
         "parameters": [
@@ -178,9 +168,7 @@
     },
     "/api/v1/purchaseOrders": {
       "get": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Get all purchase orders which match the specified search criteria.",
         "operationId": "PurchaseOrders_GetAll",
         "parameters": [
@@ -393,9 +381,7 @@
         }
       },
       "put": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Create or update a purchase order. If no purchase order with the specified purchase order number exists, a new purchase order will be created. Otherwise the existing purchase order will be updated.",
         "operationId": "PurchaseOrders_Put2",
         "requestBody": {
@@ -425,9 +411,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Cancel a purchase order using the purchase order number.",
         "operationId": "PurchaseOrders_DeleteByOrderNumber",
         "parameters": [
@@ -470,9 +454,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeText1": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 1 on a purchase order line.",
         "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeText1",
         "parameters": [
@@ -529,9 +511,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeDecimal1": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free decimal 1 on a purchase order line.",
         "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeDecimal1",
         "parameters": [
@@ -588,9 +568,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/freeText2": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 2 on a purchase order line.",
         "operationId": "PurchaseOrders_PatchPurchaseOrderLineFreeText2",
         "parameters": [
@@ -647,9 +625,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/setReportedNumberOfItemsToReceivedNumberOfItems": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Sets the reported number of items on each purchase order line to the received number of items.",
         "operationId": "PurchaseOrders_PatchSetReportedNumberOfItemsToReceivedNumberOfItems",
         "parameters": [
@@ -681,9 +657,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/lines/{purchaseOrderLineId}/reportedNumberOfItems": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update the reported number of items on a particular purchase order line.",
         "operationId": "PurchaseOrders_PatchReportedNumberOfItems",
         "parameters": [
@@ -739,9 +713,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderIsReturnType": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update IsReturnInOrder on purchase order.",
         "operationId": "PurchaseOrders_PatchPurchaseOrderIsReturnType",
         "parameters": [
@@ -786,9 +758,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeText1": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 1 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeText1",
         "parameters": [
@@ -833,9 +803,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeText2": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 2 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeText2",
         "parameters": [
@@ -880,9 +848,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeText3": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 3 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeText3",
         "parameters": [
@@ -927,9 +893,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeText4": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 4 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeText4",
         "parameters": [
@@ -974,9 +938,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeText5": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update free text 5 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeText5",
         "parameters": [
@@ -1021,9 +983,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeBool1": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update FreeBool1 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeBool1",
         "parameters": [
@@ -1068,9 +1028,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/freeBool2": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update FreeBool2 on purchase order.",
         "operationId": "PurchaseOrders_PatchFreeBool2",
         "parameters": [
@@ -1115,9 +1073,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/inDate": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update the indate on purchase order.",
         "operationId": "PurchaseOrders_PatchInDate",
         "parameters": [
@@ -1162,9 +1118,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/advisedDate": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update the advisedDate on purchase order.",
         "operationId": "PurchaseOrders_PatchAdvisedDate",
         "parameters": [
@@ -1209,9 +1163,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderStatus": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update the status of a purchase order.",
         "operationId": "PurchaseOrders_PatchStatus",
         "parameters": [
@@ -1256,9 +1208,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/purchaseOrderNumber": {
       "patch": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update the purchase order number of a purchase order. Note that the system will not verify that the order number is unique.",
         "operationId": "PurchaseOrders_PatchPurchaseOrderNumber",
         "parameters": [
@@ -1303,9 +1253,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/articleItems": {
       "put": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Add article items to a purchase order.",
         "operationId": "PurchaseOrders_PutArticleItems",
         "parameters": [
@@ -1350,9 +1298,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/files": {
       "get": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Get all files which are attached to a specific purchase order.",
         "operationId": "PurchaseOrders_GetFiles",
         "parameters": [
@@ -1386,9 +1332,7 @@
         }
       },
       "post": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Create a new file and attach it to a purchase order.",
         "operationId": "PurchaseOrders_PostPurchaseOrderFile",
         "parameters": [
@@ -1431,9 +1375,7 @@
         }
       },
       "put": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Create or update a file which is attached to a purchase order. The filename will be used to check if the file already exists.",
         "operationId": "PurchaseOrders_PutFileUsingFilename",
         "parameters": [
@@ -1489,9 +1431,7 @@
     },
     "/api/v1/purchaseOrders/{purchaseOrderId}/files/{fileId}": {
       "put": {
-        "tags": [
-          "PurchaseOrders"
-        ],
+        "tags": ["PurchaseOrders"],
         "summary": "Update a file which is attached to a purchase order.",
         "operationId": "PurchaseOrders_PutFile",
         "parameters": [
@@ -1577,10 +1517,7 @@
       "PostPurchaseOrderModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "purchaseOrderNumber"
-        ],
+        "required": ["goodsOwnerId", "purchaseOrderNumber"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -1787,9 +1724,7 @@
       "PatchPurchaseOrderLineFreeText1": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText1"
-        ],
+        "required": ["freeText1"],
         "properties": {
           "freeText1": {
             "type": "string",
@@ -1811,9 +1746,7 @@
       "PatchPurchaseOrderLineFreeText2": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText2"
-        ],
+        "required": ["freeText2"],
         "properties": {
           "freeText2": {
             "type": "string",
@@ -1824,9 +1757,7 @@
       "PatchPurchaseOrderReportedNumberOfItemsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "reportedNumberOfItems"
-        ],
+        "required": ["reportedNumberOfItems"],
         "properties": {
           "reportedNumberOfItems": {
             "type": "number",
@@ -1837,9 +1768,7 @@
       "PatchPurchaseOrderIsReturnType": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "purchaseOrderIsReturnType"
-        ],
+        "required": ["purchaseOrderIsReturnType"],
         "properties": {
           "purchaseOrderIsReturnType": {
             "type": "boolean"
@@ -1863,9 +1792,7 @@
       "PatchPurchaseOrderFreeText1": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText1"
-        ],
+        "required": ["freeText1"],
         "properties": {
           "freeText1": {
             "type": "string"
@@ -1875,9 +1802,7 @@
       "PatchPurchaseOrderFreeText2": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText2"
-        ],
+        "required": ["freeText2"],
         "properties": {
           "freeText2": {
             "type": "string"
@@ -1887,9 +1812,7 @@
       "PatchPurchaseOrderFreeText3": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText3"
-        ],
+        "required": ["freeText3"],
         "properties": {
           "freeText3": {
             "type": "string"
@@ -1899,9 +1822,7 @@
       "PatchPurchaseOrderFreeText4": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText4"
-        ],
+        "required": ["freeText4"],
         "properties": {
           "freeText4": {
             "type": "string"
@@ -1911,9 +1832,7 @@
       "PatchPurchaseOrderFreeText5": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText5"
-        ],
+        "required": ["freeText5"],
         "properties": {
           "freeText5": {
             "type": "string"
@@ -1923,9 +1842,7 @@
       "PatchPurchaseOrderFreeBool1": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeBool1"
-        ],
+        "required": ["freeBool1"],
         "properties": {
           "freeBool1": {
             "type": "boolean"
@@ -1935,9 +1852,7 @@
       "PatchPurchaseOrderFreeBool2": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeBool2"
-        ],
+        "required": ["freeBool2"],
         "properties": {
           "freeBool2": {
             "type": "boolean"
@@ -1968,9 +1883,7 @@
       "PatchPurchaseOrderStatus": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "purchaseOrderStatusNumber"
-        ],
+        "required": ["purchaseOrderStatusNumber"],
         "properties": {
           "purchaseOrderStatusNumber": {
             "type": "integer",
@@ -1981,9 +1894,7 @@
       "PatchPurchaseOrderNumber": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "purchaseOrderNumber"
-        ],
+        "required": ["purchaseOrderNumber"],
         "properties": {
           "purchaseOrderNumber": {
             "type": "string",
@@ -2024,11 +1935,7 @@
       "PostFileModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "fileName",
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["fileName", "mimeType", "fileDataBase64"],
         "properties": {
           "fileName": {
             "type": "string",
@@ -2060,10 +1967,7 @@
       "PostFileNoFilenameModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["mimeType", "fileDataBase64"],
         "properties": {
           "mimeType": {
             "type": "string",
@@ -2158,10 +2062,7 @@
       "PostPurchaseOrderLine": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "rowNumber",
-          "articleNumber"
-        ],
+        "required": ["rowNumber", "articleNumber"],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -2790,9 +2691,7 @@
       "PostPurchaseOrderArticleItemModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "purchaseOrderLineId"
-        ],
+        "required": ["purchaseOrderLineId"],
         "properties": {
           "purchaseOrderLineId": {
             "type": "integer",
@@ -3677,9 +3576,7 @@
       "PostPurchaseOrderArticleItemParcelModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "parcelNumber"
-        ],
+        "required": ["parcelNumber"],
         "properties": {
           "parcelNumber": {
             "type": "string",

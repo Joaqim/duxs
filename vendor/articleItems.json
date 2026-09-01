@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/articleItems/statuses": {
       "get": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Get all article item statuses.",
         "operationId": "ArticleItems_GetArticleItemStatuses",
         "parameters": [
@@ -34,9 +32,7 @@
         }
       },
       "put": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Create or update an article item status. If there is no article item with the specified code, it will be created. Otherwise, the existing status will be updated.",
         "operationId": "ArticleItems_PutArticleItemStatus",
         "requestBody": {
@@ -68,9 +64,7 @@
     },
     "/api/v1/articleItems": {
       "get": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Get all article items which match the specified search criteria. The search criteria are specified as query parameters.",
         "operationId": "ArticleItems_GetArticleItems",
         "parameters": [
@@ -197,9 +191,7 @@
     },
     "/api/v1/articleItems/byQuery": {
       "post": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Get all article items which match the specified search criteria. The search criteria are specified in the request body.",
         "operationId": "ArticleItems_GetArticleItemsByQuery",
         "requestBody": {
@@ -235,9 +227,7 @@
     },
     "/api/v1/articleItems/{articleItemId}/isLocked": {
       "patch": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Update \"is locked\".",
         "operationId": "ArticleItems_PatchIsLocked",
         "parameters": [
@@ -282,9 +272,7 @@
     },
     "/api/v1/articleItems/{articleItemId}/batch": {
       "patch": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Update batch.",
         "operationId": "ArticleItems_PatchBatch",
         "parameters": [
@@ -329,9 +317,7 @@
     },
     "/api/v1/articleItems/{articleItemId}/articleItemStatus": {
       "patch": {
-        "tags": [
-          "ArticleItems"
-        ],
+        "tags": ["ArticleItems"],
         "summary": "Update article item status.",
         "operationId": "ArticleItems_PatchArticleItemStatus",
         "parameters": [
@@ -380,11 +366,7 @@
       "PostArticleItemStatusModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "code",
-          "name"
-        ],
+        "required": ["goodsOwnerId", "code", "name"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -471,9 +453,7 @@
       "GetArticleItemsByQueryModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId"
-        ],
+        "required": ["goodsOwnerId"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -522,9 +502,7 @@
       "PatchArticleItemIsLockedModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "isLocked"
-        ],
+        "required": ["isLocked"],
         "properties": {
           "isLocked": {
             "type": "boolean"
@@ -548,9 +526,7 @@
       "PatchArticleItemBatchModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "batchNumber"
-        ],
+        "required": ["batchNumber"],
         "properties": {
           "batchNumber": {
             "type": "string",

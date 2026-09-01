@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/orders/{orderId}/parcels/{parcelId}": {
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Deletes a parcel. A parcel can only be deleted if it is empty.",
         "operationId": "Orders_DeleteParcel",
         "parameters": [
@@ -46,9 +44,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update a parcel on an order.",
         "operationId": "Orders_PutParcelUsingId",
         "parameters": [
@@ -104,9 +100,7 @@
     },
     "/api/v1/orders/{orderId}/parcels": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update a parcel on an order.",
         "operationId": "Orders_PutParcel",
         "parameters": [
@@ -151,9 +145,7 @@
     },
     "/api/v1/orders/{orderId}/orderTracking": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update a waybill on an order.",
         "operationId": "Orders_PutOrderTracking",
         "parameters": [
@@ -198,9 +190,7 @@
     },
     "/api/v1/orders/{orderId}/parcels/{parcelId}/parcelTracking": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update tracking on a parcel.",
         "operationId": "Orders_PutParcelTracking",
         "parameters": [
@@ -256,9 +246,7 @@
     },
     "/api/v1/orders/wayOfDeliveryTypes": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all order way of delivery types.",
         "operationId": "Orders_GetWayOfDeliveryTypes",
         "parameters": [
@@ -288,9 +276,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update a way of delivery type. If there is no way of delivery type with the specified code, it will be created. Otherwise, the existing way of delivery type will be updated.",
         "operationId": "Orders_PutWayOfDeliveryType",
         "requestBody": {
@@ -322,9 +308,7 @@
     },
     "/api/v1/orders/pickability": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Gets the pickability statuses of orders. Please note that it is more efficient to make one request with several orders, rather than making one request per order. The possible pickabilites are \"Ok\", \"ByPriority\", \"NotByPriority\", \"NotOk\" and \"NothingToAllocate\"",
         "operationId": "Orders_GetPickability",
         "parameters": [
@@ -419,9 +403,7 @@
     },
     "/api/v1/orders/wayOfDeliveryTypes/{wayOfDeliveryTypeId}": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update a way of delivery type. The ID will be used to identify the way of delivery type.",
         "operationId": "Orders_PutWayOfDeliveryTypeUsingId",
         "parameters": [
@@ -464,9 +446,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Delete a way of delivery type.",
         "operationId": "Orders_DeleteWayOfDeliveryType",
         "parameters": [
@@ -498,9 +478,7 @@
     },
     "/api/v1/orders/classes": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all order classes.",
         "operationId": "Orders_GetOrderClasses",
         "parameters": [
@@ -531,9 +509,7 @@
     },
     "/api/v1/orders/statuses": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all order statuses.",
         "operationId": "Orders_GetOrderStatuses",
         "responses": {
@@ -552,9 +528,7 @@
     },
     "/api/v1/orders/types": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all order types for a particular goods owner.",
         "operationId": "Orders_GetOrderTypes",
         "parameters": [
@@ -585,9 +559,7 @@
     },
     "/api/v1/orders/{orderId}": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get an order.",
         "operationId": "Orders_Get",
         "parameters": [
@@ -617,9 +589,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update an order. Note that you are not allowed to update an order after the warehouse has started working on it.",
         "operationId": "Orders_PutOrderUsingOrderId",
         "parameters": [
@@ -662,9 +632,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Cancel an order. You can only cancel an order if the warehouse has not started working on it.",
         "operationId": "Orders_Delete",
         "parameters": [
@@ -696,9 +664,7 @@
     },
     "/api/v1/orders": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all orders which match the specified search criteria.",
         "operationId": "Orders_GetAll",
         "parameters": [
@@ -1187,9 +1153,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update an order. If there is no order with the specified order number, it will be created. Otherwise, the existing order will be updated. Note that you are not allowed to update an order after the warehouse has started working on it.",
         "operationId": "Orders_PutOrder",
         "requestBody": {
@@ -1229,9 +1193,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Cancel an order using the order number. You can only cancel an order if the warehouse has not started working on it.",
         "operationId": "Orders_DeleteByOrderNumber",
         "parameters": [
@@ -1274,9 +1236,7 @@
     },
     "/api/v1/orders/{orderId}/wayBillRows": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all waybill rows for an order.",
         "operationId": "Orders_GetWayBillRows",
         "parameters": [
@@ -1310,9 +1270,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create a waybill row.",
         "operationId": "Orders_PostWayBillRow",
         "parameters": [
@@ -1357,9 +1315,7 @@
     },
     "/api/v1/orders/{orderId}/wayBillRows/{wayBillRowId}": {
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Deletes a waybill row.",
         "operationId": "Orders_DeleteWaybillRow",
         "parameters": [
@@ -1400,9 +1356,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update waybill row.",
         "operationId": "Orders_PatchWayBillRow",
         "parameters": [
@@ -1458,9 +1412,7 @@
     },
     "/api/v1/orders/{orderId}/invoiceCharges": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all invoice charges for an order. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
         "operationId": "Orders_GetInvoiceCharges",
         "parameters": [
@@ -1496,9 +1448,7 @@
     },
     "/api/v1/orders/{orderId}/files": {
       "get": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Get all files which are attached to a specific order.",
         "operationId": "Orders_GetFiles",
         "parameters": [
@@ -1532,9 +1482,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create a new file and attach it to an order.",
         "operationId": "Orders_Post",
         "parameters": [
@@ -1577,9 +1525,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update a file which is attached to an order. The filename will be used to check if the file already exists.",
         "operationId": "Orders_PutFileUsingFilename",
         "parameters": [
@@ -1635,9 +1581,7 @@
     },
     "/api/v1/orders/{orderId}/files/{fileId}": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update a file which is attached to an order.",
         "operationId": "Orders_PutFile",
         "parameters": [
@@ -1691,9 +1635,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Delete a file which is attached to an order.",
         "operationId": "Orders_DeleteFile",
         "parameters": [
@@ -1736,9 +1678,7 @@
     },
     "/api/v1/orders/{orderId}/orderNumber": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the order number of an existing order. Note that the system will not verify that the order number is unique.",
         "operationId": "Orders_PatchOrderNumber",
         "parameters": [
@@ -1783,9 +1723,7 @@
     },
     "/api/v1/orders/{orderId}/goodsOwnerOrderId": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the Goods Owner Order-ID of an existing order.",
         "operationId": "Orders_PatchGoodsOwnerOrderId",
         "parameters": [
@@ -1830,9 +1768,7 @@
     },
     "/api/v1/orders/{orderId}/classes": {
       "delete": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Delete all order classes from an existing order.",
         "operationId": "Orders_DeleteOrderClasses",
         "parameters": [
@@ -1874,9 +1810,7 @@
     },
     "/api/v1/orders/{orderId}/setOrderClasses": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Set order classes on an existing order. If the order has any other classes which you don't send, they will be deleted from the order.",
         "operationId": "Orders_PatchSetOrderClasses",
         "parameters": [
@@ -1921,9 +1855,7 @@
     },
     "/api/v1/orders/{orderId}/addOrderClasses": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Add order classes to an existing order.",
         "operationId": "Orders_PatchAddOrderClasses",
         "parameters": [
@@ -1968,9 +1900,7 @@
     },
     "/api/v1/orders/{orderId}/transporter": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the transporter of an existing order.",
         "operationId": "Orders_PatchOrderTransporterCode",
         "parameters": [
@@ -2013,9 +1943,7 @@
     },
     "/api/v1/orders/{orderId}/returnWaybill": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the return waybill of an existing order.",
         "operationId": "Orders_PatchReturnWaybill",
         "parameters": [
@@ -2060,9 +1988,7 @@
     },
     "/api/v1/orders/{orderId}/servicePointCode": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the service point code of an existing order.",
         "operationId": "Orders_PatchServicePointCode",
         "parameters": [
@@ -2107,9 +2033,7 @@
     },
     "/api/v1/orders/{orderId}/orderStatus": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the status of an order. Note that if the warehouse has allocated goods to the order, then it's possible that this call will fail.",
         "operationId": "Orders_PatchOrderStatus",
         "parameters": [
@@ -2154,9 +2078,7 @@
     },
     "/api/v1/orders/{orderId}/waybill": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the waybill of an existing order.",
         "operationId": "Orders_PatchWaybill",
         "parameters": [
@@ -2201,9 +2123,7 @@
     },
     "/api/v1/orders/{orderId}/deliveryDate": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the delivery date of an existing order.",
         "operationId": "Orders_PatchDeliveryDate",
         "parameters": [
@@ -2252,9 +2172,7 @@
     },
     "/api/v1/orders/{orderId}/orderRemark": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the remark of an existing order.",
         "operationId": "Orders_PatchOrderRemark",
         "parameters": [
@@ -2299,9 +2217,7 @@
     },
     "/api/v1/orders/{orderId}/warehouseInstruction": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the warehouse instruction of an existing order.",
         "operationId": "Orders_PatchOrderWarehouseInstruction",
         "parameters": [
@@ -2346,9 +2262,7 @@
     },
     "/api/v1/orders/{orderId}/setReportedNumberOfItemsToPickedNumberOfItems": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Sets the reported number of items on each order line to the picked number of items.",
         "operationId": "Orders_PatchSetReportedNumberOfItemsToPickedNumberOfItems",
         "parameters": [
@@ -2380,9 +2294,7 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/reportedNumberOfItems": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the reported number of items on a particular order line.",
         "operationId": "Orders_PatchReportedNumberOfItems",
         "parameters": [
@@ -2438,9 +2350,7 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/customerLinePrice": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the customer line price on a particular order line.",
         "operationId": "Orders_PatchCustomerLinePrice",
         "parameters": [
@@ -2496,9 +2406,7 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/comment": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the comment on a particular order line.",
         "operationId": "Orders_PatchOrderLineComment",
         "parameters": [
@@ -2554,9 +2462,7 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/linePrice": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the line price on a particular order line.",
         "operationId": "Orders_PatchLinePrice",
         "parameters": [
@@ -2612,9 +2518,7 @@
     },
     "/api/v1/orders/{orderId}/setReportedReturnedNumberOfItemsToReturnedNumberOfItems": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Sets the reported returned number of items on each order line to the returned number of items.",
         "operationId": "Orders_PatchSetReportedReturnedNumberOfItemsToReturnedNumberOfItems",
         "parameters": [
@@ -2655,9 +2559,7 @@
     },
     "/api/v1/orders/{orderId}/lines/{orderLineId}/reportedReturnedNumberOfItems": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the reported returned number of items on a particular order line.",
         "operationId": "Orders_PatchReportedReturnedNumberOfItems",
         "parameters": [
@@ -2714,9 +2616,7 @@
     },
     "/api/v1/orders/{orderId}/orderTextLines": {
       "put": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Create or update an order text line on an order. The row number will be used to check if the order text line already exists.",
         "operationId": "Orders_PutOrderTextLineUsingRowNumber",
         "parameters": [
@@ -2761,9 +2661,7 @@
     },
     "/api/v1/orders/{orderId}/freeText1": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the free text 1 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText1",
         "parameters": [
@@ -2808,9 +2706,7 @@
     },
     "/api/v1/orders/{orderId}/freeText2": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the free text 2 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText2",
         "parameters": [
@@ -2855,9 +2751,7 @@
     },
     "/api/v1/orders/{orderId}/freeText3": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the free text 3 of an existing order.",
         "operationId": "Orders_PatchOrderFreeText12",
         "parameters": [
@@ -2902,9 +2796,7 @@
     },
     "/api/v1/orders/{orderId}/freightPrice": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the freight price of existing order.",
         "operationId": "Orders_PatchFreightPrice",
         "parameters": [
@@ -2949,9 +2841,7 @@
     },
     "/api/v1/orders/{orderId}/consigneeAndOrderNotifications": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update the consignee and notifications of an existing order.",
         "operationId": "Orders_PatchConsigneeAndOrderNotifications",
         "parameters": [
@@ -2996,9 +2886,7 @@
     },
     "/api/v1/orders/{orderId}/invoiceUrl": {
       "patch": {
-        "tags": [
-          "Orders"
-        ],
+        "tags": ["Orders"],
         "summary": "Update invoice URL",
         "operationId": "Orders_PatchOrderInvoiceUrl",
         "parameters": [
@@ -3094,10 +2982,7 @@
       "PostParcelTypeModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "parcelNumber",
-          "transportAdministrationType"
-        ],
+        "required": ["parcelNumber", "transportAdministrationType"],
         "properties": {
           "parcelNumber": {
             "type": "string",
@@ -3128,11 +3013,7 @@
       "PostOrderTrackingModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "waybill",
-          "trackingUrl",
-          "isReturnTracking"
-        ],
+        "required": ["waybill", "trackingUrl", "isReturnTracking"],
         "properties": {
           "waybill": {
             "type": "string",
@@ -3163,11 +3044,7 @@
       "PostParcelTrackingModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "waybill",
-          "trackingUrl",
-          "isReturnTracking"
-        ],
+        "required": ["waybill", "trackingUrl", "isReturnTracking"],
         "properties": {
           "waybill": {
             "type": "string",
@@ -3185,11 +3062,7 @@
       "PostWayOfDeliveryTypeModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "code",
-          "name"
-        ],
+        "required": ["goodsOwnerId", "code", "name"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -3692,10 +3565,7 @@
       "PostWayBillRowModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "numberOfPackages",
-          "parcelType"
-        ],
+        "required": ["numberOfPackages", "parcelType"],
         "properties": {
           "numberOfPackages": {
             "type": "integer",
@@ -3884,11 +3754,7 @@
       "PostFileModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "fileName",
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["fileName", "mimeType", "fileDataBase64"],
         "properties": {
           "fileName": {
             "type": "string",
@@ -3920,10 +3786,7 @@
       "PostFileNoFilenameModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "mimeType",
-          "fileDataBase64"
-        ],
+        "required": ["mimeType", "fileDataBase64"],
         "properties": {
           "mimeType": {
             "type": "string",
@@ -3993,9 +3856,7 @@
       "PatchOrderNumberModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "orderNumber"
-        ],
+        "required": ["orderNumber"],
         "properties": {
           "orderNumber": {
             "type": "string",
@@ -4021,9 +3882,7 @@
       "PatchGoodsOwnerOrderIdModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerOrderId"
-        ],
+        "required": ["goodsOwnerOrderId"],
         "properties": {
           "goodsOwnerOrderId": {
             "type": "string"
@@ -4068,9 +3927,7 @@
       "PatchOrderReturnWaybill": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "returnWaybill"
-        ],
+        "required": ["returnWaybill"],
         "properties": {
           "returnWaybill": {
             "type": "string",
@@ -4082,9 +3939,7 @@
       "PatchServicePointCode": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "servicePointCode"
-        ],
+        "required": ["servicePointCode"],
         "properties": {
           "servicePointCode": {
             "type": "string",
@@ -4095,9 +3950,7 @@
       "PatchOrderStatus": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "orderStatusNumber"
-        ],
+        "required": ["orderStatusNumber"],
         "properties": {
           "orderStatusNumber": {
             "type": "integer",
@@ -4108,9 +3961,7 @@
       "PatchOrderWaybill": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "waybill"
-        ],
+        "required": ["waybill"],
         "properties": {
           "waybill": {
             "type": "string",
@@ -4122,9 +3973,7 @@
       "PatchOrderDeliveryDate": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "deliveryDate"
-        ],
+        "required": ["deliveryDate"],
         "properties": {
           "deliveryDate": {
             "type": "string",
@@ -4136,9 +3985,7 @@
       "PatchOrderRemark": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "orderRemark"
-        ],
+        "required": ["orderRemark"],
         "properties": {
           "orderRemark": {
             "type": "string",
@@ -4149,9 +3996,7 @@
       "PatchOrderWarehouseInstruction": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "warehouseInstruction"
-        ],
+        "required": ["warehouseInstruction"],
         "properties": {
           "warehouseInstruction": {
             "type": "string",
@@ -4162,9 +4007,7 @@
       "PatchOrderReportedNumberOfItemsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "reportedNumberOfItems"
-        ],
+        "required": ["reportedNumberOfItems"],
         "properties": {
           "reportedNumberOfItems": {
             "type": "number",
@@ -4186,9 +4029,7 @@
       "PatchOrderLineCommentModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "comment"
-        ],
+        "required": ["comment"],
         "properties": {
           "comment": {
             "type": "string"
@@ -4209,9 +4050,7 @@
       "PatchOrderReportedReturnedNumberOfItemsModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "reportedReturnedNumberOfItems"
-        ],
+        "required": ["reportedReturnedNumberOfItems"],
         "properties": {
           "reportedReturnedNumberOfItems": {
             "type": "number",
@@ -4222,9 +4061,7 @@
       "PutOrderTextLineModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "rowNumber"
-        ],
+        "required": ["rowNumber"],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -4261,9 +4098,7 @@
       "PatchOrderFreeText1Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText1"
-        ],
+        "required": ["freeText1"],
         "properties": {
           "freeText1": {
             "type": "string"
@@ -4273,9 +4108,7 @@
       "PatchOrderFreeText2Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText2"
-        ],
+        "required": ["freeText2"],
         "properties": {
           "freeText2": {
             "type": "string"
@@ -4285,9 +4118,7 @@
       "PatchOrderFreeText3Model": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText3"
-        ],
+        "required": ["freeText3"],
         "properties": {
           "freeText3": {
             "type": "string"
@@ -4330,9 +4161,7 @@
       "PatchOrderInvoiceUrlModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "invoiceUrl"
-        ],
+        "required": ["invoiceUrl"],
         "properties": {
           "invoiceUrl": {
             "type": "string",
@@ -4389,10 +4218,7 @@
       "PostParcelTrackingInParcelModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "waybill",
-          "trackingUrl"
-        ],
+        "required": ["waybill", "trackingUrl"],
         "properties": {
           "waybill": {
             "type": "string",
@@ -4605,10 +4431,7 @@
       "PostOrderLine": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "rowNumber",
-          "articleNumber"
-        ],
+        "required": ["rowNumber", "articleNumber"],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -6524,9 +6347,7 @@
       "PostOrderLineVat": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "code"
-        ],
+        "required": ["code"],
         "properties": {
           "code": {
             "type": "string",
@@ -6575,9 +6396,7 @@
       "PostOrderTextLine": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "rowNumber"
-        ],
+        "required": ["rowNumber"],
         "properties": {
           "rowNumber": {
             "type": "string",
@@ -6596,9 +6415,7 @@
       "PostOrderAdditionalAddress": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "addressCode"
-        ],
+        "required": ["addressCode"],
         "properties": {
           "addressCode": {
             "type": "string",
@@ -7398,9 +7215,7 @@
       "PatchOrderTransporterConsigneePays": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "customerNumber"
-        ],
+        "required": ["customerNumber"],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7411,9 +7226,7 @@
       "PatchOrderTransporterThirdPartyPays": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "customerNumber"
-        ],
+        "required": ["customerNumber"],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7579,9 +7392,7 @@
       "PostOrderTransporterConsigneePays": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "customerNumber"
-        ],
+        "required": ["customerNumber"],
         "properties": {
           "customerNumber": {
             "type": "string",
@@ -7592,9 +7403,7 @@
       "PostOrderTransporterThirdPartyPays": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "customerNumber"
-        ],
+        "required": ["customerNumber"],
         "properties": {
           "customerNumber": {
             "type": "string",

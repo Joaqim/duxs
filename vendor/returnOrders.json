@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/returnOrders/returnCauses": {
       "get": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Get all return causes.",
         "operationId": "ReturnOrders_GetReturnCauses",
         "parameters": [
@@ -34,9 +32,7 @@
         }
       },
       "put": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Create or update a return cause type. If there is no return cause with the specified code, it will be created. Otherwise, the existing return cause will be updated.",
         "operationId": "ReturnOrders_PutReturnCause",
         "requestBody": {
@@ -68,9 +64,7 @@
     },
     "/api/v1/returnOrders/returnCauses/{returnCauseId}": {
       "put": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Update a return cause. The ID will be used to identify the return cause.",
         "operationId": "ReturnOrders_PutReturnCauseUsingId",
         "parameters": [
@@ -114,9 +108,7 @@
     },
     "/api/v1/returnOrders/{returnOrderId}": {
       "get": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Get a return order using the return order ID.",
         "operationId": "ReturnOrders_GetByReturnOrderId",
         "parameters": [
@@ -146,9 +138,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Cancel a return order.",
         "operationId": "ReturnOrders_Delete",
         "parameters": [
@@ -180,9 +170,7 @@
     },
     "/api/v1/returnOrders": {
       "get": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Get a list of return orders which match the specified search criteria.",
         "operationId": "ReturnOrders_Get",
         "parameters": [
@@ -278,9 +266,7 @@
         }
       },
       "put": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Create or update a return order.",
         "operationId": "ReturnOrders_PutReturnOrder",
         "requestBody": {
@@ -310,9 +296,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Cancel a return order using the return order number.",
         "operationId": "ReturnOrders_DeleteByOrderNumber",
         "parameters": [
@@ -355,9 +339,7 @@
     },
     "/api/v1/returnOrders/statuses": {
       "get": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Get all return order statuses.",
         "operationId": "ReturnOrders_GetOrderStatuses",
         "responses": {
@@ -376,9 +358,7 @@
     },
     "/api/v1/returnOrders/{returnOrderId}/returnOrderStatus": {
       "patch": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Update the status of a return order.",
         "operationId": "ReturnOrders_PatchStatus",
         "parameters": [
@@ -423,9 +403,7 @@
     },
     "/api/v1/returnOrders/{returnOrderId}/freeDateTime1": {
       "patch": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Update the free date time 1 on return order.",
         "operationId": "ReturnOrders_PatchFreeDateTime1",
         "parameters": [
@@ -470,9 +448,7 @@
     },
     "/api/v1/returnOrders/{returnOrderId}/returnOrderHandlingComment": {
       "patch": {
-        "tags": [
-          "ReturnOrders"
-        ],
+        "tags": ["ReturnOrders"],
         "summary": "Update the return order handling comment.",
         "operationId": "ReturnOrders_PatchReturnOrderHandlingComment",
         "parameters": [
@@ -521,11 +497,7 @@
       "PostReturnCauseModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "code",
-          "name"
-        ],
+        "required": ["goodsOwnerId", "code", "name"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -706,9 +678,7 @@
       "PatchReturnOrderStatus": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "returnOrderStatusNumber"
-        ],
+        "required": ["returnOrderStatusNumber"],
         "properties": {
           "returnOrderStatusNumber": {
             "type": "integer",
@@ -743,9 +713,7 @@
       "PatchReturnOrderHandlingComment": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "returnOrderHandlingComment"
-        ],
+        "required": ["returnOrderHandlingComment"],
         "properties": {
           "returnOrderHandlingComment": {
             "type": "string",

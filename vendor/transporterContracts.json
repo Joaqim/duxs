@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/transporterContracts": {
       "get": {
-        "tags": [
-          "TransporterContracts"
-        ],
+        "tags": ["TransporterContracts"],
         "summary": "Get all transporter contracts for a specific goods owner. The response will include all transporter codes which are available for the goods owner.",
         "operationId": "TransporterContracts_Get",
         "parameters": [

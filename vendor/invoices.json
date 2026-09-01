@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/invoices": {
       "get": {
-        "tags": [
-          "Invoices"
-        ],
+        "tags": ["Invoices"],
         "summary": "Get all invoices which match the specified search criteria. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
         "operationId": "Invoices_Get",
         "parameters": [
@@ -132,9 +130,7 @@
     },
     "/api/v1/invoices/{invoiceId}": {
       "get": {
-        "tags": [
-          "Invoices"
-        ],
+        "tags": ["Invoices"],
         "summary": "Get an invoice. This function requires an additional permission for the API user, see Administration->Integration->API for goods owners.",
         "operationId": "Invoices_GetById",
         "parameters": [

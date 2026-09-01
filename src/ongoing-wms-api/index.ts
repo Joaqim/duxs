@@ -47,5 +47,3 @@ export type * from "./gen/purchaseOrders.responses";
 export type * from "./gen/returnOrders.responses";
 export type * from "./gen/transporterContracts.responses";
 export type * from "./gen/warehouses.responses";
-
-

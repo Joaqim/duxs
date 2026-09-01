@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/warehouses": {
       "get": {
-        "tags": [
-          "Warehouses"
-        ],
+        "tags": ["Warehouses"],
         "summary": "Get all warehouses which have been set up in the system.",
         "operationId": "Warehouses_Get",
         "responses": {
@@ -28,9 +26,7 @@
     },
     "/api/v1/warehouses/{warehouseId}/zones": {
       "get": {
-        "tags": [
-          "Warehouses"
-        ],
+        "tags": ["Warehouses"],
         "summary": "Get all zones (including aisles and locations) for a particular warehouse.",
         "operationId": "Warehouses_GetZonesForWarehouse",
         "parameters": [
@@ -66,9 +62,7 @@
     },
     "/api/v1/warehouses/zones": {
       "get": {
-        "tags": [
-          "Warehouses"
-        ],
+        "tags": ["Warehouses"],
         "summary": "Get all zones (including aisles and locations) for all warehouses.",
         "operationId": "Warehouses_GetAllZones",
         "responses": {
@@ -91,9 +85,7 @@
     },
     "/api/v1/warehouses/locations/types": {
       "get": {
-        "tags": [
-          "Warehouses"
-        ],
+        "tags": ["Warehouses"],
         "summary": "Get all location types.",
         "operationId": "Warehouses_GetLocationTypes",
         "responses": {

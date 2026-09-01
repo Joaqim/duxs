@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/parcelTypes": {
       "get": {
-        "tags": [
-          "ParcelTypes"
-        ],
+        "tags": ["ParcelTypes"],
         "summary": "Get all parcel types which are valid for a particular goods owner.",
         "operationId": "ParcelTypes_GetParcelTypes",
         "parameters": [

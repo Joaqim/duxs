@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/movements": {
       "get": {
-        "tags": [
-          "Movements"
-        ],
+        "tags": ["Movements"],
         "summary": "Get physical warehouse movements.",
         "operationId": "Movements_GetMovements",
         "parameters": [

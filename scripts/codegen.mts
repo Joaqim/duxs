@@ -72,14 +72,20 @@ const SPECS: Record<string, SpecConfig> = {
   warehouses: {
     specFile: "warehouses.json",
     docsBaseUrl: "https://developer.ongoingwarehouse.com/REST/v1/index.html",
-  }
+  },
 };
 
-const createVendorSpecPath = ({ specFile }: SpecConfig) => `${VENDOR_PATH}/${specFile}`;
-const createDefinitionsPath = (name: string) => `${GENERATED_OUTPUT_PATH}/${name}.d.ts`;
-const createGeneratedTypesPath = (name: string) => `${GENERATED_OUTPUT_PATH}/${name}.types.ts`;
+const createVendorSpecPath = ({ specFile }: SpecConfig) =>
+  `${VENDOR_PATH}/${specFile}`;
+const createDefinitionsPath = (name: string) =>
+  `${GENERATED_OUTPUT_PATH}/${name}.d.ts`;
+const createGeneratedTypesPath = (name: string) =>
+  `${GENERATED_OUTPUT_PATH}/${name}.types.ts`;
 
-async function downloadSpec(name: string, config: Required<SpecConfig>): Promise<void> {
+async function downloadSpec(
+  name: string,
+  config: Required<SpecConfig>,
+): Promise<void> {
   const specPath = createVendorSpecPath(config);
   console.log(`Fetching ${name} spec from ${config.url}`);
   const data = await fetchJson.get(config.url);
@@ -205,7 +211,9 @@ function buildSchemaLinkIndex(
  * Ongoing wraps some request bodies in a nullable single-member oneOf instead
  * of a direct $ref; return the wrapped schema name when that is the shape.
  */
-function singleRefOfOneOf(oneOf: { $ref?: string }[] | undefined): string | undefined {
+function singleRefOfOneOf(
+  oneOf: { $ref?: string }[] | undefined,
+): string | undefined {
   if (!oneOf || oneOf.length !== 1) return undefined;
   return oneOf[0]?.["$ref"]?.match(/#\/components\/schemas\/(.+)$/)?.[1];
 }
@@ -296,9 +304,9 @@ async function generateAllAliasFiles(): Promise<void> {
   if (conflicts.length > 0) {
     console.error(
       "\n🛑 Fatal: identically-named schemas with different shapes across specs.\n" +
-      "Rename one of them upstream before types can be generated:\n\n" +
-      conflicts.join("\n") +
-      "\n",
+        "Rename one of them upstream before types can be generated:\n\n" +
+        conflicts.join("\n") +
+        "\n",
     );
     process.exit(1);
   }
@@ -449,10 +457,10 @@ async function generateAllAliasFiles(): Promise<void> {
             : undefined;
         const itemRefName =
           jsonSchema?.["type"] === "array" &&
-            typeof jsonSchema["items"]?.["$ref"] === "string"
+          typeof jsonSchema["items"]?.["$ref"] === "string"
             ? jsonSchema["items"]["$ref"].match(
-              /#\/components\/schemas\/(.+)$/,
-            )?.[1]
+                /#\/components\/schemas\/(.+)$/,
+              )?.[1]
             : undefined;
         const known = (n: string | undefined) =>
           n && (localSchemas.has(n) || sharedHere.has(n)) ? n : undefined;
@@ -528,7 +536,9 @@ async function generateAllAliasFiles(): Promise<void> {
   // 5. Base wrapper classes: one method per operation
   for (const specName of specNames) {
     const spec = rawSpecs.get(specName)!;
-    const localSchemas = new Set(Object.keys(schemasBySpec.get(specName) ?? {}));
+    const localSchemas = new Set(
+      Object.keys(schemasBySpec.get(specName) ?? {}),
+    );
     const sharedHere = new Set(
       [...sharedNames].filter((name) =>
         occurrences.get(name)!.some((o) => o.specName === specName),
@@ -561,12 +571,11 @@ async function generateAllAliasFiles(): Promise<void> {
         const aliasName = toResponseAliasName(methodName);
 
         const pathParams = [...path.matchAll(/\{([^}]+)\}/g)].map((m) => m[1]);
-        const hasQuery = (op.parameters ?? []).some(
-          (p) => p?.in === "query",
-        );
+        const hasQuery = (op.parameters ?? []).some((p) => p?.in === "query");
         const bodyRef =
-          op.requestBody?.content?.["application/json"]?.schema?.["$ref"]
-            ?.match(/#\/components\/schemas\/(.+)$/)?.[1] ??
+          op.requestBody?.content?.["application/json"]?.schema?.[
+            "$ref"
+          ]?.match(/#\/components\/schemas\/(.+)$/)?.[1] ??
           singleRefOfOneOf(
             op.requestBody?.content?.["application/json"]?.schema?.["oneOf"],
           );
@@ -583,7 +592,8 @@ async function generateAllAliasFiles(): Promise<void> {
 
         const args = [
           ...pathParams.map(
-            (p) => `${p}: ${p.endsWith("Id") || p === "id" ? "number" : "string"}`,
+            (p) =>
+              `${p}: ${p.endsWith("Id") || p === "id" ? "number" : "string"}`,
           ),
           ...(hasQuery
             ? [`query: operations["${op.operationId}"]["parameters"]["query"]`]
@@ -598,8 +608,7 @@ async function generateAllAliasFiles(): Promise<void> {
           ...(hasQuery ? ["query"] : []),
         ].join(", ");
         const fetchOptions = [
-          ...(paramsObject.length > 0 ? [`params: { ${paramsObject} }`]
-            : []),
+          ...(paramsObject.length > 0 ? [`params: { ${paramsObject} }`] : []),
           ...(bodyRef !== undefined ? ["body"] : []),
         ].join(", ");
 
@@ -638,13 +647,13 @@ async function generateAllAliasFiles(): Promise<void> {
       `export type * from "./${specName}.responses.js";`,
       ...(localImports.size > 0
         ? [
-          `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,
-        ]
+            `import type { ${[...localImports].sort().join(", ")} } from "./${specName}.types.js";`,
+          ]
         : []),
       ...(sharedImports.size > 0
         ? [
-          `import type { ${[...sharedImports].sort().join(", ")} } from "./shared.types.js";`,
-        ]
+            `import type { ${[...sharedImports].sort().join(", ")} } from "./shared.types.js";`,
+          ]
         : []),
     ];
 

@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/productionOrders/{productionOrderId}": {
       "get": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Get a production order using the production order ID.",
         "operationId": "ProductionOrders_GetByProductionOrderId",
         "parameters": [
@@ -37,9 +35,7 @@
     },
     "/api/v1/productionOrders": {
       "get": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Get a list of production orders which match the specified search criteria.",
         "operationId": "ProductionOrders_GetByFilter",
         "parameters": [
@@ -161,9 +157,7 @@
         }
       },
       "put": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Create or update a production order.",
         "operationId": "ProductionOrders_PutProductionOrder",
         "requestBody": {
@@ -195,9 +189,7 @@
     },
     "/api/v1/productionOrders/{productionOrderId}/freeBoolean1": {
       "patch": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Update the free boolean 1 on an existing production order.",
         "operationId": "ProductionOrders_PatchFreeBoolean1",
         "parameters": [
@@ -242,9 +234,7 @@
     },
     "/api/v1/productionOrders/{productionOrderId}/freeBoolean2": {
       "patch": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Update the free boolean 2 on an existing production order.",
         "operationId": "ProductionOrders_PatchFreeBoolean2",
         "parameters": [
@@ -289,9 +279,7 @@
     },
     "/api/v1/productionOrders/{productionOrderId}/freeText1": {
       "patch": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Update the free text 1 on an existing production order.",
         "operationId": "ProductionOrders_PatchFreeText1",
         "parameters": [
@@ -336,9 +324,7 @@
     },
     "/api/v1/productionOrders/{productionOrderId}/setReportedNumberOfItemsToProducedNumberOfItems": {
       "patch": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Sets the reported number of items on each production order line to the produced number of items.",
         "operationId": "ProductionOrders_PatchSetReportedNumberOfItemsToProducedNumberOfItems",
         "parameters": [
@@ -371,9 +357,7 @@
     },
     "/api/v1/productionOrders/{productionOrderId}/lines/{productionOrderLineId}/reportedNumberOfItems": {
       "patch": {
-        "tags": [
-          "ProductionOrders"
-        ],
+        "tags": ["ProductionOrders"],
         "summary": "Update the reported number of items on a particular production order line.",
         "operationId": "ProductionOrders_PatchReportedNumberOfItems",
         "parameters": [
@@ -462,10 +446,7 @@
       "PostProductionOrderModel": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "goodsOwnerId",
-          "productionOrderNumber"
-        ],
+        "required": ["goodsOwnerId", "productionOrderNumber"],
         "properties": {
           "goodsOwnerId": {
             "type": "integer",
@@ -539,9 +520,7 @@
       "PatchProductionOrderFreeBoolean1": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeBoolean1"
-        ],
+        "required": ["freeBoolean1"],
         "properties": {
           "freeBoolean1": {
             "type": "boolean"
@@ -565,9 +544,7 @@
       "PatchProductionOrderFreeBoolean2": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeBoolean2"
-        ],
+        "required": ["freeBoolean2"],
         "properties": {
           "freeBoolean2": {
             "type": "boolean"
@@ -577,9 +554,7 @@
       "PatchProductionOrderFreeText1": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "freeText1"
-        ],
+        "required": ["freeText1"],
         "properties": {
           "freeText1": {
             "type": "string"
@@ -589,9 +564,7 @@
       "PatchProductionOrderReportedNumberOfItems": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "reportedNumberOfItems"
-        ],
+        "required": ["reportedNumberOfItems"],
         "properties": {
           "reportedNumberOfItems": {
             "type": "number",

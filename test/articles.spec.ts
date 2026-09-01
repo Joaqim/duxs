@@ -1,21 +1,15 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 import createClient from "openapi-fetch";
-import {
-  afterAll,
-  afterEach,
-  beforeAll,
-  expect,
-  it,
-  suite,
-} from "vitest";
+import { afterAll, afterEach, beforeAll, expect, it, suite } from "vitest";
 
 import { ArticlesApiV1, OngoingWMSClient } from "../dist/esm/index.node.js";
 import type { paths } from "../src/ongoing-wms-api/gen/articles.d.ts";
 import type { GetArticleModel } from "../src/ongoing-wms-api/gen/articles.types";
 import { typedHttp } from "./utils.ts";
 
-const article123321 = import('./__mocks__/article.123321.json') as GetArticleModel;
+const article123321 =
+  import("./__mocks__/article.123321.json") as GetArticleModel;
 
 const server = setupServer();
 
@@ -23,15 +17,15 @@ const BASE_URL = "https://example.com";
 const MOCK_TOKEN = "test_token_base64=";
 
 class MockDataWrapper {
-  public constructor(readonly token: string) { }
-};
+  public constructor(readonly token: string) {}
+}
 class ArticlesMockData extends MockDataWrapper {
   mockArticle: GetArticleModel;
   public constructor(article123321: GetArticleModel) {
     super(MOCK_TOKEN);
     this.mockArticle = {
       ...article123321,
-      articleSystemId: 54321
+      articleSystemId: 54321,
     };
   }
 }
@@ -81,19 +75,25 @@ suite("Articles API V1", async () => {
   // Create and use 'openapi-fetch' client with our ArticleApiV1 class
   const client = createClient<paths>({
     baseUrl: BASE_URL,
-    fetch
+    fetch,
   });
   const articles = new ArticlesApiV1(client);
 
-  // Or: 
+  // Or:
   // Create the OngoingWMSClient and use sub-client articlesApiV1 which is
   // scoped to articles endpoint
-  const { articlesApiV1: articlesClientWithToken } = new OngoingWMSClient({ BASE_URL, TOKEN: MOCK_TOKEN }, fetch);
+  const { articlesApiV1: articlesClientWithToken } = new OngoingWMSClient(
+    { BASE_URL, TOKEN: MOCK_TOKEN },
+    fetch,
+  );
 
   // Or: We could also do like so:
-  const ongoingWMSClientWithInvalidToken = new OngoingWMSClient({ BASE_URL, TOKEN: "<Invalid token>" }, fetch);
-  const articlesWithInvalidToken = ongoingWMSClientWithInvalidToken.articlesApiV1;
-
+  const ongoingWMSClientWithInvalidToken = new OngoingWMSClient(
+    { BASE_URL, TOKEN: "<Invalid token>" },
+    fetch,
+  );
+  const articlesWithInvalidToken =
+    ongoingWMSClientWithInvalidToken.articlesApiV1;
 
   it("Can fetch Article by system id", async () => {
     const { data, error } = await articles.getArticleBySystemId(12345);
@@ -113,10 +113,10 @@ suite("Articles API V1", async () => {
         ({ articleSystemId }) => {
           return HttpResponse.json(
             {
-              message: `ArticleSystemId ${articleSystemId} not found.`
+              message: `ArticleSystemId ${articleSystemId} not found.`,
             },
-            { status: 404 }
-          )
+            { status: 404 },
+          );
         },
       ),
     );
@@ -133,39 +133,49 @@ suite("Articles API V1", async () => {
 
   it("Requests have token in header", async () => {
     server.use(
-      http.get(
-        `${BASE_URL}/api/v1/articles`,
-        ({ request }) => {
-          const token = request.headers.get('Authorization')?.split(' ')[1];
-          if (!token) {
-            return HttpResponse.json({
-              message: "Failed to authenticate."
-            }, { status: 401, headers: { "WWW-Authenticate": "Bearer" } });
-          }
-          if (token !== mockData.token) {
-            return HttpResponse.json({
-              // NOTE: paraphrased
-              message: "Wrong password/username."
-            }, { status: 401 });
-          }
+      http.get(`${BASE_URL}/api/v1/articles`, ({ request }) => {
+        const token = request.headers.get("Authorization")?.split(" ")[1];
+        if (!token) {
           return HttpResponse.json(
-            [mockArticle],
-          )
-        },
-      ),
+            {
+              message: "Failed to authenticate.",
+            },
+            { status: 401, headers: { "WWW-Authenticate": "Bearer" } },
+          );
+        }
+        if (token !== mockData.token) {
+          return HttpResponse.json(
+            {
+              // NOTE: paraphrased
+              message: "Wrong password/username.",
+            },
+            { status: 401 },
+          );
+        }
+        return HttpResponse.json([mockArticle]);
+      }),
     );
 
-    let { data, error, response } = await articles.getArticles({ goodsOwnerId: 0 });
+    let { data, error, response } = await articles.getArticles({
+      goodsOwnerId: 0,
+    });
     expect(data).toBeUndefined();
     expect(error).toEqual({ message: "Failed to authenticate." });
-    expect(toObject(response.headers)).toHaveProperty("www-authenticate", "Bearer");
+    expect(toObject(response.headers)).toHaveProperty(
+      "www-authenticate",
+      "Bearer",
+    );
 
-    ({ data, error } = await articlesClientWithToken.getArticles({ goodsOwnerId: 0 }));
+    ({ data, error } = await articlesClientWithToken.getArticles({
+      goodsOwnerId: 0,
+    }));
 
     expect(error).toBeUndefined();
     expect(data).toEqual([mockArticle]);
 
-    ({ data, error } = await articlesWithInvalidToken.getArticles({ goodsOwnerId: 0 }));
+    ({ data, error } = await articlesWithInvalidToken.getArticles({
+      goodsOwnerId: 0,
+    }));
 
     expect(data).toBeUndefined();
     expect(error).toEqual({ message: "Wrong password/username." });

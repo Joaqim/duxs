@@ -3,9 +3,7 @@
   "paths": {
     "/api/v1/inventoryAdjustments/{inventoryId}": {
       "get": {
-        "tags": [
-          "InventoryAdjustments"
-        ],
+        "tags": ["InventoryAdjustments"],
         "summary": "Get a specific inventory adjustment.",
         "operationId": "InventoryAdjustments_Get",
         "parameters": [
@@ -37,9 +35,7 @@
     },
     "/api/v1/inventoryAdjustments": {
       "get": {
-        "tags": [
-          "InventoryAdjustments"
-        ],
+        "tags": ["InventoryAdjustments"],
         "summary": "Get all inventory adjustments which match the specified search criteria.",
         "operationId": "InventoryAdjustments_GetAll",
         "parameters": [
@@ -118,9 +114,7 @@
     },
     "/api/v1/inventoryAdjustments/{inventoryId}/articles/{articleSystemId}/setReported": {
       "patch": {
-        "tags": [
-          "InventoryAdjustments"
-        ],
+        "tags": ["InventoryAdjustments"],
         "summary": "Sets the 'reported' flag on an inventory to true for the specified article.",
         "operationId": "InventoryAdjustments_PatchInventoryAdjustmentArticlesReported",
         "parameters": [
