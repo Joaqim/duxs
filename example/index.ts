@@ -12,11 +12,15 @@ if (!ONGOING_WMS_BASE_URL || !ONGOING_WMS_TOKEN) {
   process.exit(1);
 }
 
-const { articlesApiV1: articles, ordersApiV1: orders } = new OngoingWMSClient({
+const {
+  articlesApiV1: articles,
+  ordersApiV1: orders,
+  goodsOwnersApiV1: goodsOwners,
+} = new OngoingWMSClient({
   BASE_URL: ONGOING_WMS_BASE_URL,
   TOKEN: ONGOING_WMS_TOKEN,
 });
-articles.getArticleBySystemId(123456).then(({ data, error }) => {
+articles.getArticleBySystemId(123).then(({ data, error }) => {
   if (error) {
     console.error(`Failed to fetch article`);
     console.error(error);
@@ -25,7 +29,7 @@ articles.getArticleBySystemId(123456).then(({ data, error }) => {
   console.log(`Fetched article with id: ${data.articleSystemId}`);
 });
 
-orders.getOrderById(12345).then(({ data, error }) => {
+orders.getOrderById(123456).then(({ data, error }) => {
   if (error) {
     console.error(`Failed to fetch order.`);
     console.error(error);
@@ -36,4 +40,22 @@ orders.getOrderById(12345).then(({ data, error }) => {
     return;
   }
   console.log(`Fetched order with id: ${data.orderInfo.orderId}`);
+});
+
+goodsOwners.getGoodsOwners().then(({ data, error }) => {
+  if (error) {
+    console.error(`Failed to fetch goods owners`);
+    return;
+  }
+  console.log("GoodsOwners: ");
+  console.log(
+    JSON.stringify(
+      data?.goodsOwners?.map(
+        ({ goodsOwnerId, goodsOwnerName }) =>
+          `${goodsOwnerId} : ${goodsOwnerName}`,
+      ),
+      null,
+      2,
+    ),
+  );
 });
