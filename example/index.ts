@@ -20,10 +20,11 @@ const {
   BASE_URL: ONGOING_WMS_BASE_URL,
   TOKEN: ONGOING_WMS_TOKEN,
 });
-articles.getArticleBySystemId(123).then(({ data, error }) => {
-  if (error) {
+articles.getArticleBySystemId(123).then(async ({ data, error, response }) => {
+  if (!data) {
+    const { status, statusText } = response;
     console.error(`Failed to fetch article`);
-    console.error(error);
+    console.error(`${status}: ${error.message} - ${statusText}`);
     return;
   }
   console.log(`Fetched article with id: ${data.articleSystemId}`);
