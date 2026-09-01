@@ -12,7 +12,9 @@
   "license": "MIT",
   "devDependencies": {
     "dotenv": "^17.4.2",
-    "duxs": "file:..",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@primepack/duxs": "file:.."
   }
 }

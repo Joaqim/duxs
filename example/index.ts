@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { OngoingWMSClient } from "duxs";
+import { OngoingWMSClient } from "@primepack/duxs";
 
 dotenv.config({ quiet: true });
 

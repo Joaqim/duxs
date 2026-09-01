@@ -20,7 +20,7 @@ npm i https://github.com/Joaqim/duxs.git
 ## Example usage
 
 ```typescript
-import { OngoingWMSClient } from "duxs";
+import { OngoingWMSClient } from "@primepack/duxs";
 
 const client = new OngoingWMSClient({
   BASE_URL: "https://example.com",
