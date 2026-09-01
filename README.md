@@ -1,6 +1,6 @@
 # Duxs
 
-A simple CommonJS and ESM module using
+A CommonJS and ESM module using
 [openapi-typescript](https://openapi-ts.dev/) and
 [openapi-fetch](https://openapi-ts.dev/openapi-fetch/) with [Ongoing
 WMS](https://ongoingsystems.se) [Rest API Swagger/OpenAPI
@@ -8,10 +8,8 @@ Specification](https://developer.ongoingwarehouse.com/REST/v1/index.html#/)
 to create a REST API client.
 
 > ⚠️ Work-in-Progess ⚠️
->
-> Error handling is minimal, even a simple failed authentication returns ambiguous: `{ message: 'Unknown Error' }`
 
-[Documentation](https://duxs.joaqim.com)
+[Documentation](https://joaqim.github.io/duxs/)
 
 ## Installation
 
@@ -43,4 +41,28 @@ articles
     }
     console.log(JSON.stringify(data, null, 2));
   });
+```
+
+### Error handling
+
+Error handling is currently minimal; even a simple failed authentication
+returns ambiguous: `{ message: 'Unknown Error' }`
+
+For better insights into a failed response, inspect `response.status`` and
+ `response.statusText`:
+
+```typescript
+orders.get(12345).then(({ data, error, response }) => {
+  if (!data) {
+    const { status, statusText } = response;
+    console.error(`Failed to fetch article`);
+    console.error(`${status}: ${error.message} - ${statusText}`);
+    return;
+  }
+  return data;
+});
+```
+
+```
+
 ```
