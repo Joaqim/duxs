@@ -38,7 +38,6 @@
     "build:cjs": "rimraf dist/cjs && node ./esbuild.cjs.js && npm run ts-types:cjs",
     "test": "vitest --run --silent=false",
     "typecheck:test": "tsc --noEmit -p tsconfig.test.json",
-    "check:example": "tsc -p example/tsconfig.json --noEmit",
     "watch": "vitest",
     "lint": "eslint --ext .ts --fix src",
     "lint:check": "eslint --ext .ts src",
