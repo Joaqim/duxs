@@ -583,7 +583,7 @@ async function generateAllAliasFiles(): Promise<void> {
 
         const args = [
           ...pathParams.map(
-            (p) => `${p}: ${p.endsWith("Id") ? "number" : "string"}`,
+            (p) => `${p}: ${p.endsWith("Id") || p === "id" ? "number" : "string"}`,
           ),
           ...(hasQuery
             ? [`query: operations["${op.operationId}"]["parameters"]["query"]`]
