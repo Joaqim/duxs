@@ -48,7 +48,7 @@ articles
 ```
 
 For more in-depth and functional example, see:
-[example/index.ts](https://github.com/Joaqim/duxs/raw/refs/heads/main/example/index.ts).
+[./example/index.ts](https://github.com/Joaqim/duxs/blob/main/example/index.ts).
 
 ### Error handling
 
